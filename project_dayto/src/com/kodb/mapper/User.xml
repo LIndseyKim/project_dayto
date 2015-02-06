@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+
+	<resultMap type="User" id="UserResultMap">
+		<id  property="userId"  column="user_id"/>
+		<result property="password" column="user_pass" />
+		<result property="name" column="user_name" />
+		<result property="email" column="user_email" />
+	</resultMap>
+
+	<resultMap type="User" id="UserResultMap2">
+		<id  property="userId"  column="userId"/>
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+	</resultMap>
+	
+
+	<select id="selectUser" parameterType="String" resultType="User">
+		select userId, password, name, email 
+		from userinfo 
+		where userId = #{value}	
+	</select>
+
+	<select id="login" parameterType="map" resultMap="UserResultMap">
+		select 
+			userId 		user_id , 
+			password 	user_pass, 
+			name 			user_name, 
+			email 			user_email 
+		from userinfo 
+		where userId = #{userId} and password = #{password}
+	</select>
+
+	<select id="selectAllUser" resultType="User">
+		select userId, password, name, email 
+		from userinfo 
+		order by userId
+	</select>
+
+	<insert id="insertUser" parameterType="User">
+		insert into userinfo 
+		values(#{userId},#{password},#{name},#{email})
+	</insert>	
+	
+	<delete id="deleteUser" parameterType="String">
+		delete from userinfo where userId = #{value}
+	</delete>
+	
+	<!--  동적쿼리 이용하여  -->
+	<update id="updateUser" parameterType="User">
+		update userinfo 
+		<set>
+			<if test="password != null">password = #{password},</if>
+			<if test="name != null">name = #{name},</if>
+			<if test="email != null">email = #{email}</if>
+		</set>
+		where userId = #{userId}
+	</update>
+	
+
+	<sql id="basicUserinfoSql">
+		select  * 
+		from userinfo 
+	</sql>
+		
+	<select id="selectUsersByName" parameterType="String" 
+		resultMap="UserResultMap2">
+		<include refid="basicUserinfoSql"/>
+		where name like '%'||#{value}||'%'
+	</select>
+	
+	<select id="selectUserByEmail" parameterType="String" 
+		resultType="User">
+		<include refid="basicUserinfoSql"/>
+		where email  = #{value}
+	</select>
+		
+	<!--  동적쿼리 -->	
+	<!--  case1 조건 없음 -->
+	<!--  case2 userId조건 -->
+	<!-- 		where userId = #{} -->
+	<!--  case3 email조건 -->
+	<!-- 		where email = #{} --> 
+	<!--  case4 userId조건, email조건 -->
+	<!-- 		where userId = #{} or email = #{} --> 
+		
+	<select id="selectUsersByIdOrEmail" parameterType="map" 
+		resultType="User">
+		<include refid="basicUserinfoSql"/>
+		<where>
+			<if test="userId != null">
+				userId = #{userId}
+			</if>
+			<if test="email != null">
+				or email = #{email}
+			</if>		
+		</where>
+	</select>
+	
+	<select id="selectUsersByIds" parameterType="map" 
+			resultType="User">
+			<include refid="basicUserinfoSql"/>
+			<if test="list != null &amp;&amp; list.size() > 0">
+					where	userId in
+					  <foreach item="item"  collection="list"
+					      open="(" separator="," close=")">
+					        #{item}
+					  </foreach>
+			</if>
+	</select>
+	
+	<resultMap  id="UserContactResultMap" type="User"  
+		extends="UserResultMap2">
+		<collection property="contactList" 
+			resultMap="contact.ContactResultMap"/>
+	</resultMap>
+	
+	<select id="selectUserWithContactListById" 
+		parameterType="String" resultMap="UserContactResultMap">
+		SELECT  u.USERID, u.password, U.NAME, u.EMAIL,
+		  	c.CONTACT_NO,c.CONTACT_NAME,c.CONTACT_PHONE,
+	        TO_CHAR(c.CONTACT_BIRTHDATE,'yyyy/mm/dd') contact_birthdate
+		FROM	USERINFO U, contacts c
+		WHERE	u.USERID = c.CONTACT_USERID(+)
+		AND		u.USERID = #{value}
+	</select>
+	
+	
+	
+	
+</mapper>    
+
+
+
+
+
+
+
+
+
+
