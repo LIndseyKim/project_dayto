@@ -6,133 +6,112 @@
 <mapper namespace="user">
 
 	<resultMap type="User" id="UserResultMap">
-		<id  property="userId"  column="user_id"/>
-		<result property="password" column="user_pass" />
-		<result property="name" column="user_name" />
-		<result property="email" column="user_email" />
+		<id  property="user_email"  column="user_email"/>
+		<result property="user_pwd" column="user_pwd" />
+		<result property="user_name" column="user_name" />
+		<result property="user_type" column="user_type" />
+		<result property="user_profile" column="user_profile" />
+		<result property="user_pic" column="user_pic" />
 	</resultMap>
 
 	<resultMap type="User" id="UserResultMap2">
-		<id  property="userId"  column="userId"/>
-		<result property="password" column="password" />
-		<result property="name" column="name" />
-		<result property="email" column="email" />
+		<id  property="user_email"  column="user_email"/>
+		<result property="user_pwd" column="user_pwd" />
+		<result property="user_name" column="user_name" />
+		<result property="user_type" column="user_type" />
+		<result property="user_profile" column="user_profile" />
+		<result property="user_pic" column="user_pic" />
 	</resultMap>
 	
 
 	<select id="selectUser" parameterType="String" resultType="User">
-		select userId, password, name, email 
-		from userinfo 
-		where userId = #{value}	
+		select user_email, user_pwd, user_name, user_type, user_profile, user_pic
+		from member 
+		where user_email = #{value}	
 	</select>
 
 	<select id="login" parameterType="map" resultMap="UserResultMap">
 		select 
-			userId 		user_id , 
-			password 	user_pass, 
-			name 			user_name, 
-			email 			user_email 
-		from userinfo 
-		where userId = #{userId} and password = #{password}
+			user_email 		user_email, 
+			user_pwd 		user_pwd, 
+			user_name 		user_name,
+			user_type 		user_type,
+			user_profile 	user_profile,
+			user_pic		user_pic
+		from member 
+		where user_email = #{user_email} and user_pwd = #{user_pwd}
 	</select>
 
 	<select id="selectAllUser" resultType="User">
-		select userId, password, name, email 
-		from userinfo 
-		order by userId
+		select user_email, user_pwd, user_name, user_type, user_profile, user_pic
+		from member 
+		order by user_email
 	</select>
 
 	<insert id="insertUser" parameterType="User">
-		insert into userinfo 
-		values(#{userId},#{password},#{name},#{email})
+		insert into member 
+		values(#{user_email},#{user_pwd},#{user_name},#{user_type},#{user_profile},#{user_pic})
 	</insert>	
 	
 	<delete id="deleteUser" parameterType="String">
-		delete from userinfo where userId = #{value}
+		delete from member where user_email = #{value}
 	</delete>
 	
 	<!--  동적쿼리 이용하여  -->
 	<update id="updateUser" parameterType="User">
-		update userinfo 
+		update member 
 		<set>
-			<if test="password != null">password = #{password},</if>
-			<if test="name != null">name = #{name},</if>
-			<if test="email != null">email = #{email}</if>
+			<if test="user_pwd != null">user_pwd = #{user_pwd},</if>
+			<if test="user_name != null">user_name = #{user_name}</if>
+			<if test="user_type != null">user_type = #{user_type}</if>
+			<if test="user_profile != null">user_profile = #{user_profile}</if>
+			<if test="user_pic != null">user_pic = #{user_pic}</if>
 		</set>
-		where userId = #{userId}
+		where user_email = #{user_email}
 	</update>
 	
 
 	<sql id="basicUserinfoSql">
 		select  * 
-		from userinfo 
+		from member 
 	</sql>
 		
 	<select id="selectUsersByName" parameterType="String" 
 		resultMap="UserResultMap2">
 		<include refid="basicUserinfoSql"/>
-		where name like '%'||#{value}||'%'
-	</select>
-	
-	<select id="selectUserByEmail" parameterType="String" 
-		resultType="User">
-		<include refid="basicUserinfoSql"/>
-		where email  = #{value}
+		where user_name like '%'||#{value}||'%'
 	</select>
 		
 	<!--  동적쿼리 -->	
 	<!--  case1 조건 없음 -->
-	<!--  case2 userId조건 -->
-	<!-- 		where userId = #{} -->
+	<!--  case2 user_email조건 -->
+	<!-- 		where user_email = #{} -->
 	<!--  case3 email조건 -->
 	<!-- 		where email = #{} --> 
-	<!--  case4 userId조건, email조건 -->
-	<!-- 		where userId = #{} or email = #{} --> 
+	<!--  case4 user_email조건, email조건 -->
+	<!-- 		where user_email = #{} or email = #{} --> 
 		
-	<select id="selectUsersByIdOrEmail" parameterType="map" 
+	<select id="selectUsersByEmail" parameterType="map" 
 		resultType="User">
 		<include refid="basicUserinfoSql"/>
 		<where>
-			<if test="userId != null">
-				userId = #{userId}
-			</if>
-			<if test="email != null">
-				or email = #{email}
-			</if>		
+			<if test="user_email != null">
+				user_email = #{user_email}
+			</if>	
 		</where>
 	</select>
 	
-	<select id="selectUsersByIds" parameterType="map" 
+	<select id="selectUsersByEmails" parameterType="map" 
 			resultType="User">
 			<include refid="basicUserinfoSql"/>
 			<if test="list != null &amp;&amp; list.size() > 0">
-					where	userId in
+					where	user_email in
 					  <foreach item="item"  collection="list"
 					      open="(" separator="," close=")">
 					        #{item}
 					  </foreach>
 			</if>
 	</select>
-	
-	<resultMap  id="UserContactResultMap" type="User"  
-		extends="UserResultMap2">
-		<collection property="contactList" 
-			resultMap="contact.ContactResultMap"/>
-	</resultMap>
-	
-	<select id="selectUserWithContactListById" 
-		parameterType="String" resultMap="UserContactResultMap">
-		SELECT  u.USERID, u.password, U.NAME, u.EMAIL,
-		  	c.CONTACT_NO,c.CONTACT_NAME,c.CONTACT_PHONE,
-	        TO_CHAR(c.CONTACT_BIRTHDATE,'yyyy/mm/dd') contact_birthdate
-		FROM	USERINFO U, contacts c
-		WHERE	u.USERID = c.CONTACT_USERID(+)
-		AND		u.USERID = #{value}
-	</select>
-	
-	
-	
-	
 </mapper>    
 
 

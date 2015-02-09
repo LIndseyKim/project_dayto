@@ -8,13 +8,11 @@
 	<typeAliases>
 		<!-- 별칭 등록 -->
 		<typeAlias type="com.kodb.model.vo.User"  alias="User"/>
-		<typeAlias type="com.kodb.model.vo.Contact"  alias="Contact"/>
 	</typeAliases>
 	
 	<mappers>
 		<!--  매퍼 설정 등록 -->
 		<mapper resource="com/kodb/mapper/User.xml"/>
-		<mapper resource="com/kodb/mapper/Contact.xml"/>
 	</mappers>
 </configuration>
 

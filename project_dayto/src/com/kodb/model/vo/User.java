@@ -1,71 +1,61 @@
 package com.kodb.model.vo;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 // value Object
 @XmlRootElement
 public class User {
 	
-	private String userId;
-	private String password;
-	private String name;
-	private String email;
+	private String user_email;
+	private String user_pwd;
+	private String user_name;
+	private char user_type;
+	private String user_profile;
+	private String user_pic;
 	
-	private List<Contact> contactList;
-	
-	
-	public User(String userId, String password, String name, String email) {
+	public User(String user_email, String user_pwd, String user_name,
+			char user_type, String user_profile, String user_pic) {
 		super();
-		this.userId = userId;
-		this.password = password;
-		this.name = name;
-		this.email = email;
+		this.user_email = user_email;
+		this.user_pwd = user_pwd;
+		this.user_name = user_name;
+		this.user_type = user_type;
+		this.user_profile = user_profile;
+		this.user_pic = user_pic;
 	}
 	
 	public User() {
 		super();
 	}
 
-	public String getUserId() {
-		return userId;
+	public String getUser_email() {
+		return user_email;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+
+	public String getUser_pwd() {
+		return user_pwd;
 	}
-	public String getPassword() {
-		return password;
+
+	public String getUser_name() {
+		return user_name;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+	public char getUser_type() {
+		return user_type;
 	}
-	public String getName() {
-		return name;
+
+	public String getUser_profile() {
+		return user_profile;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public String getUser_pic() {
+		return user_pic;
 	}
 	
-	public List<Contact> getContactList() {
-		return contactList;
-	}
-
-	public void setContactList(List<Contact> contactList) {
-		this.contactList = contactList;
-	}
-
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", password=" + password + ", name="
-				+ name + ", email=" + email + "]";
+		return "User [user_email=" + user_email + ", user_pwd=" + user_pwd + 
+				", user_type=" + user_type + ", user_profile=" + user_profile +
+				", user_pic=" + user_pic + "]";
 	}
-	
-	
 }

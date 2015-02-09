@@ -27,16 +27,33 @@ public class UserController{
 		this.userService = userService;
 	}
 	@RequestMapping("/login.do")
-	public String login(String userId, String password, 
+	public String login(String user_email, String user_pwd, 
 			HttpSession session, Model model) {
-		boolean flag = userService.login(userId, password);
+		boolean flag = userService.login(user_email, user_pwd);
 		
 		if(flag) {
-			session.setAttribute("userId", userId);
+			System.out.println("로그인 성공");
+			session.setAttribute("user", userService.getUser(user_email));
 			return "redirect:/index.jsp";
 		} else {
-			model.addAttribute("message","아이디 또는 비밀번호가 일치하지 않습니다.");
-			return "redirect:/login.jsp";
+			System.out.println("로그인 실패");
+			model.addAttribute("message","Incorrect E-mail or Password");
+			return "login";
+		}
+	}
+	@RequestMapping("/signup.do")
+	public String signup(String user_email, String user_name,
+			String user_pwd, String user_pwd2,
+			HttpSession session, Model model) {
+
+		if(user_pwd.equals(user_pwd2)) {
+			User user = new User(user_email, user_pwd, user_name, ' ', "", "");
+			userService.registerUser(user);
+			session.setAttribute("user", userService.getUser(user_email));
+			return "redirect:/index.jsp";
+		} else {
+			model.addAttribute("message","비밀번호가 일치하지 않습니다.");
+			return "signup";
 		}
 	}
 	//동기 통신
@@ -54,7 +71,7 @@ public class UserController{
 		return "user_list";
 	}
 	
-	//동기 통신
+	//비동기 통신
 	@ResponseBody
 	@RequestMapping("/ajax/get.do")
 	public User getAjaxUser(

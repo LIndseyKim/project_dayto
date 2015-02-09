@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kodb.model.vo.Person;
-
 @SessionAttributes({"messages"})
 @Controller
 public class HelloController {
@@ -41,7 +39,7 @@ public class HelloController {
 		model.addAttribute("msg","Hello "+name);
 		return "hello";
 	}
-	
+/*	
 	@RequestMapping(value="/person/hello.do", method = RequestMethod.POST)
 	public String helloPerson(Model model, Person person) {
 		model.addAttribute("msg","Hi "+ person.getName() + "\n. your age is " + person.getAge());
@@ -55,5 +53,5 @@ public class HelloController {
 		messages.add("당신의 나이는 "+person.getAge()+"세 입니다.");
 		model.addAttribute("messages", messages);
 		return "helloPerson";
-	}
+	}*/
 }

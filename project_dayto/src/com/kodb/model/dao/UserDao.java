@@ -7,27 +7,25 @@ import com.kodb.model.vo.User;
 
 public interface UserDao {
 
-	public abstract User selectUser(String userId);
+	public abstract User selectUser(String user_email);
 
-	public abstract boolean selectUser(String userId, String pwd);
+	public abstract boolean selectUser(String user_email, String user_pwd);
 
 	public abstract List<User> selectUser();
 
 	public abstract void insertUser(User user);
 
-	public abstract void deleteUser(String userId);
+	public abstract void deleteUser(String user_email);
 
 	public abstract void updateUser(User user);
 
-	public abstract List<User> selectUsersByName(String name);
+	public abstract List<User> selectUsersByName(String user_name);
 
-	public abstract User selectUserByEmail(String email);
-
-	public abstract List<User> selectUsersByIdOrEmail(
+	public abstract List<User> selectUsersByEmail(
 			Map<String, Object> conditions);
 
-	public abstract List<User> selectUsersByIds(List<String> ids);
+	public abstract List<User> selectUsersByEmails(List<String> emails);
 
-	public abstract User selectUserWithContactListById(String userId);
+	public abstract User selectUserWithContactListByEmail(String user_email);
 
 }

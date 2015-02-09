@@ -28,7 +28,6 @@ BODY STYLING
 }
 
 body {
-	background: url(../../images/login/bg.png) repeat;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight:300;
 	text-align: left;
@@ -39,9 +38,11 @@ body {
 	/* Center wrapper perfectly */
 	width: 450px;
 	height: 600px;
-	position: absolute;
+	position: relative;
+	left : 45%;
+	/* position: absolute;
 	left: 45%;
-	top: 40%;
+	top: 40%; */
 	margin-left: -150px;
 	margin-top: -200px;
 }
@@ -88,7 +89,7 @@ SIGNUP FORM
 
 .signup-form {
 	width: 430px;
-	margin: 0 auto;
+	margin-top: 55%;
 	position: relative;
 	z-index:5;
 	
@@ -106,7 +107,7 @@ HEADER
 *******************/
 
 .signup-form .header {
-	padding: 40px 30px 15px 30px;
+	padding: 20px 30px 15px 30px;
 }
 
 .signup-form .header h1 {
@@ -131,7 +132,7 @@ CONTENT
 *******************/
 
 .signup-form .content {
-	padding:  0 30px 20px 30px;
+	padding:  0 30px 0px 30px;
 }
 
 /* Input field */
@@ -139,7 +140,7 @@ CONTENT
 	width: 188px;
 	padding: 15px 25px;
 	
-	margin-top: 10px;
+	margin-top: 5px;
 	
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 400;
@@ -158,7 +159,7 @@ CONTENT
 
 /* Second input field */
 .signup-form .content .password {
-	margin-top: 25px;
+	margin-top: 10px;
 }
 
 .signup-form .content .input:hover {
@@ -189,7 +190,7 @@ FOOTER
 *******************/
 
 .signup-form .footer {
-	padding: 25px 30px 25px 30px;
+	padding: 20px 30px 20px 30px;
 	overflow: auto;
 	
 	background: #d4dedf;
@@ -203,7 +204,7 @@ FOOTER
 /* Sign-Up button */
 .signup-form .footer .button {
 	float:right;
-	padding: 11px 25px;
+	padding: 0px 25px;
 	
 	font-family: 'Bree Serif', serif;
 	font-weight: 300;

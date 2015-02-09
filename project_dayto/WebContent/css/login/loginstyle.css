@@ -28,7 +28,6 @@ BODY STYLING
 }
 
 body {
-	background: url(../../images/login/bg.png) repeat;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight:300;
 	text-align: left;
@@ -39,11 +38,13 @@ body {
 	/* Center wrapper perfectly */
 	width: 300px;
 	height: 400px;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin-left: -150px;
-	margin-top: -200px;
+	position: relative;
+	left : 40%;
+/*	position: absolute;
+ 	left: 40%;
+	top: 80%; */
+	/* margin-left: -150px;
+	margin-top: -200px; */
 }
 
 /*
@@ -88,7 +89,7 @@ LOGIN FORM
 
 .login-form {
 	width: 300px;
-	margin: 0 auto;
+	margin-top: 40%;
 	position: relative;
 	z-index:5;
 	
@@ -156,7 +157,7 @@ CONTENT
 
 /* Second input field */
 .login-form .content .password, .login-form .content .pass-icon {
-	margin-top: 25px;
+	margin-top: 20px;
 }
 
 .login-form .content .input:hover {
@@ -187,7 +188,7 @@ FOOTER
 *******************/
 
 .login-form .footer {
-	padding: 25px 30px 40px 30px;
+	padding: 25px 30px 25px 30px;
 	overflow: auto;
 	
 	background: #d4dedf;
@@ -201,7 +202,7 @@ FOOTER
 /* Login button */
 .login-form .footer .button {
 	float:right;
-	padding: 11px 25px;
+	padding: 0px 25px;
 	
 	font-family: 'Bree Serif', serif;
 	font-weight: 300;

@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 		
 		System.out.println("[registerUser]");
 		// 아이디에 일치하는 회원정보 조회 : select
-		User member = userDao.selectUser(user.getUserId());
+		User member = userDao.selectUser(user.getUser_email());
 		// 회원이 없다면 회원정보 저장 : insert
 		if(member == null){
 			userDao.insertUser(user);
@@ -35,10 +35,10 @@ public class UserServiceImpl implements UserService {
 	 * @see com.kodb.model.service.UserService#getUser(java.lang.String)
 	 */
 	@Override
-	public User getUser(String userId){
-		System.out.println("[getUser]");
+	public User getUser(String user_email){
+		System.out.println("[getUser_email]");
 		// 아이디에 일치하는 회원정보 조회 : select
-		return userDao.selectUser(userId);
+		return userDao.selectUser(user_email);
 	}
 	
 	// 아이디에 일치하는 회원 삭제
@@ -46,13 +46,13 @@ public class UserServiceImpl implements UserService {
 	 * @see com.kodb.model.service.UserService#removeUser(java.lang.String)
 	 */
 	@Override
-	public void removeUser(String userId){
+	public void removeUser(String user_email){
 		System.out.println("[removeUser]");
-		User member = userDao.selectUser(userId);
+		User member = userDao.selectUser(user_email);
 		if(member != null){
-			userDao.deleteUser(userId);
+			userDao.deleteUser(user_email);
 		} else{
-			System.out.println(userId + " 회원은 존재하지 않습니다.");
+			System.out.println(user_email + " 회원은 존재하지 않습니다.");
 		}
 	}
 	
@@ -64,11 +64,11 @@ public class UserServiceImpl implements UserService {
 	public void modifyUser(User user){
 		System.out.println("[modifyUser]");
 		
-		User member = userDao.selectUser(user.getUserId());
+		User member = userDao.selectUser(user.getUser_email());
 		if(member != null){
 			userDao.updateUser(user);
 		} else{
-			System.out.println(user.getUserId() + " 회원은 존재하지 않습니다.");
+			System.out.println(user.getUser_email() + " 회원은 존재하지 않습니다.");
 		}
 	}
 	
@@ -88,46 +88,33 @@ public class UserServiceImpl implements UserService {
 	 * @see com.kodb.model.service.UserService#login(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public boolean login(String userId,String password){
+	public boolean login(String user_email,String user_pwd){
 		System.out.println("[login]");
 		
-		 return userDao.selectUser(userId, password); 
+		 return userDao.selectUser(user_email, user_pwd); 
 	}
 	
 	/* (non-Javadoc)
 	 * @see com.kodb.model.service.UserService#getUsersByName(java.lang.String)
 	 */
 	@Override
-	public List<User> getUsersByName(String name){
-		return userDao.selectUsersByName(name);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.kodb.model.service.UserService#getUserByEmail(java.lang.String)
-	 */
-	@Override
-	public User getUserByEmail(String email){
-		return userDao.selectUserByEmail(email);
+	public List<User> getUsersByName(String user_name){
+		return userDao.selectUsersByName(user_name);
 	}
 	
 	/* (non-Javadoc)
 	 * @see com.kodb.model.service.UserService#getUsersByIdOrEmail(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public List<User> getUsersByIdOrEmail(String userId,String email){
+	public List<User> getUsersByEmail(String user_email){
 		
 		HashMap<String,Object> conditions
 		  = new HashMap<String,Object>();
 		
-		if(userId != null && userId.trim().length() > 0){
-			conditions.put("userId", userId);
+		if(user_email != null && user_email.trim().length() > 0){
+			conditions.put("userId", user_email);
 		}
-
-		if(email != null && email.trim().length() > 0){
-			conditions.put("email", email);
-		}
-		
-		return userDao.selectUsersByIdOrEmail(conditions);
+		return userDao.selectUsersByEmail(conditions);
 	}
 	
 	// 조건으로 오는 id 목록을 이용하여 해당id의 사용자 모두 조회
@@ -135,32 +122,15 @@ public class UserServiceImpl implements UserService {
 	 * @see com.kodb.model.service.UserService#getUsersByIds(java.util.List)
 	 */
 	@Override
-	public List<User> getUsersByIds(List<String> ids){
-		return userDao.selectUsersByIds(ids);
+	public List<User> getUsersByEmails(List<String> emails){
+		return userDao.selectUsersByEmails(emails);
 	}
 	
 	/* (non-Javadoc)
 	 * @see com.kodb.model.service.UserService#getUserWithContactListById(java.lang.String)
 	 */
 	@Override
-	public User getUserWithContactListById(String userId){
-		return userDao.selectUserWithContactListById(userId);
+	public User getUserWithContactListByEmail(String user_email){
+		return userDao.selectUserWithContactListByEmail(user_email);
 	}
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

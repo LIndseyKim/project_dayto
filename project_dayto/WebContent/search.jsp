@@ -11,7 +11,7 @@
 		.form-wrapper {
 		    width: 450px;
 		    padding: 8px;
-		    margin: 100px auto;
+		    margin: 50px auto;
 		    overflow: hidden;
 		    border-width: 1px;
 		    border-style: solid;
@@ -25,7 +25,7 @@
 		.form-wrapper #search {
 		    width: 330px;
 		    height: 50px;
-		    padding: 10px 5px;
+		    padding: 5px 5px;
 		    float: left;    
 		    font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
 		    border: 1px solid #ccc;
@@ -57,7 +57,7 @@
 		.form-wrapper #submit {
 		    float: right;    
 		    border: 1px solid #00748f;
-		    height: 42px;
+		    height: 48px;
 		    width: 100px;
 		    padding: 0;
 		    cursor: pointer;
