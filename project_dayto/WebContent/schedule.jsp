@@ -221,8 +221,6 @@ div#menubar1>a:hover {
 <body id="schedule-body" onload="initialize()">
 
 
-
-
 	<div id='calendar'></div>
 
 	<div id='external-events'>
@@ -260,7 +258,7 @@ div#menubar1>a:hover {
 		</div>
 
 		<div style='clear: both'></div>
-		<div style="margin-top: 300" id="loginButton" href=""
+		<div style="margin-top: 300" id="loginButton" href="${pageContext.request.contextPath}/writingBlog.jsp"
 			class="button special">save a schedule</div>
 </body>
 </html>
