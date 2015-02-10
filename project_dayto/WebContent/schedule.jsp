@@ -106,10 +106,6 @@
 			//  original position after the drag
 			});
 			
-		
-		$(this).fullCalendar( 'removeEvents' );
-			
-
 		});
 
 		/* initialize the calendar
@@ -125,6 +121,15 @@
 			droppable : true, // this allows things to be dropped onto the calendar
 		});
 	});
+	
+	function personController($scope) {
+	    $scope.firstName = "John",
+	    $scope.lastName = "Doe"
+	    $scope.myVar = true;
+	    $scope.toggle = function() {
+	        $scope.myVar = !$scope.myVar;
+	    };
+	}
 </script>
 
 <style>
@@ -230,7 +235,7 @@ div#menubar1>a:hover {
 	<div id='external-events'>
 		<h4>Place</h4>
 		<div class='fc-event' align="center">
-			<img ng-hide ="true" class="schedule-image" src="images/blog/pic01.jpg" alt="" /> 장소
+			<img class="schedule-image" src="images/blog/pic01.jpg" alt="" /> 장소
 			1
 		</div>
 		<div class='fc-event' align="center">
