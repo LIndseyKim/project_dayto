@@ -252,7 +252,7 @@ div#menubar1>a:hover {
 		<a href="#">음식점</a> <a href="#">카페</a> <a href="#">쇼핑</a> <a href="#">지역명소</a>
 		<a href="#">영화연극</a>
 		<div id="GoogleMap_map"
-			style="width: 800px; height: 500px; margin-top:30px;"></div>
+			style="width: 700px; height: 500px; margin-top:30px;"></div>
 		
 	</div>
 	
