@@ -105,6 +105,10 @@
 				revertDuration : 0
 			//  original position after the drag
 			});
+			
+		
+		$(this).fullCalendar( 'removeEvents' );
+			
 
 		});
 
@@ -170,7 +174,7 @@ div#menubar1>a:hover {
 	margin: 10px;
 	padding: 0 10px;
 	border: 1px solid #ccc;
-	background: #eee;
+	background: #fff;
 	text-align: center;
 }
 
@@ -226,7 +230,7 @@ div#menubar1>a:hover {
 	<div id='external-events'>
 		<h4>Place</h4>
 		<div class='fc-event' align="center">
-			<img class="schedule-image" src="images/blog/pic01.jpg" alt="" /> 장소
+			<img ng-hide ="true" class="schedule-image" src="images/blog/pic01.jpg" alt="" /> 장소
 			1
 		</div>
 		<div class='fc-event' align="center">
