@@ -9,9 +9,9 @@ public interface PlaceService {
 
 	public abstract Place getPlace(String placeName);
 
-	/*// 회원 전체 리스트 조회하여 리턴
-	public abstract List<User> getAllUser();
-
+	// 회원 전체 리스트 조회하여 리턴
+	//public abstract List<Place> getAllPlace();
+	/*
 	// 로그인 성공시 true, 로그인 실패시 false 리턴
 	public abstract boolean login(String user_email, String user_pwd);
 

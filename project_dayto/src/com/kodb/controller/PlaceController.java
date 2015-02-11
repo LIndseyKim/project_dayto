@@ -23,50 +23,27 @@ public class PlaceController{
 	public void setPlaceService(PlaceService placeService) {
 		this.placeService = placeService;
 	}
-	@RequestMapping("/login.do")
-	public String login(String user_email, String user_pwd, 
-			HttpSession session, Model model) {
-		boolean flag = userService.login(user_email, user_pwd);
-		
-		if(flag) {
-			System.out.println("로그인 성공");
-			session.setAttribute("user", userService.getUser(user_email));
-			return "redirect:/index.jsp";
-		} else {
-			System.out.println("로그인 실패");
-			model.addAttribute("message","Incorrect E-mail or Password");
-			return "login";
-		}
-	}
-	@RequestMapping("/signup.do")
-	public String signup(String user_email, String user_name,
-			String user_pwd, String user_pwd2,
-			HttpSession session, Model model) {
-
-		if(user_pwd.equals(user_pwd2)) {
-			User user = new User(user_email, user_pwd, user_name, ' ', "", "");
-			userService.registerUser(user);
-			session.setAttribute("user", userService.getUser(user_email));
-			return "redirect:/index.jsp";
-		} else {
-			model.addAttribute("message","비밀번호가 일치하지 않습니다.");
-			return "signup";
-		}
-	}
+	
 	//동기 통신
 	@RequestMapping("/getPlace.do")
-	public String getPlace(Model model, @RequestParam("placeId") String placeId){
-		Place place = placeService.getPlace(placeId);
+	public String getPlace(HttpSession session){
+		System.out.println("getPlace??");
+		Place place = placeService.getPlace("중산");
+		session.setAttribute("place", place);
+		return "redirect:/schedule.jsp";
+	}
+	/*public String getPlace(Model model, @RequestParam("placeName") String placeName){
+		System.out.println("getPlace??");
+		Place place = placeService.getPlace(placeName);
 		model.addAttribute("place",place);
 		return "schedule";
-	}
-	
-	@RequestMapping("/getPlaceList.do")
-	public String getUserList(Model model){
-		List<User> userList = userService.getAllUser();
-		model.addAttribute("userList", userList);
+	}*/
+	/*@RequestMapping("/getPlaceList.do")
+	public String getPlaceList(Model model){
+		List<Place> placeList = placeService.getAllPlace();
+		model.addAttribute("placeList", placeList);
 		return "user_list";
-	}
+	}*/
 	
 /*	//비동기 통신
 	@ResponseBody
@@ -83,6 +60,7 @@ public class PlaceController{
 		return userList;
 	}
 	*/
+
 	
 	
 }

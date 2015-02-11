@@ -15,23 +15,14 @@ public class UserDaoImpl implements UserDao {
 		this.session = session;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.kodb.model.dao.UserDao#selectUser(java.lang.String)
-	 */
+
 	@Override
 	public User selectUser(String user_email) {
 
 		return session.selectOne("user.selectUser", user_email);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.kodb.model.dao.UserDao#selectUser(java.lang.String,
-	 * java.lang.String)
-	 */
+
 	@Override
 	public boolean selectUser(String user_email, String user_pwd) {
 
@@ -45,21 +36,13 @@ public class UserDaoImpl implements UserDao {
 		return false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.kodb.model.dao.UserDao#selectUser()
-	 */
+
 	@Override
 	public List<User> selectUser() {
 		return session.selectList("user.selectAllUser");
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.kodb.model.dao.UserDao#insertUser(com.kodb.model.vo.User)
-	 */
+	
 	@Override
 	public void insertUser(User user) {
 
@@ -68,11 +51,7 @@ public class UserDaoImpl implements UserDao {
 		flag = session.insert("user.insertUser", user) > 0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.kodb.model.dao.UserDao#deleteUser(java.lang.String)
-	 */
+	
 	@Override
 	public void deleteUser(String user_email) {
 
@@ -81,11 +60,7 @@ public class UserDaoImpl implements UserDao {
 		flag = session.insert("user.deleteUser", user_email) > 0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.kodb.model.dao.UserDao#updateUser(com.kodb.model.vo.User)
-	 */
+	
 	@Override
 	public void updateUser(User user) {
 
@@ -94,11 +69,7 @@ public class UserDaoImpl implements UserDao {
 		flag = session.insert("user.updateUser", user) > 0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.kodb.model.dao.UserDao#selectUsersByName(java.lang.String)
-	 */
+
 	@Override
 	public List<User> selectUsersByName(String user_name) {
 
@@ -106,35 +77,21 @@ public class UserDaoImpl implements UserDao {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.kodb.model.dao.UserDao#selectUsersByIdOrEmail(java.util.Map)
-	 */
+
 	@Override
 	public List<User> selectUsersByEmail(Map<String, Object> conditions) {
 
 		return session.selectList("user.selectUsersByEmail", conditions);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.kodb.model.dao.UserDao#selectUsersByIds(java.util.List)
-	 */
+	
 	@Override
 	public List<User> selectUsersByEmails(List<String> emails) {
 
 		return session.selectList("user.selectUsersByEmails", emails);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.kodb.model.dao.UserDao#selectUserWithContactListById(java.lang.String
-	 * )
-	 */
+	
 	@Override
 	public User selectUserWithContactListByEmail(String user_email) {
 

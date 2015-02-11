@@ -29,12 +29,12 @@ public class PlaceServiceImpl implements PlaceService {
 	 * @see com.kodb.model.service.UserService#getAllUser()
 	 */
 	/*@Override
-	public List<User> getAllUser(){
-		System.out.println("[getAllUser]");
+	public List<Place> getAllPlace(){
+		System.out.println("[getAllPlace]");
 
-		return placeDao.selectUser();
-	}
-	
+		return placeDao;
+	}*/
+	/*
 	// 로그인 성공시 true, 로그인 실패시 false 리턴
 	 (non-Javadoc)
 	 * @see com.kodb.model.service.UserService#login(java.lang.String, java.lang.String)

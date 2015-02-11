@@ -14,7 +14,7 @@
 	</resultMap>
 
 	
-	<select id="selectPlace" parameterType="String" resultType="Place">
+	<select id="selectPlace" parameterType="String" resultMap="PlaceResultMap">
 		select place_id, place_name, place_tel, place_category, place_addr
 		from place_info
 		where place_name = #{placeName}
