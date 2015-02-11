@@ -132,7 +132,7 @@
 	}
 </script>
 
-<style>
+<style  type="text/css" media="all">
 div#menubar1 {
 	float: left;
 	padding: 0;
@@ -217,6 +217,7 @@ div#menubar1>a:hover {
 	left: 60px;
 	boarder: 1px solid #ccc;
 	background: #eee;
+	
 }
 
 .schedule-image {
@@ -252,7 +253,7 @@ div#menubar1>a:hover {
 		<a href="#">음식점</a> <a href="#">카페</a> <a href="#">쇼핑</a> <a href="#">지역명소</a>
 		<a href="#">영화연극</a>
 		<div id="GoogleMap_map"
-			style="width: 700px; height: 500px; margin-top:30px;"></div>
+			style="width: 500px; height: 500px; margin-top:30px;"></div>
 		
 	</div>
 	
