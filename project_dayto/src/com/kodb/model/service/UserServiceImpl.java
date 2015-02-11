@@ -9,7 +9,7 @@ import com.kodb.model.vo.User;
 public class UserServiceImpl implements UserService {
 	
 	/*private UserDao userDao = new UserDao(); //이거는 나쁜 코드임!! new를 하다니!!
-*/	private UserDao userDao; //이거는 나쁜 코드임!! new를 하다니!!
+*/	private UserDao userDao;
 	
 	
 	public void setUserDao(UserDao userDao) {

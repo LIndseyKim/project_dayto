@@ -31,4 +31,15 @@
 			
 	<bean id="userService" class="com.kodb.model.service.UserServiceImpl"
 		p:userDao-ref="userDao"/> <!-- 이 객체가 한번 만들어 지니까 scope는 따로 안해줘도됨 default는 singleton임 -->
+
+	<bean id="boardDao" class="com.kodb.model.dao.BoardDaoImpl"
+			p:session-ref="sqlSessionTemplate"/>
+
+    <bean id="boardService" class="com.kodb.model.service.BoardServiceImpl"
+		p:boardDao-ref="boardDao"/> <!-- 이 객체가 한번 만들어 지니까 scope는 따로 안해줘도됨 default는 singleton임 -->
+
 </beans>
+
+			
+	
+

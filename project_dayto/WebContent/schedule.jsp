@@ -258,7 +258,7 @@ div#menubar1>a:hover {
 		</div>
 
 		<div style='clear: both'></div>
-		<div style="margin-top: 300" id="loginButton" href="${pageContext.request.contextPath}/writingBlog.jsp"
-			class="button special">save a schedule</div>
+		<div style="margin-top: 300" id="loginButton" class="button special">
+		<a href="${pageContext.request.contextPath}/writingBlog.jsp"> save a schedule</a></div>
 </body>
 </html>

@@ -8,11 +8,14 @@
 	<typeAliases>
 		<!-- 별칭 등록 -->
 		<typeAlias type="com.kodb.model.vo.User"  alias="User"/>
+		<typeAlias type="com.kodb.model.vo.Board"  alias="Board"/>
 	</typeAliases>
 	
 	<mappers>
 		<!--  매퍼 설정 등록 -->
 		<mapper resource="com/kodb/mapper/User.xml"/>
+		<mapper resource="com/kodb/mapper/Board.xml"/>
+		
 	</mappers>
 </configuration>
 
