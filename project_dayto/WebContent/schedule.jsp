@@ -105,7 +105,7 @@
 				revertDuration : 0
 			//  original position after the drag
 			});
-
+			
 		});
 
 		/* initialize the calendar
@@ -121,6 +121,15 @@
 			droppable : true, // this allows things to be dropped onto the calendar
 		});
 	});
+	
+	function personController($scope) {
+	    $scope.firstName = "John",
+	    $scope.lastName = "Doe"
+	    $scope.myVar = true;
+	    $scope.toggle = function() {
+	        $scope.myVar = !$scope.myVar;
+	    };
+	}
 </script>
 
 <style>
@@ -170,7 +179,7 @@ div#menubar1>a:hover {
 	margin: 10px;
 	padding: 0 10px;
 	border: 1px solid #ccc;
-	background: #eee;
+	background: #fff;
 	text-align: center;
 }
 
@@ -243,7 +252,7 @@ div#menubar1>a:hover {
 		<a href="#">음식점</a> <a href="#">카페</a> <a href="#">쇼핑</a> <a href="#">지역명소</a>
 		<a href="#">영화연극</a>
 		<div id="GoogleMap_map"
-			style="width: 800px; height: 500px; margin-top:30px;"></div>
+			style="width: 700px; height: 500px; margin-top:30px;"></div>
 		
 	</div>
 	
