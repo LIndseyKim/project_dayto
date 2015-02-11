@@ -8,6 +8,8 @@ import com.kodb.model.vo.User;
 public interface PlaceService {
 
 	public abstract Place getPlace(String placeName);
+	public abstract List<Place> getPlacesByAddr(String addr);
+
 
 	// 회원 전체 리스트 조회하여 리턴
 	//public abstract List<Place> getAllPlace();

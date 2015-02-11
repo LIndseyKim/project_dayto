@@ -35,7 +35,8 @@
 			    <!--FOOTER-->
 			    <div class="footer">
 			    <!--LOGIN BUTTON--><input type="submit" name="submit" value="Login" class="button" /><!--END LOGIN BUTTON-->
-			    <!--REGISTER BUTTON--><a href="${pageContext.request.contextPath}/signup.jsp" class="register">Sign Up</a><!--END REGISTER BUTTON-->
+			    <!--REGISTER 
+			    BUTTON--><a href="${pageContext.request.contextPath}/signup.jsp" class="register">Sign Up</a><!--END REGISTER BUTTON-->
 			    <!-- <!--REGISTER BUTTON<input type="submit" name="submit" value="Sign Up" class="register" />END REGISTER BUTTON -->
 			    </div><!--END FOOTER-->
 			    

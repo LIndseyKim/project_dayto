@@ -32,6 +32,14 @@ public class PlaceController{
 		session.setAttribute("place", place);
 		return "redirect:/schedule.jsp";
 	}
+	
+	@RequestMapping("/getPlaceListByAddr.do")
+	public String getPlaceList(Model model){
+		List<Place> placeList = placeService.getPlacesByAddr("µ¿´ë¹®");
+		System.out.println(placeList.get(0).getPlaceName());
+		model.addAttribute("placeList", placeList);
+		return "redirect:/schedule.jsp";
+	}
 	/*public String getPlace(Model model, @RequestParam("placeName") String placeName){
 		System.out.println("getPlace??");
 		Place place = placeService.getPlace(placeName);

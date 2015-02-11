@@ -24,6 +24,11 @@ public class PlaceServiceImpl implements PlaceService {
 		return placeDao.selectPlace(placeName);
 	}
 	
+	@Override
+	public List<Place> getPlacesByAddr(String addr){
+		return placeDao.selectPlacesByAddr(addr);
+	}
+	
 	// 회원 전체 리스트 조회하여 리턴
 	/* (non-Javadoc)
 	 * @see com.kodb.model.service.UserService#getAllUser()

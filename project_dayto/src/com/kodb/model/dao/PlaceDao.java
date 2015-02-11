@@ -9,7 +9,7 @@ import com.kodb.model.vo.User;
 public interface PlaceDao {
 
 	public abstract Place selectPlace(String place_name);
-
+	public abstract List<Place> selectPlacesByAddr(String addr);
 	//public abstract boolean selectPlace(String place_name);
 
 	/*public abstract List<User> selectUser();

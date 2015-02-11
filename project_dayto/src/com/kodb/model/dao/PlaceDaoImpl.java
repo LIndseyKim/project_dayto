@@ -22,7 +22,11 @@ public class PlaceDaoImpl implements PlaceDao {
 		System.out.println(place);
 		return place;
 	}
-
+	@Override
+	public List<Place> selectPlacesByAddr(String addr) {
+		return session.selectList("place.selectPlacesByAddr", addr);
+		
+	}
 /*	@Override
 	public boolean selectPlace(String place_name) {
 
