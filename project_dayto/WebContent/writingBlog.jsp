@@ -31,7 +31,7 @@
       		
       		  <textarea class="field span12" name = "postContent" id="textarea" rows="6" placeholder="글을 입력하세요"></textarea>
  			  			
-			<%-- <p>
+			<p>
 			<label class="checkbox">
 			<input type="checkbox" value="">
 				  다녀옴
@@ -52,7 +52,7 @@
 								<input type="submit" value="등록"/>
 						</form>
 				
-			<p align="center"> --%>
+			<p align="center"> 
 			
 					   
 		 	
