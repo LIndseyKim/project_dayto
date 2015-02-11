@@ -95,7 +95,7 @@
 						</c:otherwise>
 					</c:choose>
 				</ul>
-			</nav><!-- nav -->
+			</nav>
 		</header> <!-- Header -->
 </body>
 </html>

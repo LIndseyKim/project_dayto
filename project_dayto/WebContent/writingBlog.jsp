@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="top_layer.jsp" flush="false" />
 
   <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
 
