@@ -96,5 +96,31 @@
 		    	<input type="submit" value="go" id="submit">
 	    	</form>
 		</section>
+		
+		<div class="container">
+            <div class="row">
+               <div class="4u">
+                  <section class="special box">
+                     <a href="#" class="image fit"><img src="images/blog/pic01.jpg"/></a>
+                     <h3>블로그 제목1</h3>
+                     <p>블로그 글1</p>
+                  </section>
+               </div>
+               <div class="4u">
+                  <section class="special box">
+                     <a href="#" class="image fit"><img src="images/blog/pic02.jpg"/></a>
+                     <h3>블로그 제목2</h3>
+                     <p>블로그 글2</p>
+                  </section>
+               </div>
+               <div class="4u">
+                  <section class="special box">
+                     <a href="#" class="image fit"><img src="images/blog/pic03.jpg"/></a>
+                     <h3>블로그 제목3</h3>
+                     <p>블로그 글3</p>
+                  </section>
+               </div>
+            </div>
+         </div>
 </body>
 </html>
