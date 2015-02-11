@@ -132,7 +132,7 @@
 	}
 </script>
 
-<style  type="text/css" media="all">
+<style>
 div#menubar1 {
 	float: left;
 	padding: 0;
@@ -271,6 +271,5 @@ div#menubar1>a:hover {
 		<div style="margin-top: 300" id="loginButton" class="button special">
 		<a href="${pageContext.request.contextPath}/writingBlog.jsp"> save a schedule</a></div>
 		
-		<a href="place/getPlace.do">test</a>
 </body>
 </html>

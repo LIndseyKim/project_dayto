@@ -28,7 +28,7 @@ public class PlaceController{
 	@RequestMapping("/getPlace.do")
 	public String getPlace(HttpSession session){
 		System.out.println("getPlace??");
-		Place place = placeService.getPlace("중산");
+		Place place = placeService.getPlace("예당축산");
 		session.setAttribute("place", place);
 		return "redirect:/schedule.jsp";
 	}
