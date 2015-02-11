@@ -19,4 +19,9 @@
     	<appender-ref  ref="console" />
     </logger>
     
+    <logger name="board">
+    	<level value="DEBUG" />
+    	<appender-ref  ref="console" />
+    </logger>
+    
 </log4j:configuration>
