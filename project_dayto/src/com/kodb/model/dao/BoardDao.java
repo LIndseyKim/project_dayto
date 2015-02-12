@@ -9,8 +9,10 @@ public interface  BoardDao {
 
 	public abstract void insertBoard(Board board);
 
-	public abstract Board selectUser(String userEmail);
+	public abstract Board selectBoard(String userEmail);
 
-	public abstract List<Board> selectPostName(String userEmail); 
+	public abstract List<Board> selectPostName(String userEmail);
+	
+	public abstract void insertBoardImages(int postId, String picturePath);
 	
 }

@@ -1,6 +1,7 @@
 
 package com.kodb.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,7 +25,7 @@ public class BoardDaoImpl  implements BoardDao {
 	}
 
 	@Override
-	public Board selectUser(String userEmail) {
+	public Board selectBoard(String userEmail) {
 		boolean flag = false;			
 		// TODO Auto-generated method stub
 		return session.selectOne("board.selectBoard", userEmail);
@@ -39,6 +40,14 @@ public class BoardDaoImpl  implements BoardDao {
 		
 	}
 	
-	
-	
+	@Override
+	public void insertBoardImages(int postId, String postPic) {
+
+		boolean flag = false;
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("postId", postId);
+		map.put("postPicPath", postPic);
+		System.out.println(map);
+		flag = session.insert("picture.insertPic", map) > 0;
+	}
 }

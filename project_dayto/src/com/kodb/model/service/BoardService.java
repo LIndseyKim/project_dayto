@@ -7,11 +7,11 @@ import com.kodb.model.vo.Board;
 
 public interface BoardService {
 	
-
-
 	public abstract void registerBoard(Board board);
-
+	
+	public abstract Board selectBoard(String userEmail);
+	
+	public abstract void registerPicture(int postId, String postPic);
+	
 	public abstract List<Board> getPostName(String user_email);
-
-
 }

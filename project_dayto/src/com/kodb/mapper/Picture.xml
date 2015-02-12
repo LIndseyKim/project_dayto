@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="picture">
+	<resultMap type="Picture" id="PictureResultMap">
+		<id  property="blogPicId"  column="blog_pic_id"/>
+		<result property="postId" column="post_id" />
+		<result property="postPic" column="post_pic" />
+	</resultMap>
+	
+	<insert id="insertPic" parameterType="Picture" >
+		insert into blog_picture  
+		values (seq_blog_pic_id.nextval, ${postId}, #{postPic})
+   </insert>  
+</mapper>

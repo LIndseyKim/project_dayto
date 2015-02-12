@@ -23,18 +23,25 @@
 		( seq_blog_post_id.nextVal,#{userEmail}, #{postName}, SYSDATE, #{postContent}, null, #{postPublic})							
 	</insert>
 	
-	<select id="selectBoard" parameterType="String" resultType="Board">
+	<select id="selectBoard" parameterType="String" resultMap="BoardResultMap">
 		select *
 		from blog_post 
-		where user_email = #{value}	
+		where user_email = #{value} and	rownum = 1
+		order by post_id desc
 	</select>
 	
 	<select id="selectPostName" parameterType="String" resultMap="BoardResultMap">
-		select post_name 
+		select * 
 		from blog_post 
 		where user_email = #{value}	 and post_public = 1 order by post_id
-		<!-- where user_email = #{value}	 and post_public = 1 order by post_id; -->
 	</select>	
 	
+	<select id="selectPost" parameterType="String" resultMap="BoardResultMap">
+		select 	bp.*, bpic.post_pic
+		from	blog_post AS bp
+		join	blog_picture AS bpic
+		on		bp.post_id = bpic.post_id 
+		where	bp.user_email = ${value}
+	</select> 
 	
 </mapper>

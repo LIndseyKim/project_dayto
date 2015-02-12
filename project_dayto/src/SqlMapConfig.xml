@@ -10,6 +10,7 @@
 		<typeAlias type="com.kodb.model.vo.User"  alias="User"/>
 		<typeAlias type="com.kodb.model.vo.Board"  alias="Board"/>
 		<typeAlias type="com.kodb.model.vo.Place" alias="Place"/>
+		<typeAlias type="com.kodb.model.vo.Picture" alias="Picture"/>
 	</typeAliases>
 	
 	<mappers>
@@ -17,7 +18,7 @@
 		<mapper resource="com/kodb/mapper/User.xml"/>
 		<mapper resource="com/kodb/mapper/Board.xml"/>
 		<mapper resource="com/kodb/mapper/Place.xml"/>
-		
+		<mapper resource="com/kodb/mapper/Picture.xml"/>
 	</mappers>
 </configuration>
 

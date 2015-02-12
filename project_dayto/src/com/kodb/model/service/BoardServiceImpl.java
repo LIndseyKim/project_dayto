@@ -23,7 +23,17 @@ public class BoardServiceImpl implements BoardService{
 			boardDao.insertBoard(board);
 		}
 
+	@Override
+	public Board selectBoard(String userEmail) {
+		System.out.println("[selectBoard]");
+		return boardDao.selectBoard(userEmail);
+	}
 	
+	@Override
+	public void registerPicture(int postId, String postPic) {
+		System.out.println("[registerPicture]");
+		boardDao.insertBoardImages(postId, postPic);
+	}
 	
 	@Override
 	public List<Board> getPostName(String userEmail) {
@@ -31,9 +41,7 @@ public class BoardServiceImpl implements BoardService{
 			
 			return boardDao.selectPostName(userEmail);
 	}
-
-	
-	}
+}
 		
 
 	

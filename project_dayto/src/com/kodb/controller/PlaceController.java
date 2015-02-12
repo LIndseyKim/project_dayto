@@ -8,13 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kodb.model.service.PlaceService;
 import com.kodb.model.vo.Place;
-import com.kodb.model.vo.User;
 
-@RequestMapping("/place")
 @Controller
 public class PlaceController{
 	private PlaceService placeService;

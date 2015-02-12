@@ -18,42 +18,23 @@ public class Place {
 		return placeId;
 	}
 
-	public void setPlaceId(int placeId) {
-		this.placeId = placeId;
-	}
-
 	public String getPlaceName() {
 		return placeName;
 	}
-
-	public void setPlaceName(String placeName) {
-		this.placeName = placeName;
-	}
-
+	
 	public String getPlaceTel() {
 		return placeTel;
 	}
 
-	public void setPlaceTel(String placeTel) {
-		this.placeTel = placeTel;
-	}
 
 	public String getPlaceCategory() {
 		return placeCategory;
 	}
 
-	public void setPlaceCategory(String placeCategory) {
-		this.placeCategory = placeCategory;
-	}
 
 	public String getPlaceAddr() {
 		return placeAddr;
 	}
-
-	public void setPlaceAddr(String placeAddr) {
-		this.placeAddr = placeAddr;
-	}
-
 
 	@Override
 	public String toString() {
@@ -61,8 +42,4 @@ public class Place {
 				+ ", placeTel=" + placeTel + ", placeCategory=" + placeCategory 
 				+ ", placeAddr=" + placeAddr+ "]";
 	}
-	
-	
-	
-	
 }
