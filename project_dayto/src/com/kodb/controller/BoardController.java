@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kodb.model.dao.BoardDao;
 import com.kodb.model.service.BoardService;
 import com.kodb.model.vo.Board;
+import com.kodb.model.vo.User;
 
 @RequestMapping("/board")
 @Controller
@@ -46,6 +47,16 @@ public String savePost(Board board, HttpSession session, Model model) {
 		
 		return "redirect:/blog.jsp";
 	}
+
+@RequestMapping("/getPostName.do")
+public String getUser(Model model, HttpSession session){
+	User user = (User)session.getAttribute("user");
+	Board board = boardService.getPostName(user.getUser_email());
+	System.out.println(board);
+	model.addAttribute("userEmail",user.getUser_email());
+	return "redirect:/blog.jsp";
+}
+
 }
 
 

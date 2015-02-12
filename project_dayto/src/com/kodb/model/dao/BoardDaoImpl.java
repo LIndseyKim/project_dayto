@@ -16,7 +16,6 @@ public class BoardDaoImpl  implements BoardDao {
 	public void insertBoard(Board board) {
 
 		boolean flag = false;
-
 		flag = session.insert("board.insertBoard", board) > 0;
 	}
 
@@ -26,6 +25,14 @@ public class BoardDaoImpl  implements BoardDao {
 		
 		// TODO Auto-generated method stub
 		return session.selectOne("board.selectBoard", userEmail);
+		
+	}
+
+	@Override
+	public Board selectPostName(String userEmail) {
+		boolean flag = false;
+		
+		return session.selectOne("board.selectPostName", userEmail);
 		
 	}
 	

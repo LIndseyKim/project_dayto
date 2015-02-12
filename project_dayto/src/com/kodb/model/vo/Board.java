@@ -10,7 +10,20 @@ public class Board {
 	private Date postDate;
 	private String postContent;
 	private String postRecomm;
-	
+	private String postPublic;
+
+	public void setPostPublic(String postPublic) {
+		this.postPublic = postPublic;
+	}
+
+	@Override
+	public String toString() {
+		return "Board [postId=" + postId + ", userEmail=" + userEmail
+				+ ", postName=" + postName + ", postDate=" + postDate
+				+ ", postContent=" + postContent + ", postRecomm=" + postRecomm
+				+ ", postPublic=" + postPublic + "]";
+	}
+
 	public Board() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -53,14 +66,11 @@ public class Board {
 		this.postRecomm = postRecomm;
 	}
 
-	@Override
-	public String toString() {
-		return "Board [postId=" + postId + ", userEmail=" + userEmail
-				+ ", postName=" + postName + ", postDate=" + postDate
-				+ ", postContent=" + postContent + ", postRecomm=" + postRecomm
-				+ "]";
+	public String getPostPublic() {
+		return postPublic;
 	}
-	
+
+
 	
 	
 	

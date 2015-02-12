@@ -12,13 +12,15 @@
 		<result property="postDate" column="post_date" />
 		<result property="postContent" column="post_content" />
 		<result property="postRecomm" column="post_recomm" />
+		<result property="postPublic" column="post_public" />
+		
 	</resultMap>
 
 
 	<insert id="insertBoard" parameterType="Board">
 		INSERT INTO BLOG_POST 
 		VALUES 
-		( seq_blog_post_id.nextVal,#{userEmail}, #{postName}, SYSDATE, #{postContent}, null)							
+		( seq_blog_post_id.nextVal,#{userEmail}, #{postName}, SYSDATE, #{postContent}, null, #{postPublic})							
 	</insert>
 	
 	<select id="selectBoard" parameterType="String" resultType="Board">
@@ -27,9 +29,13 @@
 		where user_email = #{value}	
 	</select>
 	
+	<select id="selectPostName" parameterType="String" resultType="Board">
 	
+	SELECT POST_NAME 
+	FROM BLOG_POST 
+	WHERE USER_EMAIL = #{value}	 AND POST_PUBLIC = 1 ORDER BY POST_ID;
 	
-	
+	</select>	
 	
 	
 </mapper>

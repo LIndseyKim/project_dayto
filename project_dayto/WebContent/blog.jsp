@@ -31,8 +31,7 @@
 		<!-- One -->
 		<section id="one" class="wrapper style1">
 			<header class="major">
-				<h2>${sessionScope.userId}님의 블로그</h2>
-				<p>---------자기소개부분---------</p>
+				<h2>나의${user.user_email} DAY TOGETHER 일정</h2>
 			</header>
 			<div class="container">
 				<div class="row">
