@@ -22,6 +22,15 @@ public class BoardServiceImpl implements BoardService{
 		}
 
 	
+	
+	@Override
+	public Board getPostName(String userEmail) {
+			System.out.println("[getPostName]");
+
+			return boardDao.selectPostName(userEmail);
+	}
+
+	
 	}
 		
 

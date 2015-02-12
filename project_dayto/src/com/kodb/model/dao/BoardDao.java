@@ -6,6 +6,8 @@ public interface  BoardDao {
 
 	public abstract void insertBoard(Board board);
 
-	public abstract Board selectUser(String user_email);
+	public abstract Board selectUser(String userEmail);
 
+	public abstract Board selectPostName(String userEmail); 
+	
 }

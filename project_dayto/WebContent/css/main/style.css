@@ -198,13 +198,13 @@
       margin: 0 0 2em 0;
    }
 
-   label {
+/*    label {
       color: #666f77;
       display: block;
       font-size: 0.9em;
       font-weight: 500;
       margin: 0 0 1em 0;
-   }
+   } */
 
    input[type="text"],
    input[type="password"],

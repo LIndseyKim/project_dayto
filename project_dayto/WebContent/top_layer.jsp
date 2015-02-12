@@ -16,11 +16,13 @@
 		<script src="js/init.js"></script> 
 		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
 		
-		<noscript>
+		  <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+		
+	<!-- 	<noscript>
 			<link rel="stylesheet" href="css/main/skel.css" />
 			<link rel="stylesdheet" href="css/main/style.css" />
 			<link rel="stylesheet" href="css/main/style-xlarge.css" />
-		</noscript>
+		</noscript> -->
 		
 		<style type="text/css">
 			#mask {
@@ -71,18 +73,20 @@
 	 	</script>
 	 	
 	</head>
-<body>
+
 		<!-- Header -->
 		<header id="header" class="skel-layers-fixed">
-			<h1><a href="index.jsp">Day-To</a></h1>
-			<nav id="nav">
-				<ul>
+			<h1 class="dayToMain"><a href="index.jsp">Day-To</a></h1>
+			<div class="topText">
+			<nav id="nav" >
+				<ul >
 					<li><a href="#">About us</a></li>
 					<c:choose>
 						<c:when test="${user != null }">
-							<li><a href="place/getPlace.do">Schedule</a></li>
-							<li><a href="place/getPlaceListByAddr.do">test</a><li>
-							<li><a href="blog.jsp">Blog</a></li>
+							<li><a href="schedule.jsp">Schedule</a></li>
+                       		<a href="board/getPostName.do"><li>Blog</a></li></form>
+							<input type="hidden" name="user_email" value="${user.user_email}">
+							
 							<li><a href="search.jsp">Search</a><li>
 							<!-- <li><a href="#">Admin</a><li> -->
 							<li> ${user.user_name}님이 로그인 하셨습니다.</li>
@@ -96,10 +100,9 @@
 						</c:otherwise>
 					</c:choose>
 				</ul>
-			</nav>
+			</nav><!-- nav -->
+			</div>
 		</header> <!-- Header -->
-</body>
-</html>
 
 
 

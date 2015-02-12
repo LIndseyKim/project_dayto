@@ -768,11 +768,11 @@ h1 {
 }
 
 h2 {
-  font-size: 31.5px;
+  font-size: 25x;
 }
 
 h3 {
-  font-size: 24.5px;
+  font-size: 20px;
 }
 
 h4 {
@@ -796,7 +796,7 @@ h2 small {
 }
 
 h3 small {
-  font-size: 14px;
+  font-size: 17.5px;
 }
 
 h4 small {

@@ -6,5 +6,7 @@ public interface BoardService {
 
 	public abstract void registerBoard(Board board);
 
+	public abstract Board getPostName(String user_email);
+
 
 }

@@ -3,8 +3,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/skel.min.js"></script>
+	    <script src="./js/skel-layers.min.js"></script>
+	 	<script src="./js/init.js"></script>  
+		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
+		
+		 <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+		<title>Insert title here</title>
+		<style type="text/css">
+		#boxes input[type="checkbox"],#boxes input[type="radio"]  {
+ 			-moz-appearance: checkbox;
+			-webkit-appearance: checkbox;
+			-o-appearance: checkbox;
+			-ms-appearance: checkbox;
+			appearance: checkbox ; 
+			display: block;
+			float: left; 
+			opacity: 1; 
+		}
+		
+		#boxes input[type="radio"]  {
+ 			-moz-appearance: radio;
+			-webkit-appearance: radio;
+			-o-appearance: radio;
+			-ms-appearance: radio;
+			appearance: radio ; 
+			display: block;
+			float: left; 
+			opacity: 1; 
+		}		
+		</style>
+</head>
+
+<body>
+<jsp:include page="/top.jsp" />
 <jsp:include page="top_layer.jsp" flush="false" />
 
   <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
