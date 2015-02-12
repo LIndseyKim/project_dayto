@@ -69,9 +69,4 @@ public class Board {
 	public String getPostPublic() {
 		return postPublic;
 	}
-
-
-	
-	
-	
 }

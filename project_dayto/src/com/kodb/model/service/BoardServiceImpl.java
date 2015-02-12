@@ -1,5 +1,7 @@
 package com.kodb.model.service;
 
+import java.util.List;
+
 import com.kodb.model.dao.BoardDao;
 import com.kodb.model.vo.Board;
 
@@ -24,9 +26,9 @@ public class BoardServiceImpl implements BoardService{
 	
 	
 	@Override
-	public Board getPostName(String userEmail) {
+	public List<Board> getPostName(String userEmail) {
 			System.out.println("[getPostName]");
-
+			
 			return boardDao.selectPostName(userEmail);
 	}
 
@@ -35,4 +37,3 @@ public class BoardServiceImpl implements BoardService{
 		
 
 	
-

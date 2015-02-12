@@ -1,7 +1,10 @@
+
 package com.kodb.controller;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,23 +44,28 @@ public class BoardController {
 
 @RequestMapping("/savePost.do")	
 public String savePost(Board board, HttpSession session, Model model) {	
-	System.out.println("savepost½ÇÇàµÊ : "+board);
-	
+	System.out.println("savepost½ÇÇàµÊ : "+board);	
 	boardService.registerBoard(board);			
 		
 		return "redirect:/blog.jsp";
 	}
 
 @RequestMapping("/getPostName.do")
-public String getUser(Model model, HttpSession session){
-	User user = (User)session.getAttribute("user");
-	Board board = boardService.getPostName(user.getUserEmail());
+public String getUser(Model model, HttpServletRequest request){
+	List<Board> board = boardService.getPostName("minji");
 	System.out.println(board);
-	model.addAttribute("userEmail",user.getUserEmail());
+	//model.addAttribute("userEmail",user.getUser_email());
 	return "redirect:/blog.jsp";
 }
 
+
+
+/*@RequestMapping("/getPostName.do")
+public String getUser(Model model, HttpSession session){
+	Board board = boardService.getPostName(user.getUser_email());
+	System.out.println(board);
+	model.addAttribute("userEmail",user.getUser_email());
+	return "redirect:/blog.jsp";
+}*/
+
 }
-
-
-
