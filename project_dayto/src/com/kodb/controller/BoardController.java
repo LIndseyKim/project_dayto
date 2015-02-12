@@ -51,9 +51,9 @@ public String savePost(Board board, HttpSession session, Model model) {
 @RequestMapping("/getPostName.do")
 public String getUser(Model model, HttpSession session){
 	User user = (User)session.getAttribute("user");
-	Board board = boardService.getPostName(user.getUser_email());
+	Board board = boardService.getPostName(user.getUserEmail());
 	System.out.println(board);
-	model.addAttribute("userEmail",user.getUser_email());
+	model.addAttribute("userEmail",user.getUserEmail());
 	return "redirect:/blog.jsp";
 }
 
