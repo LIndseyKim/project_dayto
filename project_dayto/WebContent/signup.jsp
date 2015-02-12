@@ -7,7 +7,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Sign Up</title>
 		<jsp:include page="top_layer.jsp" flush="false"/>
-		<link href="css/signup/signupstyle.css" rel="stylesheet" type="text/css" />
+		<link href="${pageContext.request.contextPath}/css/signup/signupstyle.css" rel="stylesheet" type="text/css" />
 		
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 	</head>
@@ -15,7 +15,7 @@
 		<!--WRAPPER-->
 		<div id="wrapper">
 			<!--SING UP FORM-->
-			<form name="signup-form" class="signup-form" action="${pageContext.request.contextPath}/user/signup.do" method="post">
+			<form name="signup-form" class="signup-form" action="${pageContext.request.contextPath}/signup.do" method="post">
 			
 				<!--HEADER-->
 			    <div class="header">

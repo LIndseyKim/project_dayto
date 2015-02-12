@@ -10,9 +10,9 @@
 <link href='css/fullcalendar/fullcalendar.css' rel='stylesheet' />
 <link href='css/fullcalendar/fullcalendar.print.css' rel='stylesheet'
 	media='print' />
-<script src='js/moment.min.js'></script>
-<script src='js/jquery-ui.custom.min.js'></script>
-<script src='js/fullcalendar.min.js'></script>
+<script src='${pageContext.request.contextPath}/js/moment.min.js'></script>
+<script src='${pageContext.request.contextPath}/js/jquery-ui.custom.min.js'></script>
+<script src='${pageContext.request.contextPath}/js/fullcalendar.min.js'></script>
 <script type="text/javascript">
 	/** Google Map 객체. **/
 	GoogleMap = {
@@ -236,15 +236,15 @@ div#menubar1>a:hover {
 	<div id='external-events'>
 		<h4>Place</h4>
 		<div class='fc-event' align="center">
-			<img class="schedule-image" src="images/blog/pic01.jpg" alt="" /> 
+			<img class="schedule-image" src="${pageContext.request.contextPath}/images/blog/pic01.jpg" alt="" /> 
 			${place.placeName}
 		</div>
 		<div class='fc-event' align="center">
-			<img class="schedule-image" src="images/blog/pic02.jpg" alt="" /> 장소
+			<img class="schedule-image" src="${pageContext.request.contextPath}/images/blog/pic02.jpg" alt="" /> 장소
 			2
 		</div>
 		<div class='fc-event' align="center">
-			<img class="schedule-image" src="images/blog/pic03.jpg" alt="" /> 장소
+			<img class="schedule-image" src="${pageContext.request.contextPath}/images/blog/pic03.jpg" alt="" /> 장소
 			3
 		</div>
 		<div class='fc-event' align="center">...</div>

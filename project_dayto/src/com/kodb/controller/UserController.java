@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kodb.model.service.UserService;
 import com.kodb.model.vo.User;
 
-@RequestMapping("/user")
 @Controller
 public class UserController{
 	private UserService userService;
@@ -32,7 +31,6 @@ public class UserController{
 		} else {
 			System.out.println("로그인 실패");
 			model.addAttribute("message","Incorrect E-mail or Password");
-			/*session.setAttribute("test","Incorrect E-mail or Password");*/
 			return "login";
 		}
 	}

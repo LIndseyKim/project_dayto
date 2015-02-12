@@ -4,7 +4,7 @@
 <html>
    <head>
       <title>Day-To</title>
-      <jsp:include page="top_layer.jsp" flush="false"/>
+      <jsp:include page="top_layer.jsp"/>
    </head>
 <body>
    <!-- Banner -->
@@ -27,21 +27,21 @@
             <div class="row">
                <div class="4u">
                   <section class="special box">
-                     <a href="#" class="image fit"><img src="images/blog/pic01.jpg"/></a>
+                     <a href="#" class="image fit"><img src="${pageContext.request.contextPath}/images/blog/pic01.jpg"/></a>
                      <h3>블로그 제목1</h3>
                      <p>블로그 글1</p>
                   </section>
                </div>
                <div class="4u">
                   <section class="special box">
-                     <a href="#" class="image fit"><img src="images/blog/pic02.jpg"/></a>
+                     <a href="#" class="image fit"><img src="${pageContext.request.contextPath}/images/blog/pic02.jpg"/></a>
                      <h3>블로그 제목2</h3>
                      <p>블로그 글2</p>
                   </section>
                </div>
                <div class="4u">
                   <section class="special box">
-                     <a href="#" class="image fit"><img src="images/blog/pic03.jpg"/></a>
+                     <a href="#" class="image fit"><img src="${pageContext.request.contextPath}/images/blog/pic03.jpg"/></a>
                      <h3>블로그 제목3</h3>
                      <p>블로그 글3</p>
                   </section>

@@ -5,13 +5,13 @@
    <head>
       <title>My Page</title>
       <jsp:include page="top_layer.jsp" flush="false"/>
-      <link href="css/signup/signupstyle.css" rel="stylesheet" type="text/css" />
+      <link href="${pageContext.request.contextPath}/css/signup/signupstyle.css" rel="stylesheet" type="text/css" />
    </head>
 <body>
 	<!--WRAPPER-->
 	<div id="wrapper">
 		<!--SING UP FORM-->
-		<form name="signup-form" class="signup-form" action="${pageContext.request.contextPath}/user/modify.do" method="post">
+		<form name="signup-form" class="signup-form" action="${pageContext.request.contextPath}/modify.do" method="post">
 		
 			<!--HEADER-->
 		    <div class="header">

@@ -10,14 +10,14 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta name="description" content="" />
       <meta name="keywords" content="" />
-      <script src="js/jquery.min.js"></script>
-      <script src="js/skel.min.js"></script>
-      <script src="js/skel-layers.min.js"></script>
-      <script src="js/init.js"></script> 
-      <script src="js/dayto_alert.js"></script>
+      <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+      <script src="${pageContext.request.contextPath}/js/skel.min.js"></script>
+      <script src="${pageContext.request.contextPath}/js/skel-layers.min.js"></script>
+      <script src="${pageContext.request.contextPath}/js/init.js"></script> 
+      <script src="${pageContext.request.contextPath}/js/dayto_alert.js"></script>
       <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
       
-        <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.css" />
       
    <!--    <noscript>
          <link rel="stylesheet" href="css/main/skel.css" />
@@ -43,16 +43,16 @@
 				<li><a href="search.jsp">Search</a><li>
 				<c:choose>
 					<c:when test="${user != null }">
-						<li><a href="schedule.jsp">Schedule</a></li>
-						<li><a href="board/getPostName.do">Blog</a></li>
-						<li><a href="mypage.jsp">Mypage</a></li>
+						<li><a href="/project_dayto/schedule.jsp">Schedule</a></li>
+						<li><a href="/project_dayto/board/getPostName.do">Blog</a></li>
+						<li><a href="/project_dayto/mypage.jsp">Mypage</a></li>
 						<li> <h5>${user.userName}님이 로그인 하셨습니다.</h5></li>
-						<li><a href="user/logout.do" id="logout" class="button special">Logout</a></li>
+						<li><a href="/project_dayto/logout.do" id="logout" class="button special">Logout</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="login.jsp" class="login_fail">Schedule</a></li>
-						<li><a href="login.jsp" class="login_fail">Blog</a></li>
-						<li><a id="loginButton" href="login.jsp" class="button special">Login</a></li>
+						<li><a href="/project_dayto/login.jsp" class="login_fail">Schedule</a></li>
+						<li><a href="/project_dayto/login.jsp" class="login_fail">Blog</a></li>
+						<li><a id="loginButton" href="/project_dayto/login.jsp" class="button special">Login</a></li>
 					</c:otherwise>
 				</c:choose>
 			</ul>

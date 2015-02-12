@@ -6,25 +6,23 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Login</title>
-		<jsp:include page="top_layer.jsp" flush="false"/>
+		<jsp:include page="top_layer.jsp"/>
 		<link href="${pageContext.request.contextPath}/css/login/loginstyle.css" rel="stylesheet" type="text/css" />
 		
-		<script type="text/javascript" src="./js/login.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 	</head>
 	<body>
 		<!--WRAPPER-->
 		<div id="wrapper">
 			<!--LOGIN FORM-->
-			<form name="login-form" class="login-form" action="${pageContext.request.contextPath}/user/login.do" method="post">
+			<form name="login-form" class="login-form" action="${pageContext.request.contextPath}/login.do" method="post">
 			
 				<!--HEADER-->
 			    <div class="header">
 			    <!--TITLE--><h1>Login</h1><!--END TITLE-->
 			    <!--DESCRIPTION--><span>Fill out the form below to login.</span><!--END DESCRIPTION-->
 			     <c:if test="${message != null}">
-			     	<h1>test</h1>
-					<h5 style="color:red">${message}</h5>
+					<h6 style="color:red">${message}</h6>
 				</c:if>
 			    </div><!--END HEADER-->
 				<!--CONTENT-->
