@@ -38,7 +38,7 @@
 					<div class="4u">
 						<section class="special box">
 							<a href="#" class="image fit"><img src="images/blog/pic01.jpg"/></a>
-							<h3>블로그 제목1</h3>
+							<h3>${blog.blogName}</h3>
 							<p>블로그 글1</p>
 						</section>
 					</div>
