@@ -9,6 +9,7 @@
 		<jsp:include page="top_layer.jsp" flush="false"/>
 		<link href="${pageContext.request.contextPath}/css/login/loginstyle.css" rel="stylesheet" type="text/css" />
 		
+		<script type="text/javascript" src="./js/login.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 	</head>
 	<body>
@@ -21,15 +22,15 @@
 			    <div class="header">
 			    <!--TITLE--><h1>Login</h1><!--END TITLE-->
 			    <!--DESCRIPTION--><span>Fill out the form below to login.</span><!--END DESCRIPTION-->
-			     <c:if test="${requestScope.message != null}">
-			     	<a href="javascript : alert('로그인이 필요합니다.');">공사중</a>
-					<h5 style="color:red">${requestScope.message}</h5>
+			     <c:if test="${message != null}">
+			     	<h1>test</h1>
+					<h5 style="color:red">${message}</h5>
 				</c:if>
 			    </div><!--END HEADER-->
 				<!--CONTENT-->
 			    <div class="content">
-				<!--USERNAME--><input name="user_email" type="text" class="input username" value="Username" onfocus="this.value=''"/><!--END USERNAME-->
-			    <!--PASSWORD--><input name="user_pwd" type="password" class="input password" value="Password" onfocus="this.value=''" /><!--END PASSWORD-->
+				<!--USERNAME--><input name="userEmail" type="text" class="input username" value="Username" onfocus="this.value=''"/><!--END USERNAME-->
+			    <!--PASSWORD--><input name="userPwd" type="password" class="input password" value="Password" onfocus="this.value=''" /><!--END PASSWORD-->
 			    </div><!--END CONTENT-->
 			    
 			    <!--FOOTER-->

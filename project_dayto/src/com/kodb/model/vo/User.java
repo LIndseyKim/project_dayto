@@ -6,56 +6,57 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class User {
 	
-	private String user_email;
-	private String user_pwd;
-	private String user_name;
-	private char user_type;
-	private String user_profile;
-	private String user_pic;
+	private String userEmail;
+	private String userPwd;
+	private String userName;
+	private char userType;
+	private String userProfile;
+	private String userPic;
 	
-	public User(String user_email, String user_pwd, String user_name,
-			char user_type, String user_profile, String user_pic) {
+	
+	public User(String userEmail, String userPwd, String userName,
+			char userType, String userProfile, String userPic) {
 		super();
-		this.user_email = user_email;
-		this.user_pwd = user_pwd;
-		this.user_name = user_name;
-		this.user_type = user_type;
-		this.user_profile = user_profile;
-		this.user_pic = user_pic;
+		this.userEmail = userEmail;
+		this.userPwd = userPwd;
+		this.userName = userName;
+		this.userType = userType;
+		this.userProfile = userProfile;
+		this.userPic = userPic;
 	}
 	
 	public User() {
 		super();
 	}
-
-	public String getUser_email() {
-		return user_email;
-	}
-
-	public String getUser_pwd() {
-		return user_pwd;
-	}
-
-	public String getUser_name() {
-		return user_name;
-	}
-
-	public char getUser_type() {
-		return user_type;
-	}
-
-	public String getUser_profile() {
-		return user_profile;
-	}
-
-	public String getUser_pic() {
-		return user_pic;
-	}
 	
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public String getUserPwd() {
+		return userPwd;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public char getUserType() {
+		return userType;
+	}
+
+	public String getUserProfile() {
+		return userProfile;
+	}
+
+	public String getUserPic() {
+		return userPic;
+	}
+
 	@Override
 	public String toString() {
-		return "User [user_email=" + user_email + ", user_pwd=" + user_pwd + 
-				", user_type=" + user_type + ", user_profile=" + user_profile +
-				", user_pic=" + user_pic + "]";
+		return "User [userEmail=" + userEmail + ", userPwd=" + userPwd
+				+ ", userName=" + userName + ", userType=" + userType
+				+ ", userProfile=" + userProfile + ", userPic=" + userPic + "]";
 	}
 }
