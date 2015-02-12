@@ -21,6 +21,9 @@
 			    <div class="header">
 			    <!--TITLE--><h1>Sign Up</h1><!--END TITLE-->
 			    <!--DESCRIPTION--><span>Fill out the form below to sign up.</span><!--END DESCRIPTION-->
+			    <c:if test="${message != null}">
+					<h6 style="color:red">${message}</h6>
+				</c:if>
 			    </div><!--END HEADER-->
 				
 				<!--CONTENT-->

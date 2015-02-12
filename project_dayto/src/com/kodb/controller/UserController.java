@@ -44,7 +44,7 @@ public class UserController{
 			session.setAttribute("user", userService.getUser(userEmail));
 			return "redirect:/index.jsp";
 		} else {
-			model.addAttribute("message","비밀번호가 일치하지 않습니다.");
+			model.addAttribute("message","Incorrect password.");
 			return "signup";
 		}
 	}
@@ -59,8 +59,8 @@ public class UserController{
 			session.setAttribute("user", userService.getUser(userEmail));
 			return "redirect:/index.jsp";
 		} else {
-			model.addAttribute("message","비밀번호가 일치하지 않습니다.");
-			return "signup";
+			model.addAttribute("message","Incorrect password.");
+			return "mypage";
 		}
 	}
 	@RequestMapping("/logout.do")

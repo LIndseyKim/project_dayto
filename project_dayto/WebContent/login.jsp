@@ -21,7 +21,7 @@
 			    <div class="header">
 			    <!--TITLE--><h1>Login</h1><!--END TITLE-->
 			    <!--DESCRIPTION--><span>Fill out the form below to login.</span><!--END DESCRIPTION-->
-			     <c:if test="${message != null}">
+			    <c:if test="${message != null}">
 					<h6 style="color:red">${message}</h6>
 				</c:if>
 			    </div><!--END HEADER-->
