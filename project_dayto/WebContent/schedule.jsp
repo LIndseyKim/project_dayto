@@ -217,6 +217,7 @@ div#menubar1>a:hover {
 	left: 60px;
 	boarder: 1px solid #ccc;
 	background: #eee;
+	
 }
 
 .schedule-image {
@@ -235,8 +236,8 @@ div#menubar1>a:hover {
 	<div id='external-events'>
 		<h4>Place</h4>
 		<div class='fc-event' align="center">
-			<img class="schedule-image" src="images/blog/pic01.jpg" alt="" /> 장소
-			1
+			<img class="schedule-image" src="images/blog/pic01.jpg" alt="" /> 
+			${place.placeName}
 		</div>
 		<div class='fc-event' align="center">
 			<img class="schedule-image" src="images/blog/pic02.jpg" alt="" /> 장소
@@ -252,7 +253,7 @@ div#menubar1>a:hover {
 		<a href="#">음식점</a> <a href="#">카페</a> <a href="#">쇼핑</a> <a href="#">지역명소</a>
 		<a href="#">영화연극</a>
 		<div id="GoogleMap_map"
-			style="width: 700px; height: 500px; margin-top:30px;"></div>
+			style="width: 500px; height: 500px; margin-top:30px;"></div>
 		
 	</div>
 	
@@ -269,5 +270,6 @@ div#menubar1>a:hover {
 		<div style='clear: both'></div>
 		<div style="margin-top: 300" id="loginButton" class="button special">
 		<a href="${pageContext.request.contextPath}/writingBlog.jsp"> save a schedule</a></div>
+		
 </body>
 </html>

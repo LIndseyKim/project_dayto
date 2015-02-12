@@ -6,25 +6,29 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.kodb.model.vo.Place;
 import com.kodb.model.vo.User;
 
-public class UserDaoImpl implements UserDao {
+public class PlaceDaoImpl implements PlaceDao {
 	SqlSession session;
 
 	public void setSession(SqlSession session) {
 		this.session = session;
 	}
 
-
 	@Override
-	public User selectUser(String user_email) {
-
-		return session.selectOne("user.selectUser", user_email);
+	public Place selectPlace(String placeName) {
+		Place place = session.selectOne("place.selectPlace", placeName);
+		System.out.println(place);
+		return place;
 	}
-
-
 	@Override
-	public boolean selectUser(String user_email, String user_pwd) {
+	public List<Place> selectPlacesByAddr(String addr) {
+		return session.selectList("place.selectPlacesByAddr", addr);
+		
+	}
+/*	@Override
+	public boolean selectPlace(String place_name) {
 
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("user_email", user_email);
@@ -34,41 +38,12 @@ public class UserDaoImpl implements UserDao {
 			return true;
 		}
 		return false;
-	}
+	}*/
 
-
-	@Override
+	/*@Override
 	public List<User> selectUser() {
 		return session.selectList("user.selectAllUser");
 	}
-
-	
-	@Override
-	public void insertUser(User user) {
-
-		boolean flag = false;
-
-		flag = session.insert("user.insertUser", user) > 0;
-	}
-
-	
-	@Override
-	public void deleteUser(String user_email) {
-
-		boolean flag = false;
-
-		flag = session.insert("user.deleteUser", user_email) > 0;
-	}
-
-	
-	@Override
-	public void updateUser(User user) {
-
-		boolean flag = false;
-
-		flag = session.insert("user.updateUser", user) > 0;
-	}
-
 
 	@Override
 	public List<User> selectUsersByName(String user_name) {
@@ -84,7 +59,6 @@ public class UserDaoImpl implements UserDao {
 		return session.selectList("user.selectUsersByEmail", conditions);
 	}
 
-	
 	@Override
 	public List<User> selectUsersByEmails(List<String> emails) {
 
@@ -97,5 +71,5 @@ public class UserDaoImpl implements UserDao {
 
 		return session.selectOne("user.selectUserWithContactListByEmail", user_email);
 
-	}
+	}*/
 }

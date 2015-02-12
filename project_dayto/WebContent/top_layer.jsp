@@ -80,7 +80,8 @@
 					<li><a href="#">About us</a></li>
 					<c:choose>
 						<c:when test="${user != null }">
-							<li><a href="schedule.jsp">Schedule</a></li>
+							<li><a href="place/getPlace.do">Schedule</a></li>
+							<li><a href="place/getPlaceListByAddr.do">test</a><li>
 							<li><a href="blog.jsp">Blog</a></li>
 							<li><a href="search.jsp">Search</a><li>
 							<!-- <li><a href="#">Admin</a><li> -->

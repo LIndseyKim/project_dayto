@@ -24,4 +24,9 @@
     	<appender-ref  ref="console" />
     </logger>
     
+    <logger name="place">
+    	<level value="DEBUG" />
+    	<appender-ref  ref="console" />
+    </logger>
+    
 </log4j:configuration>

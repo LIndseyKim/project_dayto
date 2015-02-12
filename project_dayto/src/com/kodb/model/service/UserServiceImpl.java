@@ -118,17 +118,13 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	// 조건으로 오는 id 목록을 이용하여 해당id의 사용자 모두 조회
-	/* (non-Javadoc)
-	 * @see com.kodb.model.service.UserService#getUsersByIds(java.util.List)
-	 */
+
 	@Override
 	public List<User> getUsersByEmails(List<String> emails){
 		return userDao.selectUsersByEmails(emails);
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.kodb.model.service.UserService#getUserWithContactListById(java.lang.String)
-	 */
+
 	@Override
 	public User getUserWithContactListByEmail(String user_email){
 		return userDao.selectUserWithContactListByEmail(user_email);
