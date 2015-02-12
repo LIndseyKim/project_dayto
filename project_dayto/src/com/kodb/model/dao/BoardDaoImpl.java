@@ -1,8 +1,12 @@
+
 package com.kodb.model.dao;
+
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.kodb.model.vo.Board;
+import com.kodb.model.vo.User;
 
 public class BoardDaoImpl  implements BoardDao {
 
@@ -22,17 +26,16 @@ public class BoardDaoImpl  implements BoardDao {
 	@Override
 	public Board selectUser(String userEmail) {
 		boolean flag = false;			
-		
 		// TODO Auto-generated method stub
 		return session.selectOne("board.selectBoard", userEmail);
 		
 	}
 
 	@Override
-	public Board selectPostName(String userEmail) {
+	public List<Board>  selectPostName(String userEmail) {
 		boolean flag = false;
 		
-		return session.selectOne("board.selectPostName", userEmail);
+		return session.selectList("board.selectPostName", userEmail);
 		
 	}
 	

@@ -29,14 +29,12 @@
 		where user_email = #{value}	
 	</select>
 	
-	<select id="selectPostName" parameterType="String" resultType="Board">
-	
-	SELECT POST_NAME 
-	FROM BLOG_POST 
-	WHERE USER_EMAIL = #{value}	 AND POST_PUBLIC = 1 ORDER BY POST_ID;
-	
+	<select id="selectPostName" parameterType="String" resultMap="BoardResultMap">
+		select post_name 
+		from blog_post 
+		where user_email = #{value}	 and post_public = 1 order by post_id
+		<!-- where user_email = #{value}	 and post_public = 1 order by post_id; -->
 	</select>	
 	
 	
 </mapper>
-	
