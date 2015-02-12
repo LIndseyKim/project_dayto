@@ -6,116 +6,40 @@
 <mapper namespace="user">
 
 	<resultMap type="User" id="UserResultMap">
-		<id  property="user_email"  column="user_email"/>
-		<result property="user_pwd" column="user_pwd" />
-		<result property="user_name" column="user_name" />
-		<result property="user_type" column="user_type" />
-		<result property="user_profile" column="user_profile" />
-		<result property="user_pic" column="user_pic" />
+		<id  property="userEmail"  column="user_email"/>
+		<result property="userPwd" column="user_pwd" />
+		<result property="userName" column="user_name" />
+		<result property="userType" column="user_type" />
+		<result property="userProfile" column="user_profile" />
+		<result property="userPic" column="user_pic" />
 	</resultMap>
-
-	<resultMap type="User" id="UserResultMap2">
-		<id  property="user_email"  column="user_email"/>
-		<result property="user_pwd" column="user_pwd" />
-		<result property="user_name" column="user_name" />
-		<result property="user_type" column="user_type" />
-		<result property="user_profile" column="user_profile" />
-		<result property="user_pic" column="user_pic" />
-	</resultMap>
-	
-
 
 	<insert id="insertUser" parameterType="User">
 		insert into member 
-		values(#{user_email},#{user_pwd},#{user_name},#{user_type},#{user_profile},#{user_pic})
-	</insert>	
-
-
-
-	<select id="selectUser" parameterType="String" resultType="User">
+		values(#{userEmail},#{userPwd},#{userName},#{userType},#{userProfile},#{userPic})
+	</insert>
+	
+	<select id="selectUser" parameterType="String" resultMap="UserResultMap">
 		select user_email, user_pwd, user_name, user_type, user_profile, user_pic
 		from member 
 		where user_email = #{value}	
 	</select>
-
+	
 	<select id="login" parameterType="map" resultMap="UserResultMap">
-		select 
-			user_email 		user_email, 
-			user_pwd 		user_pwd, 
-			user_name 		user_name,
-			user_type 		user_type,
-			user_profile 	user_profile,
-			user_pic		user_pic
-		from member 
-		where user_email = #{user_email} and user_pwd = #{user_pwd}
-	</select>
-
-	<select id="selectAllUser" resultType="User">
 		select user_email, user_pwd, user_name, user_type, user_profile, user_pic
 		from member 
-		order by user_email
+		where user_email = #{userEmail} and user_pwd = #{userPwd}
 	</select>
 
-
-	
-	<delete id="deleteUser" parameterType="String">
-		delete from member where user_email = #{value}
-	</delete>
-	
 	<!--  동적쿼리 이용하여  -->
-	<update id="updateUser" parameterType="User">
+	<update id="updateUser" parameterType="map">
 		update member 
 		<set>
-			<if test="user_pwd != null">user_pwd = #{user_pwd},</if>
-			<if test="user_name != null">user_name = #{user_name}</if>
-			<if test="user_type != null">user_type = #{user_type}</if>
-			<if test="user_profile != null">user_profile = #{user_profile}</if>
-			<if test="user_pic != null">user_pic = #{user_pic}</if>
+			<if test="userPwd != null">user_pwd = #{userPwd},</if>
+			<if test="userType != null">user_type = #{userType},</if>
+			<if test="userProfile != null">user_profile = #{userProfile},</if>
+			<if test="userPic != null">user_pic = #{userPic}</if>
 		</set>
-		where user_email = #{user_email}
+		where user_email = #{userEmail}
 	</update>
-	
-
-	<sql id="basicUserinfoSql">
-		select  * 
-		from member 
-	</sql>
-		
-	<select id="selectUsersByName" parameterType="String" 
-		resultMap="UserResultMap2">
-		<include refid="basicUserinfoSql"/>
-		where user_name like '%'||#{value}||'%'
-	</select>
-		
-	<!--  동적쿼리 -->	
-	<!--  case1 조건 없음 -->
-	<!--  case2 user_email조건 -->
-	<!-- 		where user_email = #{} -->
-	<!--  case3 email조건 -->
-	<!-- 		where email = #{} --> 
-	<!--  case4 user_email조건, email조건 -->
-	<!-- 		where user_email = #{} or email = #{} --> 
-		
-	<select id="selectUsersByEmail" parameterType="map" 
-		resultType="User">
-		<include refid="basicUserinfoSql"/>
-		<where>
-			<if test="user_email != null">
-				user_email = #{user_email}
-			</if>	
-		</where>
-	</select>
-	
-	<select id="selectUsersByEmails" parameterType="map" 
-			resultType="User">
-			<include refid="basicUserinfoSql"/>
-			<if test="list != null &amp;&amp; list.size() > 0">
-					where	user_email in
-					  <foreach item="item"  collection="list"
-					      open="(" separator="," close=")">
-					        #{item}
-					  </foreach>
-			</if>
-	</select>		
-	
-</mapper>    
+</mapper>

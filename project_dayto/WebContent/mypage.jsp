@@ -24,19 +24,19 @@
 				<table>
 					<tr>
 						<th>아이디(email)</th>
-						<td>${user.user_email}</td>
+						<td>${user.userEmail}</td>
 					</tr>
 					<tr>
 						<th>이름</th>
-						<td>${user.user_name}</td>
+						<td>${user.userName}</td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
-						<td><!--PASSWORD1--><input name="user_pwd" type="password" class="input password" value="Password 입력" onfocus="this.value=''" /><!--END PASSWORD1--></td>
+						<td><!--PASSWORD1--><input name="userPwd" type="password" class="input password" value="Password 입력" onfocus="this.value=''" /><!--END PASSWORD1--></td>
 					</tr>
 					<tr>
 						<th>비밀번호 확인</th>
-						<td><!--PASSWORD2--><input name="user_pwd2" type="password" class="input password" value="Password 확인" onfocus="this.value=''" /><!--END PASSWORD2--></td>
+						<td><!--PASSWORD2--><input name="userPwd2" type="password" class="input password" value="Password 확인" onfocus="this.value=''" /><!--END PASSWORD2--></td>
 					</tr>
 				</table>
 			</div><!-- CONTENT -->
@@ -45,7 +45,7 @@
 		    <!--CANCLE BUTTON--><input type="reset" name="submit" value="CANCLE" class="button" /><!--END CANCLE BUTTON-->
 		    <!--SUBMIT BUTTON--><input type="submit" name="submit" value="MODIFY" class="button" /><!--END SUBMIT BUTTON-->
 		    </div><!--END FOOTER-->
-		    <input type="hidden" name="user_email" value="${user.user_email}">
+		    <input type="hidden" name="userEmail" value="${user.userEmail}">
 		</form>
 	</div>
 </body>

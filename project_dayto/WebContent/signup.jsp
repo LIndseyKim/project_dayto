@@ -27,27 +27,27 @@
 				<div class="content">
 				    <table>
 					    <tr>
-					    	<td>아이디(email)</td>
-					    	<td><!--USERID--><input name="user_email" type="text" class="input username" value="ID(email) 입력" onfocus="this.value=''" /><!--END USERID--></td>
+					    	<th>아이디(email)</th>
+					    	<td><!--USERID--><input name="userEmail" type="text" class="input username" value="ID(email) 입력" onfocus="this.value=''" /><!--END USERID--></td>
 					    </tr>
 					    <tr>
-					    	<td>이름</td>
-					    	<td><!--NAME--><input name="user_name" type="text" class="input username" value="이름 입력" onfocus="this.value=''" /><!--END NAME--></td>
+					    	<th>이름</th>
+					    	<td><!--NAME--><input name="userName" type="text" class="input username" value="이름 입력" onfocus="this.value=''" /><!--END NAME--></td>
 					    </tr>
 					    <tr>
-					    	<td>비밀번호</td>
-					    	<td> <!--PASSWORD1--><input name="user_pwd" type="password" class="input password" value="Password 입력" onfocus="this.value=''" /><!--END PASSWORD1--></td>
+					    	<th>비밀번호</th>
+					    	<td> <!--PASSWORD1--><input name="userPwd" type="password" class="input password" value="Password 입력" onfocus="this.value=''" /><!--END PASSWORD1--></td>
 					    </tr>
 					    <tr>
-					    	<td>비밀번호 확인</td>
-					    	<td><!--PASSWORD2--><input name="user_pwd2" type="password" class="input password" value="Password 확인" onfocus="this.value=''" /><!--END PASSWORD2--></td>
+					    	<th>비밀번호 확인</th>
+					    	<td><!--PASSWORD2--><input name="userPwd2" type="password" class="input password" value="Password 확인" onfocus="this.value=''" /><!--END PASSWORD2--></td>
 					    </tr>
 					    </table>
 					</div><!--END CONTENT-->
 			    
 			    <!--FOOTER-->
 			    <div class="footer">
-			    <!--LOGIN BUTTON--><input type="submit" name="submit" value="SUBMIT" class="button" /><!--END SUBMIT BUTTON-->
+			    <!--SUBMIT BUTTON--><input type="submit" name="submit" value="SUBMIT" class="button" /><!--END SUBMIT BUTTON-->
 			    </div><!--END FOOTER-->
 			</form><!--END SING UP FORM-->
 		</div><!--END WRAPPER-->
