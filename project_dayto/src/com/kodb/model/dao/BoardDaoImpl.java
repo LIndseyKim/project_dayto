@@ -46,8 +46,7 @@ public class BoardDaoImpl  implements BoardDao {
 		boolean flag = false;
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("postId", postId);
-		map.put("postPicPath", postPic);
-		System.out.println(map);
+		map.put("postPic", postPic);
 		flag = session.insert("picture.insertPic", map) > 0;
 	}
 }

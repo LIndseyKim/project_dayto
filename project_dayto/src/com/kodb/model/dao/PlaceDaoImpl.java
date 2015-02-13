@@ -18,9 +18,7 @@ public class PlaceDaoImpl implements PlaceDao {
 
 	@Override
 	public Place selectPlace(String placeName) {
-		Place place = session.selectOne("place.selectPlace", placeName);
-		System.out.println(place);
-		return place;
+		return session.selectOne("place.selectPlace", placeName);
 	}
 	@Override
 	public List<Place> selectPlacesByAddr(String addr) {

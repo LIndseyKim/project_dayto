@@ -35,7 +35,7 @@ public class BoardController {
 	@RequestMapping("/savePost.do")	
 	public String savePost(Board board, HttpSession session, Model model, HttpServletRequest request,
 						@RequestParam("image") MultipartFile file) throws IllegalStateException, IOException{
-		String saveDir = request.getServletContext().getRealPath("/images");			
+		String saveDir = request.getServletContext().getRealPath("/images");
 		boardService.registerBoard(board);	
 		int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
 		

@@ -28,29 +28,53 @@ public class User {
 	public User() {
 		super();
 	}
-	
+
 	public String getUserEmail() {
 		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
 	public String getUserPwd() {
 		return userPwd;
 	}
 
+	public void setUserPwd(String userPwd) {
+		this.userPwd = userPwd;
+	}
+
 	public String getUserName() {
 		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public char getUserType() {
 		return userType;
 	}
 
+	public void setUserType(char userType) {
+		this.userType = userType;
+	}
+
 	public String getUserProfile() {
 		return userProfile;
 	}
 
+	public void setUserProfile(String userProfile) {
+		this.userProfile = userProfile;
+	}
+
 	public String getUserPic() {
 		return userPic;
+	}
+
+	public void setUserPic(String userPic) {
+		this.userPic = userPic;
 	}
 
 	@Override
