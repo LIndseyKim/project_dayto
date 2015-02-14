@@ -9,6 +9,8 @@ public class Place {
 	private String placeTel;
 	private String placeCategory;	
 	private String placeAddr;
+	private double addressX;
+	private double addressY;
 	
 	public Place() {
 		super();
@@ -63,11 +65,27 @@ public class Place {
 		this.placeAddr = placeAddr;
 	}
 
+	public double getAddressX() {
+		return addressX;
+	}
+
+	public void setAddressX(double addressX) {
+		this.addressX = addressX;
+	}
+
+	public double getAddressY() {
+		return addressY;
+	}
+
+	public void setAddressY(double addressY) {
+		this.addressY = addressY;
+	}
 
 	@Override
 	public String toString() {
-		return "place [placeId=" + placeId + ", placeName=" + placeName 
-				+ ", placeTel=" + placeTel + ", placeCategory=" + placeCategory 
-				+ ", placeAddr=" + placeAddr+ "]";
+		return "Place [placeId=" + placeId + ", placeName=" + placeName
+				+ ", placeTel=" + placeTel + ", placeCategory=" + placeCategory
+				+ ", placeAddr=" + placeAddr + ", addressX=" + addressX
+				+ ", addressY=" + addressY + "]";
 	}
 }

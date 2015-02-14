@@ -2,6 +2,7 @@ package com.kodb.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,14 +29,15 @@ public class PlaceController{
 		model.addAttribute("place", place);
 		return "schedule";
 	}
-	
-	@RequestMapping("/getPlaceListByAddr.do")
-	public String getPlaceList(Model model){
-		List<Place> placeList = placeService.getPlacesByAddr("µ¿´ë¹®");
-		System.out.println(placeList.get(0).getPlaceName());
-		model.addAttribute("placeList", placeList);
-		return "schedule";
-	}
+   @RequestMapping("/getPlaceListByAddr.do")
+   public String getPlaceList(Model model,HttpServletRequest req){
+      List<Place> placeList = placeService.getPlacesByAddr(req.getParameter("str"));
+      System.out.println(placeList.get(0).getPlaceName());
+      
+      model.addAttribute("placeList", placeList);
+      
+      return "schedule";
+   }
 	/*public String getPlace(Model model, @RequestParam("placeName") String placeName){
 		System.out.println("getPlace??");
 		Place place = placeService.getPlace(placeName);

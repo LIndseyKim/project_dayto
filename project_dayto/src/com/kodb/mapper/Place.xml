@@ -6,16 +6,19 @@
 <mapper namespace="place">
 
 	<resultMap type="Place" id="PlaceResultMap">
-		<id  property="placeId"  column="place_id"/>
+		<id property="placeId" column="place_id" />
 		<result property="placeName" column="place_name" />
 		<result property="placeTel" column="place_tel" />
 		<result property="placeCategory" column="place_category" />
 		<result property="placeAddr" column="place_addr" />
+		<result property="addressX" column="address_X" />
+		<result property="addressY" column="address_Y" />
 	</resultMap>
 
-	
+
 	<select id="selectPlace" parameterType="String" resultMap="PlaceResultMap">
 		select place_id, place_name, place_tel, place_category, place_addr
+		, address_x,address_y
 		from place_info
 		where place_name = #{placeName}
 	</select>
@@ -23,10 +26,10 @@
 	<select id="selectPlacesByAddr" parameterType="String"
 		resultMap="PlaceResultMap">
 		select place_id, place_name, place_tel, place_category,
-		place_addr
+		place_addr, address_x,address_y
 		from place_info
 		where place_addr like '%'||#{value}||'%'
 	</select>
-	
+
 </mapper>
 	
