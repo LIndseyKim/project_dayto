@@ -16,6 +16,12 @@
 		
 	</resultMap>
 
+
+	<resultMap type="Blog" id="BlogResultMap">
+		<id  property="postId"  column="post_id"/>
+		<result property="postName" column="post_name" />
+	</resultMap>
+	
 	<insert id="insertBoard" parameterType="Board">
 		INSERT INTO BLOG_POST 
 		VALUES 
@@ -35,13 +41,11 @@
 		where user_email = #{value}	 and post_public = 1 order by post_id
 	</select>	
 	
-	<resultMap type="Blog" id="BlogResultMap">
-		<id  property="postId"  column="post_id"/>
-		<result property="postName" column="post_name" />
+	<resultMap type="Blog" id="PostwithPictureResultMap" extends="BlogResultMap">
 		<collection property="pictureList" resultMap="picture.PictureResultMap"></collection>
 	</resultMap>
 	
-	<select id="selectPostWithPicture" parameterType="String" resultMap="BlogResultMap">
+	<select id="selectPostWithPicture" parameterType="String" resultMap="PostwithPictureResultMap">
 		select 	bp.post_id, bp.post_name, bpic.blog_pic_id, bpic.post_pic
 		from	blog_post  bp, blog_picture bpic
 		where	bp.post_id = bpic.post_id
