@@ -19,6 +19,7 @@
 	<resultMap type="Blog" id="BlogResultMap">
 		<id  property="postId"  column="post_id"/>
 		<result property="postName" column="post_name" />
+		<result property="postContent" column="post_content" />
 	</resultMap>
 	
 	<insert id="insertBoard" parameterType="Board">
@@ -45,9 +46,16 @@
 	</resultMap>
 	
 	<select id="selectPostWithPicture" parameterType="String" resultMap="PostwithPictureResultMap">
-		select 	bp.post_id, bp.post_name, bpic.blog_pic_id, bpic.post_pic
+		select 	bp.post_id, bp.post_name, bp.post_content, bpic.post_pic
 		from	blog_post  bp, blog_picture bpic
 		where	bp.post_id = bpic.post_id
 		and		bp.user_email = #{value}
-	</select>             
+	</select>
+	
+	<select id="selectPost" parameterType="Integer" resultMap="PostwithPictureResultMap">
+		select 	bp.post_id, bp.post_name, bp.post_content, bpic.post_pic
+		from	blog_post  bp, blog_picture bpic
+		where	bp.post_id = bpic.post_id
+		and		bp.post_id = #{value}
+	</select>  
 </mapper>

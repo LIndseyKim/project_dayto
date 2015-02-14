@@ -47,7 +47,11 @@ public class BoardServiceImpl implements BoardService{
 		System.out.println("[getPostWithPicture]");
 		return boardDao.selectPostWithPicture(userEmail);
 	}
-}
-		
-
 	
+	@Override
+	public Blog getPost(int postId) {
+		System.out.println("[getPost]");
+		return boardDao.selectPost(postId);
+	}
+	
+}

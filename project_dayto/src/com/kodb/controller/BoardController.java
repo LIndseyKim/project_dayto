@@ -19,7 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.kodb.model.dao.BoardDao;
 import com.kodb.model.service.BoardService;
+import com.kodb.model.vo.Blog;
 import com.kodb.model.vo.Board;
+import com.kodb.model.vo.Place;
 import com.kodb.model.vo.User;
 
 @Controller
@@ -71,4 +73,13 @@ public class BoardController {
 		model.addAttribute("blog", boardService.getPostWithPicture(user.getUserEmail()));
 		return "blog";
 	}
+	
+	@RequestMapping("/getPost.do")
+	public String getPost(Model model, HttpSession session, HttpServletRequest req) {
+		Blog blog = boardService.getPost(Integer.parseInt(req.getParameter("postId")));
+		System.out.println("blog : " + blog);
+		model.addAttribute("blog", blog);
+		return "displayBlog";
+	}
+	
 }

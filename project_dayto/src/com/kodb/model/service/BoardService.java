@@ -2,7 +2,6 @@ package com.kodb.model.service;
 
 import java.util.List;
 
-import com.kodb.model.dao.UserDao;
 import com.kodb.model.vo.Blog;
 import com.kodb.model.vo.Board;
 
@@ -17,4 +16,6 @@ public interface BoardService {
 	public abstract List<Board> getPostName(String userEmail);
 	
 	public abstract List<Blog> getPostWithPicture(String userEmail);
+	
+	public abstract Blog getPost(int postId);
 }

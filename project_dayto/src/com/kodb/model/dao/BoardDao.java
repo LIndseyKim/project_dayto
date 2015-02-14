@@ -18,4 +18,6 @@ public interface  BoardDao {
 	
 	public abstract List<Blog> selectPostWithPicture(String userEmail);
 	
+	public abstract Blog selectPost(int postId);
+	
 }

@@ -55,4 +55,9 @@ public class BoardDaoImpl  implements BoardDao {
 	public List<Blog> selectPostWithPicture(String userEmail) {
 		return session.selectList("board.selectPostWithPicture", userEmail);
 	}
+	
+	@Override
+	public Blog selectPost(int postId) {
+		return session.selectOne("board.selectPost", postId);
+	}
 }

@@ -38,35 +38,4 @@ public class PlaceController{
       
       return "schedule";
    }
-	/*public String getPlace(Model model, @RequestParam("placeName") String placeName){
-		System.out.println("getPlace??");
-		Place place = placeService.getPlace(placeName);
-		model.addAttribute("place",place);
-		return "schedule";
-	}*/
-	/*@RequestMapping("/getPlaceList.do")
-	public String getPlaceList(Model model){
-		List<Place> placeList = placeService.getAllPlace();
-		model.addAttribute("placeList", placeList);
-		return "user_list";
-	}*/
-	
-/*	//비동기 통신
-	@ResponseBody
-	@RequestMapping("/ajax/get.do")
-	public User getAjaxUser(
-			@RequestParam(value="userId",required=false,defaultValue="admin") String userId){
-		User user = userService.getUser(userId);
-		return user;
-	}
-	@ResponseBody
-	@RequestMapping("/ajax/getList.do")
-	public List<User> getAjaxUserList(){
-		List<User> userList = userService.getAllUser();
-		return userList;
-	}
-	*/
-
-	
-	
 }

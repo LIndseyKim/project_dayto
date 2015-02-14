@@ -24,7 +24,7 @@
 						$(".login_fail").click(login_fail_alert)
 						$("#logout").click(logout_alert)
 					});
-				</script>
+		</script>
 		
 		<style>
 		.blog-wrapper {
@@ -60,12 +60,14 @@
 						<div class="4u">
 							<section class="special box">
 								<c:forEach items="${b.pictureList}" var="p">
-									<a href="#" class="image fit"><img src="${p.postPic}"/></a>
+									<a href="${pageContext.request.contextPath}/getPost.do?postId=${b.postId}" class="image fit"><img src="${p.postPic}"/></a>
 								</c:forEach>
 								<h3>${b.postName}</h3>
+								<p>${b.postContent}</p>
 							</section>
 						</div>
 					</c:forEach>
+				</div>
 			</div>
 		</section>
 		<!-- One -->
