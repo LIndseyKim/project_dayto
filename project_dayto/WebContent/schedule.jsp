@@ -80,53 +80,6 @@
                   GoogleMap.map.setCenter(latlngs[i]);
                }               
             },            
-         	/* resultMap : function() {
-         		var latlngs = [];
-                var names = [];
-                var tels = [];
-                <c:forEach var="place" items="${placeList}">
-                
-                latlngs.push(new google.maps.LatLng(${place.addressX},${place.addressY}));
-                names.push('${place.placeName}');
-                tels.push('${place.placeTel}');
-                </c:forEach>
-                
-                this.input = document.getElementById("GoogleMap_input");
-                this.address = document.getElementById("GoogleMap_addr");
-                this.geocoder = new google.maps.Geocoder();
-                this.infowindow = new google.maps.InfoWindow();
-                //var temp=${place.addressX};
-                var x=37.54857886215574;
-                var y=126.95317768942301;
-                //if(37.54857886215574+temp>40){
-                //   x=${place.addressX};
-                //   y=${place.addressY};
-                //}
-                
-                var latlng = new google.maps.LatLng(x,y);
-                
-                var myOptions = {
-                   zoom : 15,
-                   center : latlng, 
-                   mapTypeId : google.maps.MapTypeId.ROADMAP
-                };
-                this.map = new google.maps.Map(document
-                      .getElementById("GoogleMap_map"), myOptions);
-    
-    
-                
-                for(var i=0 ; i< latlngs.length; ++i){
-                   var str= names[i];
-                   this.marker = new google.maps.Marker({
-                      
-                      position:latlngs[i],
-                      map : this.map,
-                      title: str,
-                      animation : google.maps.Animation.DROP
-                   });
-                   GoogleMap.map.setCenter(latlngs[i]);
-                }
-         	} */
          	/* 주소 검색.(지오코딩) */
             codeAddress : function() {
                var address = this.input.value;
