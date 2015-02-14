@@ -287,22 +287,14 @@
       <div id='calendar'></div>
    
       <div id='external-events' style="overflow: scroll">
-         <h4>Place</h4>
-         <c:forEach begin="1" end="3">
-            <div class='fc-event' align="center">
-               <img class="schedule-image" src="images/blog/pic01.jpg" alt="" />
-               ${place.placeName}
-            </div>
-            <div class='fc-event' align="center">
-               <img class="schedule-image" src="images/blog/pic02.jpg" alt="" />
-               장소 2
-            </div>
-            <div class='fc-event' align="center">
-               <img class="schedule-image" src="images/blog/pic03.jpg" alt="" />
-               장소 3
-            </div>
-         </c:forEach>
-      </div>
+		<h4>Place</h4>
+		<c:forEach var="p" items="${placeList}">
+			<div id="${p.placeId}"class='fc-event' align="center">
+				<img class="schedule-image" src="images/base_cover.jpg" alt="" />
+				${p.placeName}
+			</div>
+		</c:forEach>
+	</div>
       <div id="menubar1">
          <a href="#">음식점</a> <a href="#">카페</a> <a href="#">쇼핑</a>
           <a href="#">지역명소</a> <a href="#">영화연극</a>

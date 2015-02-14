@@ -15,7 +15,7 @@
 				<li><a href="search.jsp">Search</a>
 				<li><c:choose>
 						<c:when test="${user != null }">
-							<li><a href="${pageContext.request.contextPath}/getPlaceListByAddr.do">Schedule</a></li>
+							<li><a href="${pageContext.request.contextPath}/schedule.jsp">Schedule</a></li>
 							<li><a href="${pageContext.request.contextPath}/getPostName.do">Blog</a></li>
 							<li><a href="${pageContext.request.contextPath}/mypage.jsp">Mypage</a></li>
 							<li>
