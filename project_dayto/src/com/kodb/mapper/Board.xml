@@ -16,7 +16,6 @@
 		
 	</resultMap>
 
-
 	<resultMap type="Blog" id="BlogResultMap">
 		<id  property="postId"  column="post_id"/>
 		<result property="postName" column="post_name" />

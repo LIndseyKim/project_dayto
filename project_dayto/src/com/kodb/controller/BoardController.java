@@ -68,7 +68,7 @@ public class BoardController {
 		
 		User user = (User)session.getAttribute("user");
 		boardService.getPostWithPicture(user.getUserEmail());
-		session.setAttribute("board", boardService.getPostName(user.getUserEmail()));
+		model.addAttribute("blog", boardService.getPostWithPicture(user.getUserEmail()));
 		return "blog";
 	}
 }
