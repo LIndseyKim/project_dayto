@@ -5,7 +5,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="picture">
 	<resultMap type="Picture" id="PictureResultMap">
-		<id  property="blogPicId"  column="blog_pic_id"/>
+		<result  property="blogPicId"  column="blog_pic_id"/>
 		<result property="postId" column="post_id" />
 		<result property="postPic" column="post_pic" />
 	</resultMap>

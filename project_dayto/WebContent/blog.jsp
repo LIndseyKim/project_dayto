@@ -49,16 +49,19 @@
 	<body>
 		<jsp:include page="top_layer.jsp" />
 		<!-- One -->
+		
 		<section id="one" class="wrapper style1"> 
 			<header class="major">
 				<h2>나의${user.userEmail} DAY TOGETHER </h2>
 			</header>
 			<div class="container">
 				<div class="row">
-					<c:forEach items="${board}" var="b">
+					<c:forEach items="${blog}" var="b">
 						<div class="4u">
 							<section class="special box">
-								<a href="#" class="image fit"><img src="${b.postContent}"/></a>
+								<c:forEach items="${b.pictureList}" var="p">
+									<a href="#" class="image fit"><img src="${p.postPic}"/></a>
+								</c:forEach>
 								<h3>${b.postName}</h3>
 							</section>
 						</div>

@@ -17,15 +17,5 @@
 		
 	<!-- file upload에 필요함 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
-	
-	<bean id="simpleMappingExceptionResolver" 
-		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<property name="exceptionMappings">
-			<map>
-				<entry key="Exception" value="globalError"/>
-			</map>
-		</property>
-		<!--  See note below on how this interacts with Spring Boot --> 
-  		<property name="exceptionAttribute" value="exception" />
-	</bean>
+
 </beans>

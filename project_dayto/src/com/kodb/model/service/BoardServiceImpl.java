@@ -3,6 +3,7 @@ package com.kodb.model.service;
 import java.util.List;
 
 import com.kodb.model.dao.BoardDao;
+import com.kodb.model.vo.Blog;
 import com.kodb.model.vo.Board;
 
 public class BoardServiceImpl implements BoardService{
@@ -39,6 +40,12 @@ public class BoardServiceImpl implements BoardService{
 			System.out.println("[getPostName]");
 			
 			return boardDao.selectPostName(userEmail);
+	}
+	
+	@Override
+	public List<Blog> getPostWithPicture(String userEmail) {
+		System.out.println("[getPostWithPicture]");
+		return boardDao.selectPostWithPicture(userEmail);
 	}
 }
 		

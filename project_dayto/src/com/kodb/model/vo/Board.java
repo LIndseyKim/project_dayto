@@ -72,7 +72,7 @@ public class Board {
 	public String getPostPublic() {
 		return postPublic;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Board [postId=" + postId + ", userEmail=" + userEmail

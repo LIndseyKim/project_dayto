@@ -35,25 +35,31 @@ public class BoardController {
 	@RequestMapping("/savePost.do")	
 	public String savePost(Board board, HttpSession session, Model model, HttpServletRequest request,
 						@RequestParam("image") MultipartFile file) throws IllegalStateException, IOException{
-		String saveDir = request.getServletContext().getRealPath("/images");
+		
 		boardService.registerBoard(board);	
 		int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
-		
-		String path = saveDir+"/"+file.getOriginalFilename();
-		File newFile=new File(path);//진짜 파일명만 가져옴(originalFilename)
-		
-		if(newFile.exists()) {	
-			long time = System.currentTimeMillis(); 
 
-			SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
-			path = dayTime.format(new Date(time)) + file.getOriginalFilename();
-			path = saveDir+"/"+path;
-			newFile = new File(path);			
+		if(!file.isEmpty()) {
+			String saveDir = request.getServletContext().getRealPath("/images");
+			String path = saveDir+"/"+file.getOriginalFilename();
+			File newFile=new File(path);//진짜 파일명만 가져옴(originalFilename)
+			
+			String filename = file.getOriginalFilename();
+			
+			if(newFile.exists()) {	
+				long time = System.currentTimeMillis(); 
+
+				SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
+				filename = dayTime.format(new Date(time)) + file.getOriginalFilename();
+				path = saveDir+"/"+filename;
+				newFile = new File(path);	
+			}
+			boardService.registerPicture(postId, "images/"+ filename);
+			file.transferTo(newFile);
+			System.out.println("save Image files");
 		}
-		boardService.registerPicture(postId, path);
-		file.transferTo(newFile);
-		model.addAttribute("board",boardService.getPostName(board.getUserEmail()));
-		System.out.println("save Image files");
+		
+		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
 		return "blog";
 	}
 

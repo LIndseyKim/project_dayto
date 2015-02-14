@@ -23,10 +23,10 @@ public class PlaceController{
 	
 	//동기 통신
 	@RequestMapping("/getPlace.do")
-	public String getPlace(HttpSession session){
+	public String getPlace(Model model){
 		Place place = placeService.getPlace("예당축산");
-		session.setAttribute("place", place);
-		return "redirect:/schedule.jsp";
+		model.addAttribute("place", place);
+		return "schedule";
 	}
 	
 	@RequestMapping("/getPlaceListByAddr.do")
@@ -34,7 +34,7 @@ public class PlaceController{
 		List<Place> placeList = placeService.getPlacesByAddr("동대문");
 		System.out.println(placeList.get(0).getPlaceName());
 		model.addAttribute("placeList", placeList);
-		return "redirect:/schedule.jsp";
+		return "schedule";
 	}
 	/*public String getPlace(Model model, @RequestParam("placeName") String placeName){
 		System.out.println("getPlace??");

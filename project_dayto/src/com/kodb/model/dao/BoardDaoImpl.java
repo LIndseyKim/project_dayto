@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.kodb.model.vo.Blog;
 import com.kodb.model.vo.Board;
 import com.kodb.model.vo.User;
 
@@ -48,5 +49,10 @@ public class BoardDaoImpl  implements BoardDao {
 		map.put("postId", postId);
 		map.put("postPic", postPic);
 		flag = session.insert("picture.insertPic", map) > 0;
+	}
+	
+	@Override
+	public List<Blog> selectPostWithPicture(String userEmail) {
+		return session.selectList("board.selectPostWithPicture", userEmail);
 	}
 }
