@@ -48,13 +48,9 @@
                this.address = document.getElementById("GoogleMap_addr");
                this.geocoder = new google.maps.Geocoder();
                this.infowindow = new google.maps.InfoWindow();
-               //var temp=${place.addressX};
+
                var x=37.54857886215574;
                var y=126.95317768942301;
-               //if(37.54857886215574+temp>40){
-               //   x=${place.addressX};
-               //   y=${place.addressY};
-               //}
                
                var latlng = new google.maps.LatLng(x,y);
                
@@ -133,7 +129,7 @@
         	$(".login_fail").click(login_fail_alert);
  			$("#logout").click(logout_alert);
  			
- 			var place = null;
+ 			var events = [];
  			/* initialize the external events
  			-----------------------------------------------------------------*/
  			$('#external-events .fc-event').each(function() {
@@ -163,17 +159,22 @@
  				height : 800,
  				editable : true,
  				droppable : true, // this allows things to be dropped onto the calendar
- 				drop : function() {
- 					place = $.trim($(this).text());
- 					alert("Dropped on " + place);
- 				}
- 			});
- 			
- 			$('.fc-content').each(function() {
- 				$(this).drop( function() {
- 					place = $.trim($(this).text());
- 					console.log(place);
- 				});
+ 				drop : function(event, delta, revertFunc) {
+ 					events.push({
+ 						title	: $.trim($(this).text()),
+ 						start	: $('#calendar').fullCalendar('getDate').format(),
+ 						end		: $(this).attr('end')
+ 					})
+ 					console.log(events);
+ 				},
+ 				eventDrop: function(event, delta, revertFunc) {
+ 					events.push({
+ 						title	: event.title,
+ 						start	: $(this).attr('start'),
+ 						end		: $(this).attr('end')
+ 					})
+ 					console.log(events);
+ 			    }
  			});
  		});
       

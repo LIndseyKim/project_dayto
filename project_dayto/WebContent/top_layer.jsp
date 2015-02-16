@@ -25,7 +25,7 @@
 						</c:when>
 						<c:otherwise>
 							<li><a href="${pageContext.request.contextPath}/login.jsp" class="login_fail">Schedule</a></li>
-							<li><a href="${pageContext.request.contextPath}/login.jsp" class="login_fail">Blog</a></li>
+							<li><a href="${pageContext.request.contextPath}/login.jsp" class="login_fail">Day Together</a></li>
 							<li><a id="loginButton" href="${pageContext.request.contextPath}/login.jsp"
 								class="button special">Login</a></li>
 						</c:otherwise>
