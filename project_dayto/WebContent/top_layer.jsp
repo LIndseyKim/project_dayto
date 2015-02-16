@@ -12,7 +12,7 @@
 		<nav id="nav">
 			<ul>
 				<li><a href="#">About us</a></li>
-				<li><a href="search.jsp">Search</a>
+				<li><a href="getAllPublicPost.do">Search</a>
 				<li><c:choose>
 						<c:when test="${user != null }">
 							<li><a href="${pageContext.request.contextPath}/schedule.jsp">Schedule</a></li>

@@ -44,7 +44,7 @@ public class BoardController {
 		if(!file.isEmpty()) {
 			String saveDir = request.getServletContext().getRealPath("/images");
 			String path = saveDir+"/"+file.getOriginalFilename();
-			File newFile=new File(path);//ÁøÂ¥ ÆÄÀÏ¸í¸¸ °¡Á®¿È(originalFilename)
+			File newFile=new File(path);//ï¿½ï¿½Â¥ ï¿½ï¿½ï¿½Ï¸? ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(originalFilename)
 			
 			String filename = file.getOriginalFilename();
 			
@@ -81,5 +81,19 @@ public class BoardController {
 		model.addAttribute("blog", blog);
 		return "displayBlog";
 	}
+	
+	@RequestMapping("/getAllPublicPost.do")
+	public String getAllPublicPost(Model model) {
+		
+		List<Board> boardList =  boardService.getAllPublicPost();
+		System.out.println(boardList.toString());
+		
+		model.addAttribute("board",boardService.getAllPublicPost());
+
+		
+		return "search";		
+	}
+	
+	
 	
 }

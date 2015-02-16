@@ -18,4 +18,7 @@ public interface BoardService {
 	public abstract List<Blog> getPostWithPicture(String userEmail);
 	
 	public abstract Blog getPost(int postId);
+	
+	public abstract List<Board> getAllPublicPost();
+	
 }

@@ -17,9 +17,9 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void registerBoard(Board board){
 		System.out.println("[registerBoard]");
-		// ¾ÆÀÌµð¿¡ ÀÏÄ¡ÇÏ´Â È¸¿øÁ¤º¸ Á¶È¸ : select
+		// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ : select
 //		Board boardContents = boardDao.selectUser(board.getUserEmail());
-		// È¸¿øÀÌ ¾ø´Ù¸é È¸¿øÁ¤º¸ ÀúÀå : insert
+		// È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¸ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : insert
 			boardDao.insertBoard(board);
 		}
 
@@ -54,4 +54,10 @@ public class BoardServiceImpl implements BoardService{
 		return boardDao.selectPost(postId);
 	}
 	
+	@Override
+	public List<Board> getAllPublicPost() {
+			System.out.println("[getAllPublicPost]");
+			
+			return boardDao.selectAllPulicPost();
+	}
 }

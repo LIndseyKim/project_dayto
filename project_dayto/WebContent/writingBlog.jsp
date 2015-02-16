@@ -66,12 +66,12 @@
 					rows="6" placeholder="글을 입력하세요"></textarea>
 	
 				<div id="boxes">
-					<label class="checkbox1"> <input type="checkbox" value=1 />다녀옴
-					</label> <label class="radio1"> <input type="radio"
-						name="postPublic" id="optionsRadios1" value=1 checked />다른 회원에게 공개
-					</label> <label class="radio1"> <input type="radio"
-						name="optionsRadios" id="optionsRadios2" value="N" />비공개
-					</label>
+					 
+					<input type="radio"
+						name="postPublic" id="optionsRadios1" value=0 checked />다른 회원에게 공개
+						<br/>
+					 <input type="radio"
+						name="postPublic" id="optionsRadios2" value=1 />다른 회원에게 비공개
 				</div>
 	
 				이미지선택 : <input type="file" name="image" /> <br /> 

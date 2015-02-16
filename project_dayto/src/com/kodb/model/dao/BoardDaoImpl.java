@@ -60,4 +60,16 @@ public class BoardDaoImpl  implements BoardDao {
 	public Blog selectPost(int postId) {
 		return session.selectOne("board.selectPost", postId);
 	}
+	
+	@Override
+	public List<Board>  selectAllPulicPost() {
+		boolean flag = false;
+
+		return session.selectList("board.selectPublicBlog");
+		
+	}
+	
+	
+	
+	
 }

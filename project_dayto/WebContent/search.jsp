@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -117,30 +118,36 @@
 	</form>
 	</section>
 
-	<div class="container">
-		<div class="row">
-			<div class="4u">
-				<section class="special box"> <a href="#"
-					class="image fit"><img src="images/blog/pic01.jpg" /></a>
-				<h3>블로그 제목1</h3>
-				<p>블로그 글1</p>
-				</section>
+			<div class="container">
+				<div class="row">
+					<c:forEach items="${board}" var="b">
+						<div class="4u">
+							<section class="special box">
+								<a href="#" class="image fit"><img src="${b.postContent}"/></a>
+								<h3>${b.postName}</h3>
+							</section>
+						</div>
+					</c:forEach>
 			</div>
-			<div class="4u">
+			
+			
+		<!-- 	<div class="4u">
 				<section class="special box"> <a href="#"
 					class="image fit"><img src="images/blog/pic02.jpg" /></a>
 				<h3>블로그 제목2</h3>
 				<p>블로그 글2</p>
 				</section>
 			</div>
+			
 			<div class="4u">
 				<section class="special box"> <a href="#"
 					class="image fit"><img src="images/blog/pic03.jpg" /></a>
 				<h3>블로그 제목3</h3>
 				<p>블로그 글3</p>
 				</section>
-			</div>
+			</div> 
 		</div>
-	</div>
+	</div>-->
 </body>
 </html>
+

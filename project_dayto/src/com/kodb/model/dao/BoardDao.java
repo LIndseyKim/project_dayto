@@ -20,4 +20,6 @@ public interface  BoardDao {
 	
 	public abstract Blog selectPost(int postId);
 	
+	public abstract List<Board> selectAllPulicPost();
+	
 }

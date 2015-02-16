@@ -58,4 +58,11 @@
 		where	bp.post_id = bpic.post_id
 		and		bp.post_id = #{value}
 	</select>  
+	
+		<select id="selectPublicBlog" resultMap="BoardResultMap">
+		select * 
+		from blog_post 
+		where post_public = 0 order by post_id
+	</select>	
+	
 </mapper>
