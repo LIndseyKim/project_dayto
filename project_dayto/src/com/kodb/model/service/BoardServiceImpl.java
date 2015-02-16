@@ -53,8 +53,13 @@ public class BoardServiceImpl implements BoardService{
 	
 	@Override
 	public List<Blog> getAllPublicPost() {
-			System.out.println("[getAllPublicPost]");
-			
-			return boardDao.selectAllPulicPost();
+		System.out.println("[getAllPublicPost]");
+		return boardDao.selectAllPulicPost();
+	}
+	
+	@Override
+	public List<Blog> getSearchPublicPost(String searchValue) {
+ 		System.out.println("[getSearchPublicPost]");
+		return boardDao.selectSearchPost(searchValue);
 	}
 }

@@ -13,26 +13,26 @@
 			<ul>
 				<li><a href="#">About us</a></li>
 				<li><a href="${pageContext.request.contextPath}/getAllPublicPost.do?flag=2">Search</a>
-				<li><c:choose>
+				<c:choose>
 						<c:when test="${user != null }">
 							<li><a href="${pageContext.request.contextPath}/schedule.jsp">Schedule</a></li>
 							<li><a href="${pageContext.request.contextPath}/getPostName.do">Day Together</a></li>
-							<li><a href="${pageContext.request.contextPath}/mypage.jsp">Mypage</a></li>
+							<li><a onclick="mypage_popup()">Mypage</a></li>
 							<li>
 								<h5>${user.userName}님이 로그인 하셨습니다.</h5>
 							</li>
 							<li><a href="${pageContext.request.contextPath}/logout.do" id="logout" class="button special">Logout</a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="${pageContext.request.contextPath}/login.jsp" class="login_fail">Schedule</a></li>
-							<li><a href="${pageContext.request.contextPath}/login.jsp" class="login_fail">Day Together</a></li>
-							<li><a id="loginButton" href="${pageContext.request.contextPath}/login.jsp"
-								class="button special">Login</a></li>
+							<li><a onclick="login_popup()" class="login_fail">Schedule</a></li>
+							<li><a onclick="login_popup()" class="login_fail">Day Together</a></li>
+							<li><a id="loginButton" onclick="login_popup()" class="button special">Login</a></li>
 						</c:otherwise>
-					</c:choose>
+				</c:choose>
 			</ul>
 		</nav>
 		<!-- nav -->
 	</div>
+	<div id="member_popup" class ="content"></div>
 </header>
 <!-- Header -->

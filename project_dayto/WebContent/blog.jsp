@@ -14,36 +14,56 @@
 		<script src="${pageContext.request.contextPath}/js/skel-layers.min.js"></script>
 		<script src="${pageContext.request.contextPath}/js/init.js"></script>
 		<script src="${pageContext.request.contextPath}/js/dayto_alert.js"></script>
-		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
 		
 		<link rel="stylesheet"
 			href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.css" />
 		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="${pageContext.request.contextPath}/js/jquery.bpopup.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<link href="${pageContext.request.contextPath}/css/signup/signupstyle.css" rel="stylesheet" type="text/css" />
+		
 		<script>
-					$(document).ready(function() {
-						$(".login_fail").click(login_fail_alert)
-						$("#logout").click(logout_alert)
-					});
+			$(document).ready(function() {
+				$(".login_fail").click(login_fail_alert)
+				$("#logout").click(logout_alert)
+				
+			});
+			function mypage_popup() {
+				$('#member_popup').bPopup({
+				    contentContainer:'.content',
+				    loadUrl: '${pageContext.request.contextPath}/mypage.jsp'
+				})
+			};
 		</script>
 		
 		<style>
-		.blog-wrapper {
-			padding: 20px 0 0 0;
-		}
-		
-		.blog-wrapper.blog-style1 {
-			background: #fff;
-			color: #555f66;
-		}
-		
-		.blog-image {
-			padding-top: -196px;
-			padding-bottom: -96px;
-			margin-left: 130px;
-			display: block;
-			width: 80%;
-			height: 100px;
-		}
+			.Pstyle {
+			    opacity: 0;
+			    display: none;
+			    position: relative;
+			    width: auto;
+			    border: 5px solid #fff;
+			    padding: 20px;
+			    background-color: #fff;
+			}
+			.blog-wrapper {
+				padding: 20px 0 0 0;
+			}
+			
+			.blog-wrapper.blog-style1 {
+				background: #fff;
+				color: #555f66;
+			}
+			
+			.blog-image {
+				padding-top: -196px;
+				padding-bottom: -96px;
+				margin-left: 130px;
+				display: block;
+				width: 80%;
+				height: 100px;
+			}
 		</style>
 	</head>
 	<body>

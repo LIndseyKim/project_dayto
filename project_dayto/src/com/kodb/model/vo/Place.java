@@ -9,6 +9,7 @@ public class Place {
 	private String placeTel;
 	private String placeCategory;	
 	private String placeAddr;
+	private String placeAddr2;
 	private double addressX;
 	private double addressY;
 	
@@ -64,6 +65,15 @@ public class Place {
 	public void setPlaceAddr(String placeAddr) {
 		this.placeAddr = placeAddr;
 	}
+	
+	
+	public String getPlaceAddr2() {
+		return placeAddr2;
+	}
+
+	public void setPlaceAddr2(String placeAddr2) {
+		this.placeAddr2 = placeAddr2;
+	}
 
 	public double getAddressX() {
 		return addressX;
@@ -85,7 +95,7 @@ public class Place {
 	public String toString() {
 		return "Place [placeId=" + placeId + ", placeName=" + placeName
 				+ ", placeTel=" + placeTel + ", placeCategory=" + placeCategory
-				+ ", placeAddr=" + placeAddr + ", addressX=" + addressX
-				+ ", addressY=" + addressY + "]";
+				+ ", placeAddr=" + placeAddr + ", placeAddr2=" + placeAddr2
+				+ ", addressX=" + addressX + ", addressY=" + addressY + "]";
 	}
 }

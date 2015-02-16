@@ -69,7 +69,8 @@ public class BoardDaoImpl  implements BoardDao {
 		
 	}
 	
-	
-	
-	
+	@Override
+	public List<Blog> selectSearchPost(String searchValue) {
+		return session.selectList("board.selectSearchBlog",searchValue);
+	}
 }

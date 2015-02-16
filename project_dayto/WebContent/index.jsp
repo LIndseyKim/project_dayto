@@ -14,10 +14,15 @@
 		<script src="${pageContext.request.contextPath}/js/skel-layers.min.js"></script>
 		<script src="${pageContext.request.contextPath}/js/init.js"></script>
 		<script src="${pageContext.request.contextPath}/js/dayto_alert.js"></script>
-		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
 		
 		<link rel="stylesheet"
 			href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.css" />
+			
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="${pageContext.request.contextPath}/js/jquery.bpopup.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<link href="${pageContext.request.contextPath}/css/login/loginstyle.css" rel="stylesheet" type="text/css" />
+		<link href="${pageContext.request.contextPath}/css/signup/signupstyle.css" rel="stylesheet" type="text/css" />
 		
 		<script>
 			$(document).ready(function() {
@@ -25,12 +30,32 @@
 				$("#logout").click(logout_alert)
 				
 			});
-			window.onload = function() {
-				$("body").load("${pageContext.request.contextPath}/getAllPublicPost.do?flag=1")
-	         }
+			function login_popup() {
+				$('#member_popup').bPopup({
+				    contentContainer:'.content',
+				    loadUrl: '${pageContext.request.contextPath}/login.jsp',
+				})
+			};
+			function mypage_popup() {
+				$('#member_popup').bPopup({
+				    contentContainer:'.content',
+				    loadUrl: '${pageContext.request.contextPath}/mypage.jsp'
+				})
+			}
 		</script>
+		<style>
+			.Pstyle {
+			    opacity: 0;
+			    display: none;
+			    position: relative;
+			    width: auto;
+			    border: 5px solid #fff;
+			    padding: 20px;
+			    background-color: #fff;
+			}
+		</style>
 	</head>
-	<body>
+	<body> <%-- onload="${pageContext.request.contextPath}/getAllPublicPost.do?flag=1"> --%>
 		<jsp:include page="top_layer.jsp" />
 		<!-- Banner -->
 		<section id="banner">
@@ -45,7 +70,7 @@
 		</div>
 		</section>
 	
-		<section id="one" class="wrapper style1"> <header class="major">
+		<%-- <section id="one" class="wrapper style1"> <header class="major">
 		<h2>추천 일정</h2>
 		</header>
 		<div id="Recommend" class="container">
@@ -63,7 +88,7 @@
 				</c:forEach>
 			</div>
 		</div>
-		</section>
+		</section> --%>
 	
 		<!-- Footer -->
 		<footer id="footer">

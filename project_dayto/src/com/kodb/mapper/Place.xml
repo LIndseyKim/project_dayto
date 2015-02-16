@@ -11,22 +11,21 @@
 		<result property="placeTel" column="place_tel" />
 		<result property="placeCategory" column="place_category" />
 		<result property="placeAddr" column="place_addr" />
+		<result property="placeAddr2" column="place_addr2" />
 		<result property="addressX" column="address_X" />
 		<result property="addressY" column="address_Y" />
 	</resultMap>
 
 
 	<select id="selectPlace" parameterType="String" resultMap="PlaceResultMap">
-		select place_id, place_name, place_tel, place_category, place_addr
-		, address_x,address_y
+		select *
 		from place_info
 		where place_name = #{placeName}
 	</select>
 
 	<select id="selectPlacesByAddr" parameterType="String"
 		resultMap="PlaceResultMap">
-		select place_id, place_name, place_tel, place_category,
-		place_addr, address_x,address_y
+		select *
 		from place_info
 		where place_addr like '%'||#{value}||'%'
 	</select>

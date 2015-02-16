@@ -38,7 +38,7 @@ public class BoardController {
 						@RequestParam("image") MultipartFile file) throws IllegalStateException, IOException{
 		
 		boardService.registerBoard(board);	
-		String filename = "base_cover.jpg";
+		String filename = "base_image.jpg";
 		int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
 
 		if(!file.isEmpty()) {
@@ -83,9 +83,9 @@ public class BoardController {
 	
 	@RequestMapping("/getAllPublicPost.do")
 	public String getAllPublicPost(Model model, HttpSession session, HttpServletRequest req ) {
-		
-		
-		if(Integer.parseInt(req.getParameter("flag")) == 1) {
+		model.addAttribute("blog",boardService.getAllPublicPost());
+		return "search";
+		/*if(Integer.parseInt(req.getParameter("flag")) == 1) {
 			session.setAttribute("recommend",boardService.getAllPublicPost());
 			return "redirect:/index.jsp";
 		}
@@ -93,7 +93,13 @@ public class BoardController {
 		else {
 			model.addAttribute("blog",boardService.getAllPublicPost());
 			return "search";		
-		}
+		}*/
+	}
+	
+	@RequestMapping("/searchPublicPost")
+	public String getSearchPublicPost(Model model , String searchValue ) {
+		model.addAttribute("blog", boardService.getSearchPublicPost(searchValue));
+		return "search";
 	}
 	
 	

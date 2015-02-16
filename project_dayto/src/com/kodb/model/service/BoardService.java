@@ -21,4 +21,5 @@ public interface BoardService {
 	
 	public abstract List<Blog> getAllPublicPost();
 	
+	public abstract List<Blog> getSearchPublicPost(String searchValue);
 }

@@ -38,59 +38,20 @@ body {
 	/* Center wrapper perfectly */
 	width: 300px;
 	height: 400px;
-	position: relative;
-	left : 40%;
-/*	position: absolute;
+	position: absolute;
  	left: 40%;
-	top: 80%; */
-	/* margin-left: -150px;
-	margin-top: -200px; */
-}
-
-/*
-.gradient {
-	width: 600px;
-	height: 600px;
-	position: fixed;
-	left: 50%;
 	top: 50%;
-	margin-left: -300px;
-	margin-top: -300px;
-	
-	background: url(../images/login/gradient.png) no-repeat;
+	margin-left: -150px;
+	margin-top: -200px;
 }
-*/
-
-.gradient {
-	/* Center Positioning */
-	width: 600px;
-	height: 600px;
-	position: fixed;
-	left: 50%;
-	top: 50%;
-	margin-left: -300px;
-	margin-top: -300px;
-	
-	/* Fallback */ 
-	background-image: url(../images/login/gradient.png); 
-	background-repeat: no-repeat; 
-	
-	/* CSS3 Gradient */
-	background-image: -webkit-gradient(radial, 0% 0%, 0% 100%, from(rgba(213,246,255,1)), to(rgba(213,246,255,0)));
-	background-image: -webkit-radial-gradient(50% 50%, 40% 40%, rgba(213,246,255,1), rgba(213,246,255,0));
-	background-image: -moz-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
-	background-image: -ms-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
-	background-image: -o-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
-}
-
 /*******************
 LOGIN FORM
 *******************/
 
 .login-form {
 	width: 300px;
-	margin-top: 40%;
-	position: relative;
+	margin-top: 20%;
+	position: absolute;
 	z-index:5;
 	
 	background: #f3f3f3;

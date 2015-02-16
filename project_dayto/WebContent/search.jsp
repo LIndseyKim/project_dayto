@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>Test</title>
+		<title>Search</title>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="description" content="" />
@@ -19,14 +19,42 @@
 		<link rel="stylesheet"
 			href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.css" />
 		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="${pageContext.request.contextPath}/js/jquery.bpopup.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<link href="${pageContext.request.contextPath}/css/login/loginstyle.css" rel="stylesheet" type="text/css" />
+		<link href="${pageContext.request.contextPath}/css/signup/signupstyle.css" rel="stylesheet" type="text/css" />
+		
 		<script>
-					$(document).ready(function() {
-						$(".login_fail").click(login_fail_alert)
-						$("#logout").click(logout_alert)
-					});
-				</script>
+			$(document).ready(function() {
+				$(".login_fail").click(login_fail_alert)
+				$("#logout").click(logout_alert)
+				
+			});
+			function login_popup() {
+				$('#member_popup').bPopup({
+				    contentContainer:'.content',
+				    loadUrl: '${pageContext.request.contextPath}/login.jsp'
+				})
+			};
+			function mypage_popup() {
+				$('#member_popup').bPopup({
+				    contentContainer:'.content',
+				    loadUrl: '${pageContext.request.contextPath}/mypage.jsp'
+				})
+			};
+		</script>
 		
 		<style>
+			.Pstyle {
+			    opacity: 0;
+			    display: none;
+			    position: relative;
+			    width: auto;
+			    border: 5px solid #fff;
+			    padding: 20px;
+			    background-color: #fff;
+			}
 			.form-wrapper {
 				width: 450px;
 				padding: 8px;
@@ -112,8 +140,8 @@
 	<jsp:include page="top_layer.jsp" flush="false" />
 	<!-- Main -->
 	<section id="main" class="blog-wrapper blog-style1">
-	<form class="form-wrapper">
-		<input type="text" id="search" placeholder="장소, 일정, 테마..." required>
+	<form class="form-wrapper" action="${pageContext.request.contextPath}/searchPublicPost.do" method="post">
+		<input type="text" id="search" name="searchValue" placeholder="장소, 일정, 테마..." required>
 		<input type="submit" value="go" id="submit">
 	</form>
 	</section>

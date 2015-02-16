@@ -12,18 +12,48 @@
 		<script src="${pageContext.request.contextPath}/js/skel-layers.min.js"></script>
 		<script src="${pageContext.request.contextPath}/js/init.js"></script>
 		<script src="${pageContext.request.contextPath}/js/dayto_alert.js"></script>
-		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
 		
 		<link rel="stylesheet"
 			href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.css" />
+			
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="${pageContext.request.contextPath}/js/jquery.bpopup.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<link href="${pageContext.request.contextPath}/css/login/loginstyle.css" rel="stylesheet" type="text/css" />
+		<link href="${pageContext.request.contextPath}/css/signup/signupstyle.css" rel="stylesheet" type="text/css" />
 		
 		<script>
 			$(document).ready(function() {
 				$(".login_fail").click(login_fail_alert)
 				$("#logout").click(logout_alert)
+				
 			});
+			function login_popup() {
+				$('#member_popup').bPopup({
+				    contentContainer:'.content',
+				    loadUrl: '${pageContext.request.contextPath}/login.jsp'
+				})
+			};
+			function mypage_popup() {
+				$('#member_popup').bPopup({
+				    contentContainer:'.content',
+				    loadUrl: '${pageContext.request.contextPath}/mypage.jsp'
+				})
+			};
 		</script>
 		
+		<style>
+			.Pstyle {
+			    opacity: 0;
+			    display: none;
+			    position: relative;
+			    width: auto;
+			    border: 5px solid #fff;
+			    padding: 20px;
+			    background-color: #fff;
+			}
+		</style>
+
 		<style type="text/css">
 			#boxes input[type="checkbox"], #boxes input[type="radio"] {
 				-moz-appearance: checkbox;
@@ -58,7 +88,7 @@
 	
 			<div style="margin: 0 auto; width: 1000px">
 				<br>
-				<h2 align="center">${user.userName}님의블로그글 작성하기</h2>
+				<h2 align="center">${user.userName}님의 Day Together 작성하기</h2>
 				<input class="field span12" name="postName" type="text"
 					placeholder="블로그 제목" onfocus="this.value=''" />
 	
