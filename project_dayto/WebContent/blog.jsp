@@ -52,7 +52,7 @@
 		
 		<section id="one" class="wrapper style1"> 
 			<header class="major">
-				<h2>나의${user.userEmail} DAY TOGETHER </h2>
+				<h2>${user.userName} DAY TOGETHER </h2>
 			</header>
 			<div class="container">
 				<div class="row">

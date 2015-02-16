@@ -16,7 +16,7 @@
 				<li><c:choose>
 						<c:when test="${user != null }">
 							<li><a href="${pageContext.request.contextPath}/schedule.jsp">Schedule</a></li>
-							<li><a href="${pageContext.request.contextPath}/getPostName.do">Blog</a></li>
+							<li><a href="${pageContext.request.contextPath}/getPostName.do">Day Together</a></li>
 							<li><a href="${pageContext.request.contextPath}/mypage.jsp">Mypage</a></li>
 							<li>
 								<h5>${user.userName}님이 로그인 하셨습니다.</h5>
