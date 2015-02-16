@@ -23,7 +23,6 @@ import com.kodb.model.vo.Blog;
 import com.kodb.model.vo.Board;
 import com.kodb.model.vo.Place;
 import com.kodb.model.vo.User;
-
 @Controller
 public class BoardController {
 	
@@ -44,7 +43,7 @@ public class BoardController {
 		if(!file.isEmpty()) {
 			String saveDir = request.getServletContext().getRealPath("/images");
 			String path = saveDir+"/"+file.getOriginalFilename();
-			File newFile=new File(path);//��¥ ���ϸ? ������(originalFilename)
+			File newFile=new File(path);
 			
 			String filename = file.getOriginalFilename();
 			
@@ -76,21 +75,13 @@ public class BoardController {
 	
 	@RequestMapping("/getPost.do")
 	public String getPost(Model model, HttpSession session, HttpServletRequest req) {
-		Blog blog = boardService.getPost(Integer.parseInt(req.getParameter("postId")));
-		System.out.println("blog : " + blog);
-		model.addAttribute("blog", blog);
+		model.addAttribute("blog", boardService.getPost(Integer.parseInt(req.getParameter("postId"))));
 		return "displayBlog";
 	}
 	
 	@RequestMapping("/getAllPublicPost.do")
 	public String getAllPublicPost(Model model) {
-		
-		List<Board> boardList =  boardService.getAllPublicPost();
-		System.out.println(boardList.toString());
-		
-		model.addAttribute("board",boardService.getAllPublicPost());
-
-		
+		model.addAttribute("blog",boardService.getAllPublicPost());
 		return "search";		
 	}
 	

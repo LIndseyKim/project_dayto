@@ -59,10 +59,10 @@
 		and		bp.post_id = #{value}
 	</select>  
 	
-		<select id="selectPublicBlog" resultMap="BoardResultMap">
-		select * 
-		from blog_post 
-		where post_public = 0 order by post_id
+	<select id="selectPublicBlog" resultMap="PostwithPictureResultMap">
+		select 	bp.post_id, bp.post_name, bp.post_content, bpic.post_pic
+		from	blog_post  bp, blog_picture bpic
+		where	bp.post_id = bpic.post_id
+		and		bp.post_public = 0 order by bp.post_id
 	</select>	
-	
 </mapper>

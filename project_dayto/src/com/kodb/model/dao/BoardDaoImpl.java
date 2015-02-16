@@ -62,7 +62,7 @@ public class BoardDaoImpl  implements BoardDao {
 	}
 	
 	@Override
-	public List<Board>  selectAllPulicPost() {
+	public List<Blog>  selectAllPulicPost() {
 		boolean flag = false;
 
 		return session.selectList("board.selectPublicBlog");

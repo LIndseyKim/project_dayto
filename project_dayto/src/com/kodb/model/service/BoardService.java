@@ -19,6 +19,6 @@ public interface BoardService {
 	
 	public abstract Blog getPost(int postId);
 	
-	public abstract List<Board> getAllPublicPost();
+	public abstract List<Blog> getAllPublicPost();
 	
 }

@@ -118,36 +118,21 @@
 	</form>
 	</section>
 
-			<div class="container">
-				<div class="row">
-					<c:forEach items="${board}" var="b">
-						<div class="4u">
-							<section class="special box">
-								<a href="#" class="image fit"><img src="${b.postContent}"/></a>
-								<h3>${b.postName}</h3>
-							</section>
-						</div>
-					</c:forEach>
-			</div>
-			
-			
-		<!-- 	<div class="4u">
-				<section class="special box"> <a href="#"
-					class="image fit"><img src="images/blog/pic02.jpg" /></a>
-				<h3>블로그 제목2</h3>
-				<p>블로그 글2</p>
-				</section>
-			</div>
-			
-			<div class="4u">
-				<section class="special box"> <a href="#"
-					class="image fit"><img src="images/blog/pic03.jpg" /></a>
-				<h3>블로그 제목3</h3>
-				<p>블로그 글3</p>
-				</section>
-			</div> 
+	<div class="container">
+		<div class="row">
+			<c:forEach items="${blog}" var="b">
+				<div class="4u">
+					<section class="special box">
+						<c:forEach items="${b.pictureList}" var="p">
+							<a href="${pageContext.request.contextPath}/getPost.do?postId=${b.postId}" class="image fit"><img src="${p.postPic}"/></a>
+						</c:forEach>
+						<h3>${b.postName}</h3>
+						<p>${b.postContent}</p>
+					</section>
+				</div>
+			</c:forEach>
 		</div>
-	</div>-->
+	</div>
 </body>
 </html>
 
