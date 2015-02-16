@@ -38,6 +38,7 @@ public class BoardController {
 						@RequestParam("image") MultipartFile file) throws IllegalStateException, IOException{
 		
 		boardService.registerBoard(board);	
+		String filename = "base_cover.jpg";
 		int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
 
 		if(!file.isEmpty()) {
@@ -45,8 +46,9 @@ public class BoardController {
 			String path = saveDir+"/"+file.getOriginalFilename();
 			File newFile=new File(path);
 			
-			String filename = file.getOriginalFilename();
+			filename = file.getOriginalFilename();
 			
+
 			if(newFile.exists()) {	
 				long time = System.currentTimeMillis(); 
 
@@ -55,11 +57,11 @@ public class BoardController {
 				path = saveDir+"/"+filename;
 				newFile = new File(path);	
 			}
-			boardService.registerPicture(postId, "images/"+ filename);
 			file.transferTo(newFile);
-			System.out.println("save Image files");
 		}
 		
+		boardService.registerPicture(postId, "images/"+ filename);
+		System.out.println("save Image files");
 		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
 		return "blog";
 	}
@@ -80,9 +82,18 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/getAllPublicPost.do")
-	public String getAllPublicPost(Model model) {
-		model.addAttribute("blog",boardService.getAllPublicPost());
-		return "search";		
+	public String getAllPublicPost(Model model, HttpSession session, HttpServletRequest req ) {
+		
+		
+		if(Integer.parseInt(req.getParameter("flag")) == 1) {
+			session.setAttribute("recommend",boardService.getAllPublicPost());
+			return "redirect:/index.jsp";
+		}
+			
+		else {
+			model.addAttribute("blog",boardService.getAllPublicPost());
+			return "search";		
+		}
 	}
 	
 	

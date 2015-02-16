@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -22,7 +23,11 @@
 			$(document).ready(function() {
 				$(".login_fail").click(login_fail_alert)
 				$("#logout").click(logout_alert)
+				
 			});
+			window.onload = function() {
+				$("body").load("${pageContext.request.contextPath}/getAllPublicPost.do?flag=1")
+	         }
 		</script>
 	</head>
 	<body>
@@ -35,42 +40,27 @@
 				일정관리 웹 어플리케이션 <a href="#">2528</a>
 			</p>
 			<ul class="actions">
-				<!-- <li><a href="#content" class="button big special">Sign Up</a></li> -->
 				<li><a href="#" class="button big alt">Learn More</a></li>
 			</ul>
 		</div>
 		</section>
 	
-		<section id="one" class="wrapper style1"> <header
-			class="major">
+		<section id="one" class="wrapper style1"> <header class="major">
 		<h2>추천 일정</h2>
 		</header>
-		<div class="container">
+		<div id="Recommend" class="container">
 			<div class="row">
-				<div class="4u">
-					<section class="special box"> <a href="#"
-						class="image fit"><img
-						src="${pageContext.request.contextPath}/images/blog/pic01.jpg" /></a>
-					<h3>블로그 제목1</h3>
-					<p>블로그 글1</p>
-					</section>
-				</div>
-				<div class="4u">
-					<section class="special box"> <a href="#"
-						class="image fit"><img
-						src="${pageContext.request.contextPath}/images/blog/pic02.jpg" /></a>
-					<h3>블로그 제목2</h3>
-					<p>블로그 글2</p>
-					</section>
-				</div>
-				<div class="4u">
-					<section class="special box"> <a href="#"
-						class="image fit"><img
-						src="${pageContext.request.contextPath}/images/blog/pic03.jpg" /></a>
-					<h3>블로그 제목3</h3>
-					<p>블로그 글3</p>
-					</section>
-				</div>
+				<c:forEach items="${recommend}" var="r">
+					<div class="4u">
+						<section class="special box">
+							<c:forEach items="${r.pictureList}" var="p">
+								<a href="${pageContext.request.contextPath}/getPost.do?postId=${r.postId}" class="image fit"><img src="${p.postPic}"/></a>
+							</c:forEach>
+							<h3>${r.postName}</h3>
+							<p>${r.postContent}</p>
+						</section>
+					</div>
+				</c:forEach>
 			</div>
 		</div>
 		</section>

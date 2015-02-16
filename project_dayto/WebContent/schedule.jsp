@@ -159,10 +159,13 @@
  				height : 800,
  				editable : true,
  				droppable : true, // this allows things to be dropped onto the calendar
- 				drop : function(event, delta, revertFunc) {
+ 				drop : function(event, date) {
+ 					console.log($('this .fc-time'));
+ 					var time = $('.fc-time').attr('data-start');
+ 					console.log('?' + time); 
  					events.push({
  						title	: $.trim($(this).text()),
- 						start	: $('#calendar').fullCalendar('getDate').format(),
+ 						start	: $(this).attr('start'),
  						end		: $(this).attr('end')
  					})
  					console.log(events);
