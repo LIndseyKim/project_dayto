@@ -28,9 +28,9 @@
 		( seq_blog_post_id.nextVal,#{userEmail}, #{postName}, SYSDATE, #{postContent}, null, #{postPublic})							
 	</insert>
 	
-	<delete id="deletePost" parameterType=>
+	<delete id="deletePost" parameterType="Integer">
 		DELETE FROM BLOG_POST
-		WHERE post_id = #{postId}
+		WHERE post_id = #{value}
 	</delete>
 	
 	<select id="selectBoard" parameterType="String" resultMap="BoardResultMap">

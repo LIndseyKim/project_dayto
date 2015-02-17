@@ -72,7 +72,6 @@ public class BoardController {
 	public String getUser(Model model, HttpSession session) {
 		
 		User user = (User)session.getAttribute("user");
-		boardService.getPostWithPicture(user.getUserEmail());
 		model.addAttribute("blog", boardService.getPostWithPicture(user.getUserEmail()));
 		return "blog";
 	}
@@ -107,11 +106,11 @@ public class BoardController {
 	@RequestMapping("/deletePost.do")
 	public String deletePost(Model model, HttpSession session, HttpServletRequest req) {
 			/*@RequestParam("postId") String postId) {*/
-		
-		String deletePostId = (String) req.getAttribute("deletePostId");
-		System.out.println("[controller OK] " + Integer.parseInt(req.getParameter("deletePostId")));
-		boardService.deletePost(deletePostId);
-		return "displayBlog";
+		System.out.println("[controller OK] ");
+		boardService.deletePost(Integer.parseInt(req.getParameter("deletePostId")));
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("blog", boardService.getPostWithPicture(user.getUserEmail()));
+		return "blog";
 	}
 	
 }

@@ -72,17 +72,11 @@
 				</section>
 			</div>
 		</section>
-		<table>
 			<tr align="center">
-      			<td>&nbsp;</td>
-      			<td colspan="2">
-      				<%--  --%>
+      			<td colspan="2" align="center">
       				<input type=button value="Modify" >
-       				<input type=button value="Delete" onclick="${pageContext.request.contextPath}/deletePost">
-     			<td>&nbsp;</td>
+      				<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
      		</tr>
-		</table>
-		<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}">확인</a>
-		<%-- <a href="${pageContext.request.contextPath}/deletePost.do?userEmail=${user.userEmail}">확인</a> --%>
+		
 	</body>
 </html>

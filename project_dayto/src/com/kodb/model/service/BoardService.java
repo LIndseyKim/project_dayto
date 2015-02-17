@@ -23,5 +23,5 @@ public interface BoardService {
 	
 	public abstract List<Blog> getSearchPublicPost(String searchValue);
 	
-	public abstract void deletePost(String postId);
+	public abstract Blog deletePost(int postId);
 }

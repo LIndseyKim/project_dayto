@@ -64,8 +64,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
-	public void deletePost(String postId) {
+	public Blog deletePost(int postId) {
 		System.out.println("[deletePost]");
-		boardDao.deletePost(postId);
+		return boardDao.deletePost(postId);
 	}
 }

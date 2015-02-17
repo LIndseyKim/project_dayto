@@ -74,11 +74,11 @@ public class BoardDaoImpl  implements BoardDao {
 	}
 	
 	@Override
-	public void deletePost(String postId) {
+	public Blog deletePost(int postId) {
 
 		//int flag = false;
 
 		//flag = session.insert("user.deleteUser", userEmail) > 0;
-		session.delete("board.deletePost", postId);
+		return session.selectOne("board.deletePost", postId);
 	}
 }

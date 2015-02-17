@@ -24,6 +24,6 @@ public interface  BoardDao {
 	
 	public abstract List<Blog> selectSearchPost(String searchValue);
 
-	void deletePost(String postId);
+	public abstract Blog deletePost(int postId);
 	
 }
