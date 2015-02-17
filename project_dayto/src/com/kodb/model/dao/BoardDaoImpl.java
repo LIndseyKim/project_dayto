@@ -63,7 +63,6 @@ public class BoardDaoImpl  implements BoardDao {
 	
 	@Override
 	public List<Blog>  selectAllPulicPost() {
-		boolean flag = false;
 
 		return session.selectList("board.selectPublicBlog");
 		
@@ -72,5 +71,14 @@ public class BoardDaoImpl  implements BoardDao {
 	@Override
 	public List<Blog> selectSearchPost(String searchValue) {
 		return session.selectList("board.selectSearchBlog",searchValue);
+	}
+	
+	@Override
+	public void deletePost(String postId) {
+
+		//int flag = false;
+
+		//flag = session.insert("user.deleteUser", userEmail) > 0;
+		session.delete("board.deletePost", postId);
 	}
 }

@@ -68,8 +68,21 @@
 						<img src="${p.postPic}" width="50%" height="50%"/>
 					</c:forEach>
 					<p>${blog.postContent}</p>
+					<p>${blog.postId}</p>
 				</section>
 			</div>
 		</section>
+		<table>
+			<tr align="center">
+      			<td>&nbsp;</td>
+      			<td colspan="2">
+      				<%--  --%>
+      				<input type=button value="Modify" >
+       				<input type=button value="Delete" onclick="${pageContext.request.contextPath}/deletePost">
+     			<td>&nbsp;</td>
+     		</tr>
+		</table>
+		<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}">확인</a>
+		<%-- <a href="${pageContext.request.contextPath}/deletePost.do?userEmail=${user.userEmail}">확인</a> --%>
 	</body>
 </html>

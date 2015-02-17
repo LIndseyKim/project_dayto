@@ -23,5 +23,7 @@ public interface  BoardDao {
 	public abstract List<Blog> selectAllPulicPost();
 	
 	public abstract List<Blog> selectSearchPost(String searchValue);
+
+	void deletePost(String postId);
 	
 }

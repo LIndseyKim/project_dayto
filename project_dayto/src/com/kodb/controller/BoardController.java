@@ -19,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.kodb.model.dao.BoardDao;
 import com.kodb.model.service.BoardService;
+import com.kodb.model.service.UserService;
+import com.kodb.model.service.UserServiceImpl;
 import com.kodb.model.vo.Blog;
 import com.kodb.model.vo.Board;
 import com.kodb.model.vo.Place;
@@ -102,6 +104,14 @@ public class BoardController {
 		return "search";
 	}
 	
-	
+	@RequestMapping("/deletePost.do")
+	public String deletePost(Model model, HttpSession session, HttpServletRequest req) {
+			/*@RequestParam("postId") String postId) {*/
+		
+		String deletePostId = (String) req.getAttribute("deletePostId");
+		System.out.println("[controller OK] " + Integer.parseInt(req.getParameter("deletePostId")));
+		boardService.deletePost(deletePostId);
+		return "displayBlog";
+	}
 	
 }

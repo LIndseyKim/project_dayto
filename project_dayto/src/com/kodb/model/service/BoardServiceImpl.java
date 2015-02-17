@@ -17,8 +17,8 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void registerBoard(Board board){
 		System.out.println("[registerBoard]");
-			boardDao.insertBoard(board);
-		}
+		boardDao.insertBoard(board);
+	}
 
 	@Override
 	public Board selectBoard(String userEmail) {
@@ -61,5 +61,11 @@ public class BoardServiceImpl implements BoardService{
 	public List<Blog> getSearchPublicPost(String searchValue) {
  		System.out.println("[getSearchPublicPost]");
 		return boardDao.selectSearchPost(searchValue);
+	}
+	
+	@Override
+	public void deletePost(String postId) {
+		System.out.println("[deletePost]");
+		boardDao.deletePost(postId);
 	}
 }
