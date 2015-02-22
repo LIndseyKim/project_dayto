@@ -59,23 +59,28 @@
 		<jsp:include page="top_layer.jsp" />
 		
 		<section id="main" class="wrapper style1">
-			<header class="major">
-				<h2>${blog.postName}</h2>
+		
+			<section class="special box">		
+			<h2>${blog.postName}</h2>
+			</section>
 			</header>
 			<div class="container" align="center">
-				<section>
+					
+					<section class="special box">		
+			
 					<c:forEach items="${blog.pictureList}" var="p">
-						<img src="${p.postPic}" width="50%" height="50%"/>
+						<img src="${p.postPic}" width="40%" height="40%"/>
 					</c:forEach>
+									</section>					
+					
+				<section class="special box">					
 					<p>${blog.postContent}</p>
-					<p>${blog.postId}</p>
-				</section>
+				</section>					
 			</div>
 		</section>
 		<table>
-			<tr align="center">
-      	
-      	<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:650px">Modify</a>
+			<tr align="center">      	
+      	<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:700px">Modify</a>
       	<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
      	</tr>
      	</table>

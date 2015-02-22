@@ -9,7 +9,7 @@ import com.kodb.model.vo.User;
 
 public class PlaceServiceImpl implements PlaceService {
 	
-	/*private UserDao userDao = new UserDao(); //ÀÌ°Å´Â ³ª»Û ÄÚµåÀÓ!! new¸¦ ÇÏ´Ù´Ï!!
+	/*private UserDao userDao = new UserDao(); //ï¿½Ì°Å´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½!! newï¿½ï¿½ ï¿½Ï´Ù´ï¿½!!
 */	private PlaceDao placeDao;
 	
 	
@@ -20,7 +20,7 @@ public class PlaceServiceImpl implements PlaceService {
 	@Override
 	public Place getPlace(String placeName){
 		System.out.println("[getPlace_name]");
-		// ¾ÆÀÌµð¿¡ ÀÏÄ¡ÇÏ´Â È¸¿øÁ¤º¸ Á¶È¸ : select
+		// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ : select
 		return placeDao.selectPlace(placeName);
 	}
 	
@@ -29,4 +29,17 @@ public class PlaceServiceImpl implements PlaceService {
 		System.out.println("[getPlace_byAddr]");
 		return placeDao.selectPlacesByAddr(addr);
 	}
+
+	@Override
+	public void recommPlace(int placeId) {
+		System.out.println("[recommPlace]");
+		placeDao.updateRecomm(placeId);
+		
+		
+		
+	}
+	
+	
+	
+	
 }

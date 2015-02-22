@@ -11,6 +11,7 @@ public interface PlaceDao {
 	public abstract Place selectPlace(String place_name);
 	public abstract List<Place> selectPlacesByAddr(String addr);
 	//public abstract boolean selectPlace(String place_name);
+	public abstract void updateRecomm(int placeId);
 
 	/*public abstract List<User> selectUser();
 

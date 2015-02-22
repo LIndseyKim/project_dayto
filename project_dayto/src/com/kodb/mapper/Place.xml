@@ -14,6 +14,8 @@
 		<result property="placeAddr2" column="place_addr2" />
 		<result property="addressX" column="address_X" />
 		<result property="addressY" column="address_Y" />
+		<result property="placeRecomm" column="place_recomm" />
+		
 	</resultMap>
 
 
@@ -29,6 +31,23 @@
 		from place_info
 		where place_addr like '%'||#{value}||'%'
 	</select>
+	
+	<update id="updateRecomm" parameterType="Integer">
+	UPDATE PLACE_INFO
+		SET
+		place_recomm = place_recomm + 1
+	WHERE place_id=#{placeId}
+	
+	
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
 
 </mapper>
 	

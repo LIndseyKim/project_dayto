@@ -12,6 +12,8 @@ public class Place {
 	private String placeAddr2;
 	private double addressX;
 	private double addressY;
+	private String placeRecomm;
+
 	
 	public Place() {
 		super();
@@ -91,11 +93,22 @@ public class Place {
 		this.addressY = addressY;
 	}
 
+	public String getPlaceRecomm() {
+		return placeRecomm;
+	}
+
+	public void setPlaceRecomm(String placeRecomm) {
+		this.placeRecomm = placeRecomm;
+	}
+
 	@Override
 	public String toString() {
 		return "Place [placeId=" + placeId + ", placeName=" + placeName
 				+ ", placeTel=" + placeTel + ", placeCategory=" + placeCategory
 				+ ", placeAddr=" + placeAddr + ", placeAddr2=" + placeAddr2
-				+ ", addressX=" + addressX + ", addressY=" + addressY + "]";
+				+ ", addressX=" + addressX + ", addressY=" + addressY
+				+ ", placeRecomm=" + placeRecomm + "]";
 	}
+
+	
 }

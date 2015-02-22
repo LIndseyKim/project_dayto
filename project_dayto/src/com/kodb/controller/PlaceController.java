@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kodb.model.service.PlaceService;
 import com.kodb.model.vo.Place;
@@ -22,10 +23,9 @@ public class PlaceController{
 		this.placeService = placeService;
 	}
 	
-	//µ¿±â Åë½Å
 	@RequestMapping("/getPlace.do")
 	public String getPlace(Model model){
-		Place place = placeService.getPlace("¿¹´çÃà»ê");
+		Place place = placeService.getPlace("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		model.addAttribute("place", place);
 		return "schedule";
 	}
@@ -33,9 +33,25 @@ public class PlaceController{
    public String getPlaceList(Model model,HttpServletRequest req){
       List<Place> placeList = placeService.getPlacesByAddr(req.getParameter("str"));
       System.out.println(placeList.get(0).getPlaceName());
-      
+      System.out.println(placeList.get(0).getPlaceRecomm());
       model.addAttribute("placeList", placeList);
       
       return "schedule";
    }
+   
+   
+   @RequestMapping("/recommPlace.do")   
+   public String addRecommPlace(Model model,HttpServletRequest req,
+		   Place place){
+	   /*System.out.println(req.getAttribute("placeId"));*/
+   System.out.println(place.getPlaceId());   
+   placeService.recommPlace(place.getPlaceId());
+   
+	
+
+   
+   return "schedule";
+}
+   
+   
 }
