@@ -24,10 +24,42 @@
 		<link href="${pageContext.request.contextPath}/css/login/loginstyle.css" rel="stylesheet" type="text/css" />
 		<link href="${pageContext.request.contextPath}/css/signup/signupstyle.css" rel="stylesheet" type="text/css" />
 		
+		<link
+			href='${pageContext.request.contextPath}/css/fullcalendar/fullcalendar.css'
+			rel='stylesheet' />
+		<link
+			href='${pageContext.request.contextPath}/css/fullcalendar/fullcalendar.print.css'
+			rel='stylesheet' media='print' />
+		<script src='${pageContext.request.contextPath}/js/moment.min.js'></script>
+		<script
+			src='${pageContext.request.contextPath}/js/jquery-ui.custom.min.js'></script>
+		<script src='${pageContext.request.contextPath}/js/fullcalendar.min.js'></script>
+		
 		<script>
 			$(document).ready(function() {
 				$(".login_fail").click(login_fail_alert)
 				$("#logout").click(logout_alert)
+				
+				/* initialize the calendar
+	 			-----------------------------------------------------------------*/
+	 			$('#calendar').fullCalendar({
+	 				header : {
+	 					left : 'prev, today',
+	 					center : 'title',
+	 					right : 'next'
+	 				},
+	 				height : 400,
+	 				now: "${timetableList[0].startTime}",
+	 				events : [
+	 					<c:forEach var="t" items = "${timetableList}">
+	 					{
+	 						title : "${t.placeName}",
+	 						start : '${t.startTime}',
+	 						end : '${t.endTime}'
+	 					},
+	 					</c:forEach>
+	 				]
+	 			});
 				
 			});
 			function login_popup() {
@@ -44,15 +76,19 @@
 			};
 		</script>
 		<style>
-		.Pstyle {
-		    opacity: 0;
-		    display: none;
-		    position: relative;
-		    width: auto;
-		    border: 5px solid #fff;
-		    padding: 20px;
-		    background-color: #fff;
-		}
+			.Pstyle {
+			    opacity: 0;
+			    display: none;
+			    position: relative;
+			    width: auto;
+			    border: 5px solid #fff;
+			    padding: 20px;
+			    background-color: #fff;
+			}
+			#calendar {
+				float: left;
+				width: 400px;
+			}
 		</style>
 	</head>
 	<body>
@@ -69,6 +105,13 @@
 					</c:forEach>
 					<p>${blog.postContent}</p>
 				</section>
+			</div>
+			<div class="row">
+				<div class="6u">
+					<section class="special">
+						<div id='calendar' style="margin-left:300px;"></div>
+					</section>
+				</div>
 			</div>
 		</section>
 	</body>

@@ -8,7 +8,6 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.kodb.model.vo.Blog;
 import com.kodb.model.vo.Board;
-import com.kodb.model.vo.User;
 
 public class BoardDaoImpl  implements BoardDao {
 
