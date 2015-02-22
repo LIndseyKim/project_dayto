@@ -25,5 +25,9 @@ public interface  BoardDao {
 	public abstract List<Blog> selectSearchPost(String searchValue);
 
 	public abstract Blog deletePost(int postId);
+
+	public abstract void updateBoard(Board board);
+
+	public abstract void updateBoardImages(int postId, String picturePath);
 	
 }

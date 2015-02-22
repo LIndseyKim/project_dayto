@@ -72,11 +72,13 @@
 				</section>
 			</div>
 		</section>
+		<table>
 			<tr align="center">
-      			<td colspan="2" align="center">
-      				<input type=button value="Modify" >
-      				<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
-     		</tr>
+      	
+      	<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:650px">Modify</a>
+      	<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
+     	</tr>
+     	</table>
 		
 	</body>
 </html>

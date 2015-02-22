@@ -14,4 +14,14 @@
 		insert into blog_picture  
 		values (seq_blog_pic_id.nextval, ${postId}, #{postPic})
    </insert>  
+   
+   <update id="updatePic" parameterType="Picture" >
+  		 UPDATE BLOG_PICTURE
+			SET
+		post_pic = #{postPic}		
+		WHERE post_id =	${postId}	   
+   </update>
+   
+   
+   
 </mapper>

@@ -113,4 +113,61 @@ public class BoardController {
 		return "blog";
 	}
 	
+	
+	
+	@RequestMapping("/modifyPost.do")
+	public String modifyPost(Model model, @RequestParam("postId") int postId, HttpSession session, HttpServletRequest req) {
+			 
+		System.out.println(postId);
+		
+		model.addAttribute("blog", boardService.getPost(Integer.parseInt(req.getParameter("postId"))));
+
+		return "modifyBlog";
+	}
+	
+	
+	@RequestMapping("/modifyPostById.do")
+	public String modifyPostById(Board board,Model model, 
+			HttpSession session, HttpServletRequest req,
+			 @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException{
+			 		
+		boardService.registerBoardById(board);	
+		
+		String filename = "base_image.jpg";
+		int postId = board.getPostId();
+		System.out.println(postId);
+
+		if(!file.isEmpty()) {
+			String saveDir = req.getServletContext().getRealPath("/images");
+			String path = saveDir+"/"+file.getOriginalFilename();
+			File newFile=new File(path);
+			
+			filename = file.getOriginalFilename();
+			
+
+			if(newFile.exists()) {	
+				long time = System.currentTimeMillis(); 
+
+				SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
+				filename = dayTime.format(new Date(time)) + file.getOriginalFilename();
+				path = saveDir+"/"+filename;
+				newFile = new File(path);	
+			}
+			file.transferTo(newFile);
+		}
+		System.out.println(filename);
+		boardService.updatePicture(postId, "images/"+ filename);
+		System.out.println("save Image files");
+		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
+		
+			
+
+		return "blog";
+	}
+	
+	
+	
+	
+	
+	
 }

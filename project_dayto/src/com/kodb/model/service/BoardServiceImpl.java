@@ -19,6 +19,13 @@ public class BoardServiceImpl implements BoardService{
 		System.out.println("[registerBoard]");
 		boardDao.insertBoard(board);
 	}
+	@Override
+	public void registerBoardById(Board board) {
+		System.out.println("[registerBoardById]");
+		boardDao.updateBoard(board);
+
+		
+	}
 
 	@Override
 	public Board selectBoard(String userEmail) {
@@ -30,6 +37,15 @@ public class BoardServiceImpl implements BoardService{
 	public void registerPicture(int postId, String postPic) {
 		System.out.println("[registerPicture]");
 		boardDao.insertBoardImages(postId, postPic);
+	}
+	
+	
+	@Override
+	public void updatePicture(int postId, String postPic) {
+		System.out.println("[updatePicture]");
+		boardDao.updateBoardImages(postId, postPic);
+
+
 	}
 	
 	@Override
@@ -68,4 +84,8 @@ public class BoardServiceImpl implements BoardService{
 		System.out.println("[deletePost]");
 		return boardDao.deletePost(postId);
 	}
+
+	
+
+
 }

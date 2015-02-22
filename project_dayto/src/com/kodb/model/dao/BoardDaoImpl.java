@@ -24,6 +24,12 @@ public class BoardDaoImpl  implements BoardDao {
 		boolean flag = false;
 		flag = session.insert("board.insertBoard", board) > 0;
 	}
+	
+	@Override
+	public void updateBoard(Board board) {
+		boolean flag = false;
+		flag = session.insert("board.updateBoard", board) > 0;
+	}
 
 	@Override
 	public Board selectBoard(String userEmail) {
@@ -49,6 +55,15 @@ public class BoardDaoImpl  implements BoardDao {
 		map.put("postId", postId);
 		map.put("postPic", postPic);
 		flag = session.insert("picture.insertPic", map) > 0;
+	}
+	
+	@Override
+	public void updateBoardImages(int postId, String postPic) {
+		boolean flag = false;
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("postId", postId);
+		map.put("postPic", postPic);
+		flag = session.insert("picture.updatePic", map) > 0;
 	}
 	
 	@Override
@@ -81,4 +96,8 @@ public class BoardDaoImpl  implements BoardDao {
 		//flag = session.insert("user.deleteUser", userEmail) > 0;
 		return session.selectOne("board.deletePost", postId);
 	}
+
+
+
+	
 }

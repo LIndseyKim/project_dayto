@@ -24,4 +24,15 @@ public interface BoardService {
 	public abstract List<Blog> getSearchPublicPost(String searchValue);
 	
 	public abstract Blog deletePost(int postId);
+
+	public abstract void registerBoardById(Board board);
+
+	public abstract void updatePicture(int postId, String postPic);
 }
+
+
+
+
+
+
+

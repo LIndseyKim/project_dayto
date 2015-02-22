@@ -28,6 +28,16 @@
 		( seq_blog_post_id.nextVal,#{userEmail}, #{postName}, SYSDATE, #{postContent}, null, #{postPublic})							
 	</insert>
 	
+	<update id="updateBoard">
+	UPDATE BLOG_POST
+	SET
+	post_name = #{postName},
+	post_content = #{postContent},
+	post_public = #{postPublic}
+	WHERE post_id =  #{postId}
+    </update>
+	
+	
 	<delete id="deletePost" parameterType="Integer">
 		DELETE FROM BLOG_POST
 		WHERE post_id = #{value}
