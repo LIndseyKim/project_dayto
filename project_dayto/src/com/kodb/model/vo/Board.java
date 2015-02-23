@@ -1,7 +1,5 @@
 package com.kodb.model.vo;
 
-import java.util.Date;
-
 public class Board {
 
 	private int postId;
@@ -79,4 +77,6 @@ public class Board {
 				+ ", postContent=" + postContent + ", postRecomm=" + postRecomm
 				+ ", postPublic=" + postPublic + "]";
 	}
+
+	
 }
