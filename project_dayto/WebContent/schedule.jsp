@@ -194,11 +194,26 @@
  			            revertFunc();
  			        }
  			        else {
- 			        	events.push({
- 	 						title	: event.title,
- 	 						start	: event.start.format(),
- 	 						end		: event.end.format()
- 	 					})
+ 			        	var flag = -1;
+ 			        	console.log(events.length);
+ 			        	if(events.length != 0) {
+	 			        	for(var i in events) {
+	 							if(events[i].title == event.title) {
+	 								flag = i;
+	 							}
+	 						}
+ 			        	}
+ 			        	if(flag == -1) {
+ 			        		events.push({
+ 	 	 						title	: event.title,
+ 	 	 						start	: event.start.format(),
+ 	 	 						end		: event.end.format()
+ 	 	 					})
+ 			        	}
+ 			        	else {
+ 								events[flag].start = event.start.format();
+ 								events[flag].end	= event.end.format();
+ 	 					}
  			        }
  			    },
  				drop: function() {
@@ -369,6 +384,7 @@ div#menubar1>a:hover {
 		</c:forEach>
 	</div>
 	<div id="menubar1">
+		<a href="getPlaceListByCate.do?str=1">전체</a>
 		<a href="getPlaceListByCate.do?str=음식점">음식점</a>
 		<a href="getPlaceListByCate.do?str=카페">카페</a>
 		<a href="getPlaceListByCate.do?str=쇼핑">쇼핑</a>
