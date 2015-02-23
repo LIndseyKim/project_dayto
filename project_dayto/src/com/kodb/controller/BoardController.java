@@ -189,9 +189,11 @@ public class BoardController {
 			}
 			file.transferTo(newFile);
 		}
-		System.out.println(filename);
-		boardService.updatePicture(postId, "images/"+ filename);
-		System.out.println("save Image files");
+		
+		if(!filename.equals("base_image.jag")) {
+			boardService.updatePicture(postId, "images/"+ filename);
+			System.out.println("save Image files");
+		}
 		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
 		return "blog";
 	}
