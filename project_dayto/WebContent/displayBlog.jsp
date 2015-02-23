@@ -157,6 +157,7 @@
 		<!-- <section id="main" class="wrapper style1"> -->
 			<header class="major">
 				<h2>${blog.postName}</h2>
+				<h4>작성자 : ${blog.userEmail}  작성일 : ${blog.postDate}</h4>
 			</header>
 			<div class="container" align="center">
 				<section>

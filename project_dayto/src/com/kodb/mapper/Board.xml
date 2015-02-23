@@ -18,6 +18,8 @@
 
 	<resultMap type="Blog" id="BlogResultMap">
 		<id  property="postId"  column="post_id"/>
+		<result property="userEmail" column="user_email" />
+		<result property="postDate" column="post_date" />
 		<result property="postName" column="post_name" />
 		<result property="postContent" column="post_content" />
 	</resultMap>
@@ -61,7 +63,7 @@
 	</resultMap>
 	
 	<select id="selectPostWithPicture" parameterType="String" resultMap="PostwithPictureResultMap">
-		select 	bp.post_id, bp.post_name, bp.post_content, bpic.post_pic
+		select 	bp.post_id, bp.post_name, bp.post_date, bp.post_content, bpic.post_pic
 		from	blog_post  bp, blog_picture bpic
 		where	bp.post_id = bpic.post_id
 		and		bp.user_email = #{value}
@@ -70,14 +72,14 @@
 	</select>
 	
 	<select id="selectPost" parameterType="Integer" resultMap="PostwithPictureResultMap">
-		select 	bp.post_id, bp.post_name, bp.post_content, bpic.post_pic
+		select 	bp.post_id, bp.post_name, bp.user_email, bp.post_date ,bp.post_content, bpic.post_pic
 		from	blog_post  bp, blog_picture bpic
 		where	bp.post_id = bpic.post_id
 		and		bp.post_id = #{value}
 	</select>  
 	
 	<select id="selectPublicBlog" resultMap="PostwithPictureResultMap">
-		select 	bp.post_id, substr(bp.post_name,1,10) post_name, substr(bp.post_content,1,15) post_content, bpic.post_pic
+		select 	bp.post_id, substr(bp.post_name,1,10) post_name, bp.post_date, substr(bp.post_content,1,15) post_content, bpic.post_pic
 		from	blog_post  bp, blog_picture bpic
 		where	bp.post_id = bpic.post_id
 		and		bp.post_public = 0 order by bp.post_id
