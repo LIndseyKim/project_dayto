@@ -190,7 +190,7 @@ public class BoardController {
 			file.transferTo(newFile);
 		}
 		
-		if(!filename.equals("base_image.jag")) {
+		if(!filename.equals("base_image.jpg")) {
 			boardService.updatePicture(postId, "images/"+ filename);
 			System.out.println("save Image files");
 		}
