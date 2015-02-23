@@ -9,19 +9,20 @@ public interface PlaceService {
 
 	public abstract Place getPlace(String placeName);
 	public abstract List<Place> getPlacesByAddr(String addr);
+	public abstract void recommPlace(int placeId);
 
 
-	// È¸¿ø ÀüÃ¼ ¸®½ºÆ® Á¶È¸ÇÏ¿© ¸®ÅÏ
+	// È¸ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¸ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//public abstract List<Place> getAllPlace();
 	/*
-	// ·Î±×ÀÎ ¼º°ø½Ã true, ·Î±×ÀÎ ½ÇÆÐ½Ã false ¸®ÅÏ
+	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ true, ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð½ï¿½ false ï¿½ï¿½ï¿½ï¿½
 	public abstract boolean login(String user_email, String user_pwd);
 
 	public abstract List<User> getUsersByName(String user_name);
 
 	public abstract List<User> getUsersByEmail(String user_email);
 
-	// Á¶°ÇÀ¸·Î ¿À´Â id ¸ñ·ÏÀ» ÀÌ¿ëÇÏ¿© ÇØ´çidÀÇ »ç¿ëÀÚ ¸ðµÎ Á¶È¸
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ id ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½ ï¿½Ø´ï¿½idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	public abstract List<User> getUsersByEmails(List<String> emails);
 
 	public abstract User getUserWithContactListByEmail(String user_email);

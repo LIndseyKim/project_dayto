@@ -25,4 +25,11 @@ public class PlaceDaoImpl implements PlaceDao {
 		return session.selectList("place.selectPlacesByAddr", addr);
 		
 	}
+	
+	@Override
+	public void updateRecomm(int placeId) {
+
+		session.update("place.updateRecomm", placeId) ;
+		
+	}
 }

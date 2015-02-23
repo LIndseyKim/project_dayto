@@ -235,10 +235,14 @@
 			})
 		};
 		
-		function place_popup(placeName,placeAddr, placeAddr2, placeTel) {
+		function place_popup(placeId, placeName,placeAddr, placeAddr2, placeTel, placeRecomm) {
              $('#place_popup .content_name').text('상호명   : ' + placeName);
              $('#place_popup .content_addr').text('주소     : ' + placeAddr + ' ' + placeAddr2);
              $('#place_popup .content_tel').text('전화번호  : ' + placeTel);
+             $('#place_popup .content_recomm').text('추천수  : '+ placeRecomm);
+             var a = document.getElementById('content_thumb_image');
+             var str = "${pageContext.request.contextPath}/recommPlace.do?placeId=" + placeId;
+             a.setAttribute('href', str);
              $('#place_popup').bPopup();
      	 }
       </script>
@@ -357,8 +361,8 @@ div#menubar1>a:hover {
 		<h4>Place</h4>
 		<c:forEach var="p" items="${placeList}">
 			<div id='${p.placeId}' class='fc-event' align="center"
-				onclick="place_popup('${p.placeName}','${p.placeAddr}',
-									'${p.placeAddr2}', '${p.placeTel}')">
+				onclick="place_popup('${p.placeId}', '${p.placeName}','${p.placeAddr}',
+									'${p.placeAddr2}', '${p.placeTel}', '${p.placeRecomm}')">
 				<img class="schedule-image" src="images/base_cover.jpg" alt="" />
 				${p.placeName}
 			</div>
@@ -395,6 +399,8 @@ div#menubar1>a:hover {
 		<div class="content_name"></div>
 		<div class="content_addr"></div>
 		<div class="content_tel"></div>
+		<div class="content_recomm"></div>
+		<a id="content_thumb_image"><img src="images/thumb.jpg" width="50px" height="50px"></a>
 	</div>
 </body>
 </html>
