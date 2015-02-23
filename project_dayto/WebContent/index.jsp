@@ -64,28 +64,15 @@
 			<p>
 				일정관리 웹 어플리케이션 <a href="#">2528</a>
 			</p>
-			<ul class="actions">
-				<li><a href="#" class="button big alt">Learn More</a></li>
-			</ul>
 		</div>
 		</section>
 	
 		<!-- Footer -->
 		<footer id="footer">
-		<div class="container">
-			<div class="row double">
-				<div class="6u">
-					<div class="row collapse-at-2">
-						<div class="6u">
-							<h3>공지사항</h3>
-							<ul class="alt">
-								<li><a href="#">공지사항1</a></li>
-								<li><a href="#">공지사항2</a></li>
-								<li><a href="#">공지사항3</a></li>
-								<li><a href="#">공지사항4</a></li>
-							</ul>
-						</div>
-						<div class="6u">
+			<div class="container">
+				<div class="row double">
+					<div class="4u">
+						<section>
 							<h3>Contact Us</h3>
 							<ul class="alt">
 								<li><a href="#">Tagu Kim</a></li>
@@ -93,32 +80,33 @@
 								<li><a href="#">Minji Kim</a></li>
 								<li><a href="#">Jihye Shin</a></li>
 							</ul>
-						</div>
+						</section>
+					</div>
+					<div class="8u skel-cell-important">
+						<section>
+							<h2>About Us</h2>
+							<p>여러분의 데이트 일정을 편하게 짜드립니다!메에ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㄴ트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
+							<ul class="icons">
+								<li><a href="#" class="icon fa-twitter"><span
+										class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon fa-facebook"><span
+										class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon fa-instagram"><span
+										class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon fa-linkedin"><span
+										class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon fa-pinterest"><span
+										class="label">Pinterest</span></a></li>
+							</ul>
+						</section>
 					</div>
 				</div>
-				<div class="6u">
-					<h2>About Us</h2>
-					<p>여러분의 데이트 일정을 편하게 짜드립니다!</p>
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span
-								class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span
-								class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span
-								class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-linkedin"><span
-								class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon fa-pinterest"><span
-								class="label">Pinterest</span></a></li>
-					</ul>
-				</div>
+				<ul class="copyright">
+					<li>&copy; Untitled. All rights reserved.</li>
+					<li>Design: <a href="#">2528</a></li>
+					<li>Images: <a href="#">Unsplash</a></li>
+				</ul>
 			</div>
-			<ul class="copyright">
-				<li>&copy; Untitled. All rights reserved.</li>
-				<li>Design: <a href="#">2528</a></li>
-				<li>Images: <a href="#">Unsplash</a></li>
-			</ul>
-		</div>
 		</footer>
 	</body>
 </html>

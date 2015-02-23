@@ -370,7 +370,7 @@ div#menubar1>a:hover {
 <body id="schedule-body">
 	<jsp:include page="top_layer.jsp" />
 
-	<div id='calendar' style="margin-left:100px;"></div>
+	<div id='calendar' style="margin-left:50px;"></div>
 
 	<div id='external-events' style="overflow: scroll">
 		<h4>Place</h4>
