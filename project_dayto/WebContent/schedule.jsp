@@ -38,28 +38,6 @@
 	src='${pageContext.request.contextPath}/js/jquery-ui.custom.min.js'></script>
 <script src='${pageContext.request.contextPath}/js/fullcalendar.min.js'></script>
 
-<script>
-			$(document).ready(function() {
-				$(".login_fail").click(login_fail_alert)
-				$("#logout").click(logout_alert)
-				
-			});
-			function mypage_popup() {
-				$('#member_popup').bPopup({
-				    contentContainer:'.content',
-				    loadUrl: '${pageContext.request.contextPath}/mypage.jsp'
-				})
-			};
-			
-			function place_popup(placeName,placeAddr, placeAddr2, placeTel) {
-				var out = null
-	             $('#place_popup .content_name').text('상호명   : ' + placeName);
-	             $('#place_popup .content_addr').text('주소     : ' + placeAddr + ' ' + placeAddr2);
-	             $('#place_popup .content_tel').text('전화번호  : ' + placeTel);
-	             $('#place_popup').bPopup();
-	     	 }
-		</script>
-
 <script type="text/javascript">
       /** Google Map 객체. **/
          GoogleMap = {
@@ -121,7 +99,7 @@
                      for (var i = 0; i < results.length; i++) {
                         var li = document.createElement('li');
                         var a = document.createElement('a');
-                        var str = '${pageContext.request.contextPath}/getPlaceListByAddr.do?str=' + address;
+                        var str = '${pageContext.request.contextPath}/getPlaceList.do?str=' + address;
                         
                         a.href = str;
                         
@@ -152,9 +130,11 @@
             GoogleMap.initialize();
          }
       </script>
-<script>
+	  <script>
+	  	var events = [];
          $(document).ready(function() {
- 			var events = [];
+        	$(".login_fail").click(login_fail_alert)
+			$("#logout").click(logout_alert)
  			/* initialize the external events
  			-----------------------------------------------------------------*/
  			$('#external-events .fc-event').each(function() {
@@ -186,13 +166,12 @@
  				droppable : true, // this allows things to be dropped onto the calendar
  				
  				eventDrop: function(event, delta, revertFunc) {
- 					if (!confirm(event.title+" 이동하시겠습니까?")) {
+ 					if (!confirm(event.title+"\n이동하시겠습니까?")) {
  						revertFunc();
  			        }
  					else {
  						for(var i in events) {
  							if(events[i].title == event.title) {
- 								events[i].title = event.title;
  								events[i].start = event.start.format();
  								events[i].end	= event.end.format();
  							}
@@ -217,16 +196,42 @@
  					$(this).remove();
  				}
  			});
- 			$scope.myDayTo = events;
+ 			
+ 			$('#schedule').click(function() {
+ 				for(var i=0; i< events.length; i++) {
+ 					var title = document.createElement("input");
+ 					title.type = "hidden";
+ 					title.name = "title";
+ 					title.value = events[i].title;
+ 					 					 				
+ 					var start = document.createElement("input");
+ 					start.type = "hidden";
+ 					start.name = "start";
+ 					start.value = events[i].start;
+ 					var end = document.createElement("input");
+ 					end.type = "hidden";
+ 					end.name = "end";
+ 					end.value = events[i].end;
+ 					
+ 					$("form").append(title);
+ 					$("form").append(start);
+ 					$("form").append(end);
+ 				}
+ 			});
  		});
-      
-         function personController($scope) {
-            $scope.firstName = "John", $scope.lastName = "Doe"
-            $scope.myVar = true;
-            $scope.toggle = function() {
-               $scope.myVar = !$scope.myVar;
-            };
-         };
+        function mypage_popup() {
+			$('#member_popup').bPopup({
+			    contentContainer:'.content',
+			    loadUrl: '${pageContext.request.contextPath}/mypage.jsp'
+			})
+		};
+		
+		function place_popup(placeName,placeAddr, placeAddr2, placeTel) {
+             $('#place_popup .content_name').text('상호명   : ' + placeName);
+             $('#place_popup .content_addr').text('주소     : ' + placeAddr + ' ' + placeAddr2);
+             $('#place_popup .content_tel').text('전화번호  : ' + placeTel);
+             $('#place_popup').bPopup();
+     	 }
       </script>
 
 <style>
@@ -344,7 +349,7 @@ div#menubar1>a:hover {
 		<c:forEach var="p" items="${placeList}">
 			<div id='${p.placeId}' class='fc-event' align="center"
 				onclick="place_popup('${p.placeName}','${p.placeAddr}',
-																		 '${p.placeAddr2}', '${p.placeTel}')">
+									'${p.placeAddr2}', '${p.placeTel}')">
 				<img class="schedule-image" src="images/base_cover.jpg" alt="" />
 				${p.placeName}
 			</div>
@@ -360,7 +365,7 @@ div#menubar1>a:hover {
 
 	<div style="height: 500px; padding-top: 600px;">
 		<div>
-			<input id="GoogleMap_input" type="textbox" value=""
+			<input id="GoogleMap_input" type="textbox" value="" style="border:1px gray solid;"
 				onkeydown="javascript:if(event.keyCode == 13) GoogleMap.codeAddress();">
 			<input type="button" value="Enter"
 				onclick="javascript:GoogleMap.codeAddress()">
@@ -369,11 +374,10 @@ div#menubar1>a:hover {
 	</div>
 
 	<div style='clear: both'></div>
-	<div style="margin-top: 300" class="button special">
-		<a href="${pageContext.request.contextPath}/writingBlog.jsp">save
-			a schedule</a>
-	</div>
-
+	<form action="${pageContext.request.contextPath}/saveSchedule.do" method="post">
+		<input id="schedule" type="submit" class="button special" value="Sava a schedule"/>
+	</form>
+	
 	<div id="place_popup" class="Pstyle" style="text-align: left">
 		<div class="content_name"></div>
 		<div class="content_addr"></div>

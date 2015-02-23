@@ -55,7 +55,7 @@
 			}
 		</style>
 	</head>
-	<body> <%-- onload="${pageContext.request.contextPath}/getAllPublicPost.do?flag=1"> --%>
+	<body>
 		<jsp:include page="top_layer.jsp" />
 		<!-- Banner -->
 		<section id="banner">
@@ -69,26 +69,6 @@
 			</ul>
 		</div>
 		</section>
-	
-		<%-- <section id="one" class="wrapper style1"> <header class="major">
-		<h2>추천 일정</h2>
-		</header>
-		<div id="Recommend" class="container">
-			<div class="row">
-				<c:forEach items="${recommend}" var="r">
-					<div class="4u">
-						<section class="special box">
-							<c:forEach items="${r.pictureList}" var="p">
-								<a href="${pageContext.request.contextPath}/getPost.do?postId=${r.postId}" class="image fit"><img src="${p.postPic}"/></a>
-							</c:forEach>
-							<h3>${r.postName}</h3>
-							<p>${r.postContent}</p>
-						</section>
-					</div>
-				</c:forEach>
-			</div>
-		</div>
-		</section> --%>
 	
 		<!-- Footer -->
 		<footer id="footer">
