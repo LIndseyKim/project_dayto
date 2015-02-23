@@ -135,7 +135,7 @@ public class BoardController {
 			@RequestParam("title") ArrayList<String> title,
 			@RequestParam("start") ArrayList<String> start,
 			@RequestParam("end") ArrayList<String> end) {
-		
+		System.out.println("1");
 		ArrayList<Timetable> timetableList = new ArrayList<Timetable>();
 		ArrayList<Place> placeList =new ArrayList<Place>();
 		

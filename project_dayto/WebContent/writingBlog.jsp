@@ -69,6 +69,7 @@
    
    
                
+               
                for(var i=0 ; i< latlngs.length; ++i){
                   var str= names[i];
                   this.marker = new google.maps.Marker({
@@ -76,18 +77,18 @@
                      position:latlngs[i],
                      map : this.map,
                      title: str,
-                     animation : google.maps.Animation.DROP
+                     animation : google.maps.Animation.DROP,
+                     icon : "images/number/"+(i+1)+".jpg"
                   });
                   if(i==0){
                   GoogleMap.map.setCenter(latlngs[0]);
                   }
                
-                  var infowindow = new google.maps.InfoWindow(
+                  /* var infowindow = new google.maps.InfoWindow(
                 	      { content:str,  
                 	        size: new google.maps.Size(50,50)
                		});
-                  infowindow.open(this.map, this.marker);
-           
+                  infowindow.open(this.map, this.marker); */
                }               
             },                       
          },
