@@ -29,6 +29,11 @@
     	<appender-ref  ref="console" />
     </logger>
     
+    <logger name="picture">
+    	<level value="DEBUG" />
+    	<appender-ref  ref="console" />
+    </logger>
+    
     <logger name="timetable">
     	<level value="DEBUG" />
     	<appender-ref  ref="console" />

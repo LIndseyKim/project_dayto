@@ -49,51 +49,56 @@ public class BoardController {
 		this.placeService = placeService;
 	}
 	
-	/*@RequestMapping("/savePost.do")	
-	public String savePost(Board board, HttpSession session, Model model, HttpServletRequest request,
-						@RequestParam("image") MultipartFile[] file,
-						@RequestParam("title") ArrayList<String> title,
-						@RequestParam("start") ArrayList<String> start,
-						@RequestParam("end") ArrayList<String> end) throws IllegalStateException, IOException{
-		
-		boardService.registerBoard(board);	
-		String filename = "base_image.jpg";
-		int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
-		
-		if(file.length !=0) {
-			for(int i = 0; i < file.length; i++) {
-				String saveDir = request.getServletContext().getRealPath("/images");
-				String path = saveDir+"/"+file[i].getOriginalFilename();
-				File newFile=new File(path);
-		}
+	@RequestMapping("/savePost.do")   
+   public String savePost(Board board, HttpSession session, Model model, HttpServletRequest request,
+                  @RequestParam("image") MultipartFile[] file,
+                  @RequestParam("title") ArrayList<String> title,
+                  @RequestParam("start") ArrayList<String> start,
+                  @RequestParam("end") ArrayList<String> end) throws IllegalStateException, IOException{
+      
+      boardService.registerBoard(board);   
+      int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
+      System.out.println("postId" + postId);
+      
+      int count = 0;
 
-		if(!file[i].isEmpty()) {
-			String saveDir = request.getServletContext().getRealPath("/images");
-			String path = saveDir+"/"+file.getOriginalFilename();
-			File newFile=new File(path);
-			
-			filename = file.getOriginalFilename();
-			
+      for(int i =0 ; i < file.length; i++){
+         if(file[i].isEmpty()) {
+            continue;
+         }
+         count++;
 
-			if(newFile.exists()) {	
-				long time = System.currentTimeMillis(); 
+         String saveDir = request.getServletContext().getRealPath("/images");
+         String path = saveDir+"/"+ file[i].getOriginalFilename();
+         File newFile=new File(path);         
+         String filename =  file[i].getOriginalFilename();         
 
-				SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
-				filename = dayTime.format(new Date(time)) + file.getOriginalFilename();
-				path = saveDir+"/"+filename;
-				newFile = new File(path);	
-			}
-			file.transferTo(newFile);
-		}
-		
-		for(int i=0; i<title.size(); i++)
-			timetableService.registerTimetable(new Timetable(postId, title.get(i), start.get(i), end.get(i)));
-				
-		boardService.registerPicture(postId, "images/"+ filename);
-		System.out.println("save Image files");
-		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
-		return "blog";
-	}*/
+         if(newFile.exists()) { //파일명 중복이 존재하면    
+            long time = System.currentTimeMillis(); 
+
+            SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
+            filename = dayTime.format(new Date(time)) +  file[i].getOriginalFilename();
+            path = saveDir+"/"+filename;
+            newFile = new File(path);   
+         }
+         
+         file[i].transferTo(newFile);               
+         boardService.registerPicture(postId, "images/"+ filename);
+      }
+      
+      if(count == 0) {
+         boardService.registerPicture(postId, "images/base_image.jpg");
+      }
+
+      for(int i=0; i<title.size(); i++)
+         timetableService.registerTimetable(new Timetable(postId, title.get(i), start.get(i), end.get(i)));
+
+         
+      System.out.println("save Image files");
+      System.out.println(boardService.getPostWithPicture(board.getUserEmail()));
+      model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
+      return "blog";
+   }
 
 	@RequestMapping("/getPostName.do")
 	public String getUser(Model model, HttpSession session) {
@@ -164,7 +169,6 @@ public class BoardController {
 			timetableList.add(timetable);
 		}
 		
-		System.out.println(timetableList);
 		model.addAttribute("timetableList", timetableList);
 		model.addAttribute("placeList", placeList);
 		
