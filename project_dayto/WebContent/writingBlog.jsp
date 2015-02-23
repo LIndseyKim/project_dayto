@@ -39,16 +39,14 @@
       /** Google Map 객체. **/
          GoogleMap = {
             /* 초기화. */
-            
             initialize : function() {
-            
                var latlngs = [];
                var names = [];
                var tels = [];
-       
+               
                var coordinates=[];
                var paths=[];
-                  
+               
                <c:forEach var="place" items="${placeList}">
 	               latlngs.push(new google.maps.LatLng(${place.addressX},${place.addressY}));
 	               names.push('${place.placeName}');
@@ -74,7 +72,6 @@
                      .getElementById("GoogleMap_map"), myOptions);
    
    
-               
                
                for(var i=0 ; i< latlngs.length; ++i){
                   var str= names[i];
@@ -118,6 +115,7 @@
       </script>
       
 		<script>
+			var events = [];
 			$(document).ready(function() {
 				var placeNames =[];
 				<c:forEach var="t" items = "${timetableList}">
@@ -132,14 +130,6 @@
 				/* initialize the calendar
 	 			-----------------------------------------------------------------*/
 	 			$('#calendar').fullCalendar({
-	 				
-	 				header : {
-	 					left : 'prev, today',
-	 					center : 'title',
-	 					right : 'next'
-	 				},
-	 				height : 400,
-	 				now: "${timetableList[0].startTime}",
 	 				events : [
 	 					<c:forEach var="t" items = "${timetableList}">
 	 					{
@@ -149,8 +139,48 @@
 	 						
 	 					},
 	 					</c:forEach>
-	 				]
+	 				],
+	 		 				
+	 				header : {
+	 					left : 'prev, today',
+	 					center : 'title',
+	 					right : 'next'
+	 				},
 	 				
+	 				height : 400,
+	 				editable : true,
+	 				droppable : true,
+	 				now: "${timetableList[0].startTime}",
+	 				
+	 				eventResize: function(event, delta, revertFunc) {
+	 			        if (!confirm(event.title + "\n" 
+	 			        		+ event.start.format() + " ~ " + event.end.format()
+	 			        		+ "\n맞으십니까?")) {
+	 			            revertFunc();
+	 			        }
+	 			        else {
+	 			        	var flag = -1;
+	 			        	console.log(events.length);
+	 			        	if(events.length != 0) {
+		 			        	for(var i in events) {
+		 							if(events[i].title == event.title) {
+		 								flag = i;
+		 							}
+		 						}
+	 			        	}
+	 			        	if(flag == -1) {
+	 			        		events.push({
+	 	 	 						title	: event.title,
+	 	 	 						start	: event.start.format(),
+	 	 	 						end		: event.end.format()
+	 	 	 					})
+	 			        	}
+	 			        	else {
+	 								events[flag].start = event.start.format();
+	 								events[flag].end	= event.end.format();
+	 	 					}
+	 			        }
+	 			    },
 	 			});
 				$('#writing').click(function() {
 					<c:forEach var="t" items = "${timetableList}">
@@ -251,9 +281,8 @@
 					 <input type="radio"
 						name="postPublic" id="optionsRadios2" value=1 />다른 회원에게 비공개
 				</div>
-	
-				대표 이미지선택 : <input type="file" name="image" /> <br /> 
-				이미지선택 : <input type="file" name="image" /> <br />
+				대표 이미지선택 : <input type="file" name="image" /> <br />
+				이미지선택 : <input type="file" name="image" /> <br /> 
 				이미지선택 : <input type="file" name="image" /> <br />
 				이미지선택 : <input type="file" name="image" /> <br />
 				<br/>

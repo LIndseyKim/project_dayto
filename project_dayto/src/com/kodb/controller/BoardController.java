@@ -98,8 +98,6 @@ public class BoardController {
 		return "blog";
 	}
 
-	
-	
 	@RequestMapping("/getPostName.do")
 	public String getUser(Model model, HttpSession session) {
 		
@@ -140,7 +138,7 @@ public class BoardController {
 			@RequestParam("title") ArrayList<String> title,
 			@RequestParam("start") ArrayList<String> start,
 			@RequestParam("end") ArrayList<String> end) {
-		System.out.println("1");
+		
 		ArrayList<Timetable> timetableList = new ArrayList<Timetable>();
 		ArrayList<Place> placeList =new ArrayList<Place>();
 		
@@ -169,7 +167,6 @@ public class BoardController {
 			timetableList.add(timetable);
 		}
 		
-		System.out.println(timetableList);
 		model.addAttribute("timetableList", timetableList);
 		model.addAttribute("placeList", placeList);
 		
