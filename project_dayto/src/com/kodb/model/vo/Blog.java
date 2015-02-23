@@ -1,24 +1,38 @@
 package com.kodb.model.vo;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Blog {
 	private int postId;
+	private String userEmail;
 	private String postName;
 	private String postContent;
+	private String postDate;
 	private ArrayList<Picture> pictureList;
 	
 	public Blog() {
 		super();
 	}
 	
-	public Blog(int postId, String postName, String postContent,
+	public Blog(int postId, String postName, String postContent, String postDate, String userEmail,
 			ArrayList<Picture> pictureList) {
 		super();
 		this.postId = postId;
+		this.userEmail = userEmail;
 		this.postName = postName;
 		this.postContent = postContent;
+		this.postDate = postDate;
 		this.pictureList = pictureList;
+		
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
 	public int getPostId() {
@@ -26,6 +40,7 @@ public class Blog {
 	}
 
 	public void setPostId(int postId) {
+		
 		this.postId = postId;
 	}
 
@@ -53,10 +68,18 @@ public class Blog {
 		this.pictureList = pictureList;
 	}
 
+	public String getPostDate() {
+		return postDate;
+	}
+
+	public void setPostDate(String postDate) {
+		this.postDate = postDate;
+	}
+
 	@Override
 	public String toString() {
 		return "Blog [postId=" + postId + ", postName=" + postName
-				+ ", postContent=" + postContent + ", pictureList="
+				+ ", postDate ="+ postDate + "postContent=" + postContent + ", pictureList="
 				+ pictureList + "]";
 	}
 }

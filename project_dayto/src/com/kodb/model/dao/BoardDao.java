@@ -29,5 +29,7 @@ public interface  BoardDao {
 	public abstract void updateBoard(Board board);
 
 	public abstract void updateBoardImages(int postId, String picturePath);
+
+	public abstract Blog selectPostDate(String postDate);
 	
 }
