@@ -15,6 +15,9 @@
 		<result property="addressX" column="address_X" />
 		<result property="addressY" column="address_Y" />
 		<result property="placeRecomm" column="place_recomm" />
+		<result property="placePic" column="place_pic" />	
+		
+		
 	</resultMap>
 
 

@@ -363,7 +363,7 @@ div#menubar1>a:hover {
 			<div id='${p.placeId}' class='fc-event' align="center"
 				onclick="place_popup('${p.placeId}', '${p.placeName}','${p.placeAddr}',
 									'${p.placeAddr2}', '${p.placeTel}', '${p.placeRecomm}')">
-				<img class="schedule-image" src="images/base_cover.jpg" alt="" />
+				<img class="schedule-image" src='${p.placePic}' alt="" />
 				${p.placeName}
 			</div>
 		</c:forEach>

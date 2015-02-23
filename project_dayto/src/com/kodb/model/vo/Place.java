@@ -13,7 +13,7 @@ public class Place {
 	private double addressX;
 	private double addressY;
 	private String placeRecomm;
-
+	private String placePic;
 	
 	public Place() {
 		super();
@@ -101,13 +101,22 @@ public class Place {
 		this.placeRecomm = placeRecomm;
 	}
 
+	public String getPlacePic() {
+		return placePic;
+	}
+
+	public void setPlacePic(String placePic) {
+		this.placePic = placePic;
+	}
+
 	@Override
 	public String toString() {
 		return "Place [placeId=" + placeId + ", placeName=" + placeName
 				+ ", placeTel=" + placeTel + ", placeCategory=" + placeCategory
 				+ ", placeAddr=" + placeAddr + ", placeAddr2=" + placeAddr2
 				+ ", addressX=" + addressX + ", addressY=" + addressY
-				+ ", placeRecomm=" + placeRecomm + "]";
+				+ ", placeRecomm=" + placeRecomm + ", placePic=" + placePic
+				+ "]";
 	}
 
 	
