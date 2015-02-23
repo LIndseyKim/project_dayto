@@ -67,6 +67,7 @@ public class BoardDaoImpl  implements BoardDao {
 	
 	@Override
 	public List<Blog> selectPostWithPicture(String userEmail) {
+		System.out.println(session.selectList("board.selectPostWithPicture", userEmail));
 		return session.selectList("board.selectPostWithPicture", userEmail);
 	}
 	
@@ -91,6 +92,11 @@ public class BoardDaoImpl  implements BoardDao {
 	public Blog deletePost(int postId) {
 		
 		return session.selectOne("board.deletePost", postId);
+	}
+
+	@Override
+	public Blog selectPostDate(String postDate) {
+		return session.selectOne("board.selectPost", postDate);
 	}
 
 

@@ -43,6 +43,10 @@
                var latlngs = [];
                var names = [];
                var tels = [];
+               
+               var coordinates=[];
+               var paths=[];
+               
                <c:forEach var="place" items="${placeList}">
 	               latlngs.push(new google.maps.LatLng(${place.addressX},${place.addressY}));
 	               names.push('${place.placeName}');
@@ -71,26 +75,40 @@
                
                for(var i=0 ; i< latlngs.length; ++i){
                   var str= names[i];
+                 
                   this.marker = new google.maps.Marker({
                      
                      position:latlngs[i],
                      map : this.map,
                      title: str,
-                     animation : google.maps.Animation.DROP
+                     animation : google.maps.Animation.DROP,
+                     icon : "images/number/"+(i+1)+".jpg"
                   });
                   if(i==0){
                   GoogleMap.map.setCenter(latlngs[0]);
                   }
-               
-                  var infowindow = new google.maps.InfoWindow(
+                  coordinates.push(latlngs[i]);
+                
+         
+                  /* var infowindow = new google.maps.InfoWindow(
                 	      { content:str,  
                 	        size: new google.maps.Size(50,50)
                		});
-                  infowindow.open(this.map, this.marker);
-           
-               }               
-            },                       
+                  infowindow.open(this.map, this.marker); */
+               }
+               var path=new google.maps.Polyline({
+            	  path:coordinates,
+            	  strokeColor: '#000000',
+      		    	strokeOpacity: 1.0,
+      		    	strokeWeight: 3
+               });
+               path.setMap(this.map);
+
+            },
+            
          },
+
+         
          window.onload = function() {
             GoogleMap.initialize();
          }
@@ -263,7 +281,7 @@
 					 <input type="radio"
 						name="postPublic" id="optionsRadios2" value=1 />다른 회원에게 비공개
 				</div>
-	
+				대표 이미지선택 : <input type="file" name="image" /> <br />
 				이미지선택 : <input type="file" name="image" /> <br /> 
 				이미지선택 : <input type="file" name="image" /> <br />
 				이미지선택 : <input type="file" name="image" /> <br />

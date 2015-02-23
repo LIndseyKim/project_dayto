@@ -151,11 +151,11 @@
 			<c:forEach items="${blog}" var="b">
 				<div class="4u">
 					<section class="special box">
-						<c:forEach items="${b.pictureList}" var="p">
-							<a href="${pageContext.request.contextPath}/getPost.do?postId=${b.postId}" class="image fit"><img src="${p.postPic}"/></a>
-						</c:forEach>
+						<a href="${pageContext.request.contextPath}/getPost.do?postId=${b.postId}" class="image fit"><img src="${b.pictureList[0].postPic}"/></a>
 						<h3>${b.postName}</h3>
 						<p>${b.postContent}</p>
+						<p>${b.userEmail}</p>
+						<p>${b.postDate}</p>
 					</section>
 				</div>
 			</c:forEach>

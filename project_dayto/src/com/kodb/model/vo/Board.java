@@ -1,13 +1,11 @@
 package com.kodb.model.vo;
 
-import java.util.Date;
-
 public class Board {
 
 	private int postId;
 	private String userEmail;
 	private String postName;
-	private Date postDate;
+	private String postDate;
 	private String postContent;
 	private String postRecomm;
 	private String postPublic;
@@ -18,7 +16,6 @@ public class Board {
 
 	public Board() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getPostId() {
@@ -45,11 +42,11 @@ public class Board {
 		this.postName = postName;
 	}
 
-	public Date getPostDate() {
+	public String getPostDate() {
 		return postDate;
 	}
 
-	public void setPostDate(Date postDate) {
+	public void setPostDate(String postDate) {
 		this.postDate = postDate;
 	}
 
@@ -80,4 +77,6 @@ public class Board {
 				+ ", postContent=" + postContent + ", postRecomm=" + postRecomm
 				+ ", postPublic=" + postPublic + "]";
 	}
+
+	
 }
