@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kodb.model.service.BoardService;
+import com.kodb.model.service.PlaceService;
 import com.kodb.model.service.TimetableService;
 import com.kodb.model.vo.Board;
+import com.kodb.model.vo.Place;
 import com.kodb.model.vo.Timetable;
 import com.kodb.model.vo.User;
 
@@ -28,6 +30,7 @@ public class BoardController {
 	
 	private BoardService boardService;
 	private TimetableService timetableService;
+	private PlaceService placeService;
 	
 	@Autowired
 	public void setBoardService(BoardService boardService) {
@@ -39,6 +42,11 @@ public class BoardController {
 		this.timetableService = timetableService;
 	}
 
+	@Autowired
+	public void setPlaceService(PlaceService placeService) {
+		this.placeService = placeService;
+	}
+	
 	@RequestMapping("/savePost.do")	
 	public String savePost(Board board, HttpSession session, Model model, HttpServletRequest request,
 						@RequestParam("image") MultipartFile file,
@@ -89,7 +97,14 @@ public class BoardController {
 	@RequestMapping("/getPost.do")
 	public String getPost(Model model, HttpSession session, HttpServletRequest req) {
 		int postId = Integer.parseInt(req.getParameter("postId"));
-		model.addAttribute("timetableList", timetableService.getSchedule(postId));
+		
+		ArrayList<Timetable> timetableList = (ArrayList<Timetable>)timetableService.getSchedule(postId);
+		ArrayList<Place> placeList =new ArrayList<Place>();
+		for(int i=0; i<timetableList.size(); i++)
+			placeList.add(placeService.getPlace(timetableList.get(i).getPlaceName()));
+		
+		model.addAttribute("timetableList", timetableList);
+		model.addAttribute("placeList", placeList);
 		model.addAttribute("blog", boardService.getPost(postId));
 		return "displayBlog";
 	}
@@ -113,13 +128,15 @@ public class BoardController {
 			@RequestParam("end") ArrayList<String> end) {
 		
 		ArrayList<Timetable> timetableList = new ArrayList<Timetable>();
-		
+		ArrayList<Place> placeList =new ArrayList<Place>();
 		for(int i=0; i<title.size(); i++) {
 			Timetable timetable = new Timetable(title.get(i), start.get(i), end.get(i));
+			placeList.add(placeService.getPlace(title.get(i)));
 			timetableList.add(timetable);
 		}
-
+		
 		model.addAttribute("timetableList", timetableList);
+		model.addAttribute("placeList", placeList);
 		
 		return "writingBlog";
 	}
