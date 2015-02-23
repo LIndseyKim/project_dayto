@@ -68,6 +68,12 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
+	public Blog getPostDate(String postDate) {
+		System.out.println("[getPostDate]");
+		return boardDao.selectPostDate(postDate);
+	}
+	
+	@Override
 	public List<Blog> getAllPublicPost() {
 		System.out.println("[getAllPublicPost]");
 		return boardDao.selectAllPulicPost();

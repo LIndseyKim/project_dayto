@@ -884,7 +884,7 @@
       background: #fff;
       color: #555f66;
       cursor: default;
-      height: 3em;
+      height: 5em;
       left: 0;
       line-height: 3em;
       position: fixed;
@@ -900,14 +900,14 @@
          height: inherit;
          left: 1.25em;
          line-height: inherit;
-         margin: 0;
+         margin: 15px;
          padding: 0;
          position: absolute;
          top: 0;
       }
 
       #header h1 a {
-         font-size: 1.25em;
+         font-size: 1em;
       }
 
       #header nav {
@@ -915,8 +915,9 @@
          line-height: inherit;
          position: absolute;
          right: 1.25em;
-         top: 0;
+         top: 15px;
          vertical-align: middle;
+         font-size: 1.3em;
       }
 
       #header nav > ul {

@@ -84,6 +84,7 @@
 								</c:forEach>
 								<h3>${b.postName}</h3>
 								<p>${b.postContent}</p>
+								<p>${b.postDate}</p>
 							</section>
 						</div>
 					</c:forEach>

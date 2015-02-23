@@ -93,6 +93,11 @@ public class BoardDaoImpl  implements BoardDao {
 		return session.selectOne("board.deletePost", postId);
 	}
 
+	@Override
+	public Blog selectPostDate(String postDate) {
+		return session.selectOne("board.selectPost", postDate);
+	}
+
 
 
 	
