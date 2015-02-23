@@ -39,10 +39,16 @@
       /** Google Map 객체. **/
          GoogleMap = {
             /* 초기화. */
+            
             initialize : function() {
+            
                var latlngs = [];
                var names = [];
                var tels = [];
+       
+               var coordinates=[];
+               var paths=[];
+                  
                <c:forEach var="place" items="${placeList}">
 	               latlngs.push(new google.maps.LatLng(${place.addressX},${place.addressY}));
 	               names.push('${place.placeName}');
@@ -72,6 +78,7 @@
                
                for(var i=0 ; i< latlngs.length; ++i){
                   var str= names[i];
+                 
                   this.marker = new google.maps.Marker({
                      
                      position:latlngs[i],
@@ -83,15 +90,28 @@
                   if(i==0){
                   GoogleMap.map.setCenter(latlngs[0]);
                   }
-               
+                  coordinates.push(latlngs[i]);
+                
+         
                   /* var infowindow = new google.maps.InfoWindow(
                 	      { content:str,  
                 	        size: new google.maps.Size(50,50)
                		});
                   infowindow.open(this.map, this.marker); */
-               }               
-            },                       
+               }
+               var path=new google.maps.Polyline({
+            	  path:coordinates,
+            	  strokeColor: '#000000',
+      		    	strokeOpacity: 1.0,
+      		    	strokeWeight: 3
+               });
+               path.setMap(this.map);
+
+            },
+            
          },
+
+         
          window.onload = function() {
             GoogleMap.initialize();
          }
