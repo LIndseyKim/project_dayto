@@ -28,6 +28,7 @@ public class PlaceController{
       List<Place> placeList = placeService.getPlacesByAddr(req.getParameter("str"));
       
       session.setAttribute("input", req.getParameter("str"));
+      
       model.addAttribute("placeList", placeList);
       
       return "schedule";
@@ -37,8 +38,16 @@ public class PlaceController{
    public String getPlaceListByCate(Model model,HttpServletRequest req,HttpSession session){
 	   List<Place> placeList = placeService.getPlacesByAddr((String)session.getAttribute("input"));
 	   String check=req.getParameter("str");
+	   
+	   if(check.equals("1")){
+	          
+          model.addAttribute("placeList", placeList);
+          return "schedule";
+       }
+	   
        List<Place> placeListSelect=new ArrayList<Place>();
-        
+       
+       
       for(int i=0;i<placeList.size();i++){
     	  if(placeList.get(i).getPlaceCategory()==null){
     		  continue;

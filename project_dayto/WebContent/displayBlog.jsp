@@ -170,7 +170,7 @@
 			<div class="row">
 				<div class="6u">
 					<section class="special">
-						<div id='calendar' style="margin-left:400px;"></div>
+						<div id='calendar' style="margin-left:300px;"></div>
 					</section>
 				</div>
 				<div class="6u">
