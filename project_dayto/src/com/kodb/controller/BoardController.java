@@ -56,45 +56,44 @@ public class BoardController {
 		
 		boardService.registerBoard(board);	
 		int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
+		System.out.println("postId" + postId);
 		
-		String [] filenames = new String[file.length];
-		String filename = "base_image.jpg";		
-		
-		
-		for(int i =0 ; i < file.length; i++){		
-		
-		if(!file[i].isEmpty()) { //파일이 있으면
+		int count = 0;
+
+		for(int i =0 ; i < file.length; i++){
+			if(file[i].isEmpty()) {
+				continue;
+			}
+			count++;
+
 			String saveDir = request.getServletContext().getRealPath("/images");
 			String path = saveDir+"/"+ file[i].getOriginalFilename();
 			File newFile=new File(path);			
-			filenames[i] =  file[i].getOriginalFilename();			
+			String filename =  file[i].getOriginalFilename();			
 
+			if(newFile.exists()) { //파일명 중복이 존재하면 	
+				long time = System.currentTimeMillis(); 
 
-								if(newFile.exists()) { //파일명 중복이 존재하면 	
-									long time = System.currentTimeMillis(); 
-					
-									SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
-									filenames[i] = dayTime.format(new Date(time)) +  file[i].getOriginalFilename();
-									path = saveDir+"/"+filename;
-									newFile = new File(path);	
-													 }
-								file[i].transferTo(newFile);
-								
-							}
-		System.out.println("file 시작");
-		System.out.println("file size : "+ file.length);
-		System.out.println("i :" + i);
-		 filenames[i] =  file[i].getOriginalFilename();
-		 System.out.println(filenames[i].toString());
-		boardService.registerPicture(postId, "images/"+ filenames[i]);
-
-	}
+				SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
+				filename = dayTime.format(new Date(time)) +  file[i].getOriginalFilename();
+				path = saveDir+"/"+filename;
+				newFile = new File(path);	
+			}
+			
+			file[i].transferTo(newFile);					
+			boardService.registerPicture(postId, "images/"+ filename);
+		}
 		
+		if(count == 0) {
+			boardService.registerPicture(postId, "images/base_image.jpg");
+		}
+
 		for(int i=0; i<title.size(); i++)
 			timetableService.registerTimetable(new Timetable(postId, title.get(i), start.get(i), end.get(i)));
 
 			
 		System.out.println("save Image files");
+		System.out.println(boardService.getPostWithPicture(board.getUserEmail()));
 		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
 		return "blog";
 	}
