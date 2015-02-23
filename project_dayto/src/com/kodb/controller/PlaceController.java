@@ -59,9 +59,7 @@ public class PlaceController{
    
    @RequestMapping("/recommPlace.do")   
    public String addRecommPlace(Model model,HttpServletRequest req,
-		   Place place){
-	   /*System.out.println(req.getAttribute("placeId"));*/
-	   System.out.println(place.getPlaceId());   
+		   Place place){ 
 	   placeService.recommPlace(place.getPlaceId());
 	   
 	   return "schedule";
