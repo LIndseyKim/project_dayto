@@ -11,7 +11,6 @@
 	<div class="topText">
 		<nav id="nav">
 			<ul>
-				<li><a href="#">About us</a></li>
 				<li><a href="${pageContext.request.contextPath}/getAllPublicPost.do?flag=2">Search</a>
 				<c:choose>
 						<c:when test="${user != null }">

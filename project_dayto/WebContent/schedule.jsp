@@ -142,8 +142,8 @@
 	  <script>
 	  	var events = [];
          $(document).ready(function() {
-        	$(".login_fail").click(login_fail_alert)
-			$("#logout").click(logout_alert)
+        	$(".login_fail").click(login_fail_alert);
+			$("#logout").click(logout_alert);
  			/* initialize the external events
  			-----------------------------------------------------------------*/
  			$('#external-events .fc-event').each(function() {
