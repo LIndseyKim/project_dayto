@@ -373,7 +373,7 @@ div#menubar1>a:hover {
 		<a href="getPlaceListByCate.do?str=카페">카페</a>
 		<a href="getPlaceListByCate.do?str=쇼핑">쇼핑</a>
 		<a href="getPlaceListByCate.do?str=지역명소">지역명소</a>
-		<a href="getPlaceListByCate.do?str=영화영극">영화영극</a>
+		<a href="getPlaceListByCate.do?str=영화연극">영화연극</a>
 		
 		<div id="GoogleMap_map"
 			style="width: 500px; height: 500px; margin-top: 30px;"></div>
