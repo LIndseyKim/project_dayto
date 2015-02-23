@@ -67,7 +67,7 @@ public class BoardController {
 				File newFile=new File(path);
 		}
 
-		if(!file.isEmpty()) {
+		if(!file[i].isEmpty()) {
 			String saveDir = request.getServletContext().getRealPath("/images");
 			String path = saveDir+"/"+file.getOriginalFilename();
 			File newFile=new File(path);

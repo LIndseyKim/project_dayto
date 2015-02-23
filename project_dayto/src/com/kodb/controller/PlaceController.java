@@ -52,9 +52,6 @@ public class PlaceController{
     	  if(placeList.get(i).getPlaceCategory()==null){
     		  continue;
     	  }
-    	  System.out.println(placeList.get(i).getPlaceName());
-    	  System.out.println(check);
-    	  System.out.println(placeList.get(i).getPlaceCategory());
     	  if(placeList.get(i).getPlaceCategory().equals(check)==true){	  
 			placeListSelect.add(placeList.get(i));
     	  }
