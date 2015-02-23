@@ -23,12 +23,10 @@
 		where place_name = #{placeName}
 	</select>
 
-	<select id="selectPlacesByAddr" parameterType="String"
-		resultMap="PlaceResultMap">
+	<select id="selectPlacesByAddr" parameterType="String" resultMap="PlaceResultMap">
 		select *
 		from place_info
 		where place_addr like '%'||#{value}||'%'
 	</select>
-
 </mapper>
 	

@@ -81,9 +81,18 @@
                      title: str,
                      animation : google.maps.Animation.DROP
                   });
-                  GoogleMap.map.setCenter(latlngs[i]);
+                  if(i==0){
+                  GoogleMap.map.setCenter(latlngs[0]);
+                  }
+               
+                  var infowindow = new google.maps.InfoWindow(
+                	      { content:str,  
+                	        size: new google.maps.Size(50,50)
+               		});
+                  infowindow.open(this.map, this.marker);
+           
                }               
-            },            
+            },                       
          	/* 주소 검색.(지오코딩) */
             codeAddress : function() {
                var address = this.input.value;
@@ -342,7 +351,7 @@ div#menubar1>a:hover {
 <body id="schedule-body">
 	<jsp:include page="top_layer.jsp" />
 
-	<div id='calendar'></div>
+	<div id='calendar' style="margin-left:50px;"></div>
 
 	<div id='external-events' style="overflow: scroll">
 		<h4>Place</h4>
@@ -356,8 +365,12 @@ div#menubar1>a:hover {
 		</c:forEach>
 	</div>
 	<div id="menubar1">
-		<a href="#">음식점</a> <a href="#">카페</a> <a href="#">쇼핑</a> <a href="#">지역명소</a>
-		<a href="#">영화연극</a>
+		<a href="getPlaceListByCate.do?str=음식점">음식점</a>
+		<a href="getPlaceListByCate.do?str=카페">카페</a>
+		<a href="getPlaceListByCate.do?str=쇼핑">쇼핑</a>
+		<a href="getPlaceListByCate.do?str=지역명소">지역명소</a>
+		<a href="getPlaceListByCate.do?str=영화영극">영화영극</a>
+		
 		<div id="GoogleMap_map"
 			style="width: 500px; height: 500px; margin-top: 30px;"></div>
 
