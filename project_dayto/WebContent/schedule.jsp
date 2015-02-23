@@ -142,8 +142,8 @@
 	  <script>
 	  	var events = [];
          $(document).ready(function() {
-        	$(".login_fail").click(login_fail_alert)
-			$("#logout").click(logout_alert)
+        	$(".login_fail").click(login_fail_alert);
+			$("#logout").click(logout_alert);
  			/* initialize the external events
  			-----------------------------------------------------------------*/
  			$('#external-events .fc-event').each(function() {
@@ -261,7 +261,7 @@
 div#menubar1 {
 	float: left;
 	padding: 0;
-	margin-left: 100px;
+	margin-left: 40px;
 	margin-top: 30px;
 	border: 0;
 }
@@ -297,11 +297,12 @@ div#menubar1>a:hover {
 
 #external-events {
 	position: relative;
-	left: 30px;
+	left: 10px;
 	float: left;
 	width: 310px;
 	height: 800px;
 	margin: 10px;
+	margin-left: 35px; 
 	padding: 0 10px;
 	border: 1px solid #ccc;
 	background: #fff;
@@ -339,7 +340,6 @@ div#menubar1>a:hover {
 	top: 50px;
 	width: 800px;
 	height: 400px;
-	left: 60px;
 	boarder: 1px solid #ccc;
 	background: #eee;
 }
@@ -355,7 +355,7 @@ div#menubar1>a:hover {
 <body id="schedule-body">
 	<jsp:include page="top_layer.jsp" />
 
-	<div id='calendar' style="margin-left:50px;"></div>
+	<div id='calendar' style="margin-left:100px;"></div>
 
 	<div id='external-events' style="overflow: scroll">
 		<h4>Place</h4>

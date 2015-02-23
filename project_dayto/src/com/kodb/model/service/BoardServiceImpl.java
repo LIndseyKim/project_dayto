@@ -84,8 +84,4 @@ public class BoardServiceImpl implements BoardService{
 		System.out.println("[deletePost]");
 		return boardDao.deletePost(postId);
 	}
-
-	
-
-
 }

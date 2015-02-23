@@ -141,10 +141,9 @@ public class BoardController {
 		return "writingBlog";
 	}
 	
+	
 	@RequestMapping("/deletePost.do")
 	public String deletePost(Model model, HttpSession session, HttpServletRequest req) {
-			/*@RequestParam("postId") String postId) {*/
-		System.out.println("[controller OK] ");
 		boardService.deletePost(Integer.parseInt(req.getParameter("deletePostId")));
 		User user = (User)session.getAttribute("user");
 		model.addAttribute("blog", boardService.getPostWithPicture(user.getUserEmail()));

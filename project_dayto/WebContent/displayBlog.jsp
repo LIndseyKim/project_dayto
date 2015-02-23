@@ -154,37 +154,34 @@
 	<body>
 		<jsp:include page="top_layer.jsp" />
 		
-		<section id="main" class="wrapper style1">
+		<!-- <section id="main" class="wrapper style1"> -->
 			<header class="major">
 				<h2>${blog.postName}</h2>
 			</header>
 			<div class="container" align="center">
 				<section>
 					<c:forEach items="${blog.pictureList}" var="p">
-						<img src="${p.postPic}" width="50%" height="50%"/>
+						<img src="${p.postPic}" width="400px" height="200px"/>
 					</c:forEach>
 					<p>${blog.postContent}</p>
 				</section>
 			</div>
+			<br/>
 			<div class="row">
 				<div class="6u">
 					<section class="special">
-						<div id='calendar' style="margin-left:500px;margin-right:-200px;"></div>
+						<div id='calendar' style="margin-left:400px;"></div>
 					</section>
 				</div>
 				<div class="6u">
 					<section class="special">
 					<div id="GoogleMap_map"
-						style="height:300px; width: 400px; height: 500px;"></div>
-				</section>
+						style="height:300px; width: 400px;margin-left:-40px; height: 500px;"></div>
+					</section>
 				</div>
 			</div>
-		</section>
-		<table>
-			<tr align="center">
-		      	<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:650px">Modify</a>
-		      	<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
-     		</tr>
-     	</table>
+			<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:650px; margin-right:30px">Modify</a>
+      		<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
+		<!-- </section> -->
 	</body>
 </html>

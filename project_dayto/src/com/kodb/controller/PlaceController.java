@@ -35,7 +35,6 @@ public class PlaceController{
    
    @RequestMapping("/getPlaceListByCate.do")
    public String getPlaceListByCate(Model model,HttpServletRequest req,HttpSession session){
-	   System.out.println((String)session.getAttribute("input"));
 	   List<Place> placeList = placeService.getPlacesByAddr((String)session.getAttribute("input"));
 	   String check=req.getParameter("str");
        List<Place> placeListSelect=new ArrayList<Place>();
@@ -57,13 +56,12 @@ public class PlaceController{
       return "schedule";
    }
    
-   @RequestMapping("/recommPlace.do")   
-   public String addRecommPlace(Model model,HttpServletRequest req,
-		   Place place){
-	   /*System.out.println(req.getAttribute("placeId"));*/
-	   System.out.println(place.getPlaceId());   
+   @RequestMapping("/recommPlace.do") 
+   public String addRecommPlace(Model model,HttpServletRequest req, Place place, HttpSession session){ 
 	   placeService.recommPlace(place.getPlaceId());
-	   
+	   List<Place> placeList = placeService.getPlacesByAddr((String)session.getAttribute("input"));
+	   model.addAttribute("placeList", placeList);
+	      
 	   return "schedule";
 	}
 }
