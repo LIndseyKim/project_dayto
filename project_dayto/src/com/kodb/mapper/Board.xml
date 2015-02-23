@@ -46,10 +46,9 @@
 	</delete>
 	
 	<select id="selectBoard" parameterType="String" resultMap="BoardResultMap">
-		select *
-		from blog_post 
-		where user_email = #{value} and	rownum = 1
-		order by post_id desc
+		SELECT * 
+		FROM (SELECT * FROM BLOG_POST WHERE user_email=#{value} ORDER BY post_id desc) 
+		WHERE ROWNUM = 1
 	</select>
 	
 	<select id="selectPostName" parameterType="String" resultMap="BoardResultMap">
@@ -68,7 +67,6 @@
 		where	bp.post_id = bpic.post_id
 		and		bp.user_email = #{value}
 		and		bp.post_name is not null
-	
 	</select>
 	
 	<select id="selectPost" parameterType="Integer" resultMap="PostwithPictureResultMap">

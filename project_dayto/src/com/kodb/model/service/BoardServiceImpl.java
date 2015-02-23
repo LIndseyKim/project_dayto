@@ -1,5 +1,6 @@
 package com.kodb.model.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.kodb.model.dao.BoardDao;
@@ -38,6 +39,17 @@ public class BoardServiceImpl implements BoardService{
 		System.out.println("[registerPicture]");
 		boardDao.insertBoardImages(postId, postPic);
 	}
+	
+	/*  HashMap<String,Object> conditions
+	  = new HashMap<String,Object>();
+	
+	if(userId != null && userId.trim().length() > 0){
+		conditions.put("userId", userId);
+	}
+
+	if(email != null && email.trim().length() > 0){
+		conditions.put("email", email);
+	}  */
 	
 	
 	@Override

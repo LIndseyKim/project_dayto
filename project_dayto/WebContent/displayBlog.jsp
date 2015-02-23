@@ -165,7 +165,7 @@
 	<body>
 		<jsp:include page="top_layer.jsp" />
 		
-		<!-- <section id="main" class="wrapper style1"> -->
+		<section id="main" class="wrapper style1">
 			<header class="major">
 				<h2>${blog.postName}</h2>
 				<h4>작성자 : ${blog.userEmail}  작성일 : ${blog.postDate}</h4>
@@ -194,6 +194,6 @@
 			</div>
 			<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:550px; margin-right:30px">Modify</a>
       		<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
-		<!-- </section> -->
+		</section>
 	</body>
 </html>

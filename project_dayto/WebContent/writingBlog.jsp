@@ -252,7 +252,10 @@
 						name="postPublic" id="optionsRadios2" value=1 />다른 회원에게 비공개
 				</div>
 	
-				이미지선택 : <input type="file" name="image" /> <br /> 
+				대표 이미지선택 : <input type="file" name="image" /> <br /> 
+				이미지선택 : <input type="file" name="image" /> <br />
+				이미지선택 : <input type="file" name="image" /> <br />
+				이미지선택 : <input type="file" name="image" /> <br />
 				<br/>
 				<div class="row">
 					<div class="6u">
