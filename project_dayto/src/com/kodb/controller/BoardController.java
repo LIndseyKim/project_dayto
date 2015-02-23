@@ -49,43 +49,58 @@ public class BoardController {
 	
 	@RequestMapping("/savePost.do")	
 	public String savePost(Board board, HttpSession session, Model model, HttpServletRequest request,
-						@RequestParam("image") MultipartFile file,
+						@RequestParam("image") MultipartFile[] file,
 						@RequestParam("title") ArrayList<String> title,
 						@RequestParam("start") ArrayList<String> start,
 						@RequestParam("end") ArrayList<String> end) throws IllegalStateException, IOException{
 		
 		boardService.registerBoard(board);	
-		String filename = "base_image.jpg";
 		int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
-
-		if(!file.isEmpty()) {
+		
+		String [] filenames = new String[file.length];
+		String filename = "base_image.jpg";		
+		
+		
+		for(int i =0 ; i < file.length; i++){		
+		
+		if(!file[i].isEmpty()) { //파일이 있으면
 			String saveDir = request.getServletContext().getRealPath("/images");
-			String path = saveDir+"/"+file.getOriginalFilename();
-			File newFile=new File(path);
-			
-			filename = file.getOriginalFilename();
-			
+			String path = saveDir+"/"+ file[i].getOriginalFilename();
+			File newFile=new File(path);			
+			filenames[i] =  file[i].getOriginalFilename();			
 
-			if(newFile.exists()) {	
-				long time = System.currentTimeMillis(); 
 
-				SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
-				filename = dayTime.format(new Date(time)) + file.getOriginalFilename();
-				path = saveDir+"/"+filename;
-				newFile = new File(path);	
-			}
-			file.transferTo(newFile);
-		}
+								if(newFile.exists()) { //파일명 중복이 존재하면 	
+									long time = System.currentTimeMillis(); 
+					
+									SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
+									filenames[i] = dayTime.format(new Date(time)) +  file[i].getOriginalFilename();
+									path = saveDir+"/"+filename;
+									newFile = new File(path);	
+													 }
+								file[i].transferTo(newFile);
+								
+							}
+		System.out.println("file 시작");
+		System.out.println("file size : "+ file.length);
+		System.out.println("i :" + i);
+		 filenames[i] =  file[i].getOriginalFilename();
+		 System.out.println(filenames[i].toString());
+		boardService.registerPicture(postId, "images/"+ filenames[i]);
+
+	}
 		
 		for(int i=0; i<title.size(); i++)
 			timetableService.registerTimetable(new Timetable(postId, title.get(i), start.get(i), end.get(i)));
-				
-		boardService.registerPicture(postId, "images/"+ filename);
+
+			
 		System.out.println("save Image files");
 		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
 		return "blog";
 	}
 
+	
+	
 	@RequestMapping("/getPostName.do")
 	public String getUser(Model model, HttpSession session) {
 		

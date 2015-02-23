@@ -232,6 +232,7 @@
 				</div>
 	
 				이미지선택 : <input type="file" name="image" /> <br /> 
+				이미지선택 : <input type="file" name="image" /> <br />
 				<br/>
 				<div class="row">
 					<div class="6u">
