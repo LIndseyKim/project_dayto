@@ -8,6 +8,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 		<script src="${pageContext.request.contextPath}/js/skel.min.js"></script>
 		<script src="${pageContext.request.contextPath}/js/skel-layers.min.js"></script>
@@ -34,33 +35,105 @@
 			src='${pageContext.request.contextPath}/js/jquery-ui.custom.min.js'></script>
 		<script src='${pageContext.request.contextPath}/js/fullcalendar.min.js'></script>
 		
+		<script type="text/javascript">
+      /** Google Map 객체. **/
+         GoogleMap = {
+            /* 초기화. */
+            initialize : function() {
+               var latlngs = [];
+               var names = [];
+               var tels = [];
+               <c:forEach var="place" items="${placeList}">
+	               latlngs.push(new google.maps.LatLng(${place.addressX},${place.addressY}));
+	               names.push('${place.placeName}');
+	               tels.push('${place.placeTel}');
+               </c:forEach>
+               
+               this.input = document.getElementById("GoogleMap_input");
+               this.address = document.getElementById("GoogleMap_addr");
+               this.geocoder = new google.maps.Geocoder();
+               this.infowindow = new google.maps.InfoWindow();
+
+               var x=37.54857886215574;
+               var y=126.95317768942301;
+               
+               var latlng = new google.maps.LatLng(x,y);
+               
+               var myOptions = {
+                  zoom : 15,
+                  center : latlng, 
+                  mapTypeId : google.maps.MapTypeId.ROADMAP
+               };
+               this.map = new google.maps.Map(document
+                     .getElementById("GoogleMap_map"), myOptions);
+   
+   
+               
+               for(var i=0 ; i< latlngs.length; ++i){
+                  var str= names[i];
+                  this.marker = new google.maps.Marker({
+                     
+                     position:latlngs[i],
+                     map : this.map,
+                     title: str,
+                     animation : google.maps.Animation.DROP
+                  });
+                  if(i==0){
+                  GoogleMap.map.setCenter(latlngs[0]);
+                  }
+               
+                  var infowindow = new google.maps.InfoWindow(
+                	      { content:str,  
+                	        size: new google.maps.Size(50,50)
+               		});
+                  infowindow.open(this.map, this.marker);
+           
+               }               
+            },                       
+         },
+         window.onload = function() {
+            GoogleMap.initialize();
+         }
+      </script>
+      
 		<script>
 			$(document).ready(function() {
+				var placeNames =[];
+				<c:forEach var="t" items = "${timetableList}">
+					placeNames.push('$t.placeName}');
+				</c:forEach>
+				
+				
+			
 				$(".login_fail").click(login_fail_alert)
 				$("#logout").click(logout_alert)
 				
 				/* initialize the calendar
 	 			-----------------------------------------------------------------*/
 	 			$('#calendar').fullCalendar({
+	 				
 	 				header : {
 	 					left : 'prev, today',
 	 					center : 'title',
 	 					right : 'next'
 	 				},
-	 				height : 400,
+	 				height : 500,
 	 				now: "${timetableList[0].startTime}",
 	 				events : [
 	 					<c:forEach var="t" items = "${timetableList}">
 	 					{
 	 						title : "${t.placeName}",
 	 						start : '${t.startTime}',
-	 						end : '${t.endTime}'
+	 						end : '${t.endTime}',
+	 						
 	 					},
 	 					</c:forEach>
 	 				]
+	 				
 	 			});
 				$('#writing').click(function() {
 					<c:forEach var="t" items = "${timetableList}">
+												
 						var title = document.createElement("input");
 	 					title.type = "hidden";
 	 					title.name = "title";
@@ -89,7 +162,6 @@
 				})
 			};
 		</script>
-		
 		<style>
 			.Pstyle {
 			    opacity: 0;
@@ -165,6 +237,12 @@
 					<div class="6u">
 						<section class="special">
 							<div id='calendar' style="margin-left:-40px;"></div>
+						</section>
+					</div>
+					<div class="6u">
+						<section class="special">
+						<div id="GoogleMap_map"
+							style="height:300px; width: 400px;margin-left:-40px; height: 500px;"></div>
 						</section>
 					</div>
 				</div>	
