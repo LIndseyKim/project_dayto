@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -47,9 +49,9 @@ public class BoardController {
 		this.placeService = placeService;
 	}
 	
-	@RequestMapping("/savePost.do")	
+	/*@RequestMapping("/savePost.do")	
 	public String savePost(Board board, HttpSession session, Model model, HttpServletRequest request,
-						@RequestParam("image") MultipartFile file,
+						@RequestParam("image") MultipartFile[] file,
 						@RequestParam("title") ArrayList<String> title,
 						@RequestParam("start") ArrayList<String> start,
 						@RequestParam("end") ArrayList<String> end) throws IllegalStateException, IOException{
@@ -57,6 +59,13 @@ public class BoardController {
 		boardService.registerBoard(board);	
 		String filename = "base_image.jpg";
 		int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
+		
+		if(file.length !=0) {
+			for(int i = 0; i < file.length; i++) {
+				String saveDir = request.getServletContext().getRealPath("/images");
+				String path = saveDir+"/"+file[i].getOriginalFilename();
+				File newFile=new File(path);
+		}
 
 		if(!file.isEmpty()) {
 			String saveDir = request.getServletContext().getRealPath("/images");
@@ -84,7 +93,7 @@ public class BoardController {
 		System.out.println("save Image files");
 		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
 		return "blog";
-	}
+	}*/
 
 	@RequestMapping("/getPostName.do")
 	public String getUser(Model model, HttpSession session) {
@@ -129,12 +138,33 @@ public class BoardController {
 		
 		ArrayList<Timetable> timetableList = new ArrayList<Timetable>();
 		ArrayList<Place> placeList =new ArrayList<Place>();
+		
+		for(int i=0; i<start.size(); i++) {
+			for(int j=i+1; j<start.size(); j++) {
+				if(start.get(i).compareTo(start.get(j)) > 0) {
+					String temp = start.get(i);
+					start.set(i, start.get(j));
+					start.set(j, temp);
+					
+					temp = title.get(i);
+					title.set(i, title.get(j));
+					title.set(j, temp);
+					
+					temp = end.get(i);
+					end.set(i, end.get(j));
+					end.set(j, temp);
+				}
+			}
+			
+		}
+		
 		for(int i=0; i<title.size(); i++) {
 			Timetable timetable = new Timetable(title.get(i), start.get(i), end.get(i));
 			placeList.add(placeService.getPlace(title.get(i)));
 			timetableList.add(timetable);
 		}
 		
+		System.out.println(timetableList);
 		model.addAttribute("timetableList", timetableList);
 		model.addAttribute("placeList", placeList);
 		

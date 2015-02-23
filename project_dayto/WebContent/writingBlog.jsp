@@ -117,7 +117,7 @@
 	 					center : 'title',
 	 					right : 'next'
 	 				},
-	 				height : 500,
+	 				height : 400,
 	 				now: "${timetableList[0].startTime}",
 	 				events : [
 	 					<c:forEach var="t" items = "${timetableList}">
@@ -236,18 +236,18 @@
 				<div class="row">
 					<div class="6u">
 						<section class="special">
-							<div id='calendar' style="margin-left:-40px;"></div>
-						</section>
+							<div id='calendar' ></div>
+						</section>W
 					</div>
 					<div class="6u">
 						<section class="special">
 						<div id="GoogleMap_map"
-							style="height:300px; width: 400px;margin-left:-40px; height: 500px;"></div>
+							style="width: 400px;margin-left:-40px; height: 400px;"></div>
 						</section>
 					</div>
 				</div>	
 		
-				<p align="center">
+				<p style="margin-left:400px;">
 					<input type="hidden" name="userEmail" value="${user.userEmail}" />
 					<input id="writing" type="submit" value="입력완료" />
 			</div>

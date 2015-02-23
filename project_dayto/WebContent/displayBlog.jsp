@@ -108,7 +108,7 @@
 	 					center : 'title',
 	 					right : 'next'
 	 				},
-	 				height : 500,
+	 				height : 400,
 	 				now: "${timetableList[0].startTime}",
 	 				events : [
 	 					<c:forEach var="t" items = "${timetableList}">
@@ -170,17 +170,17 @@
 			<div class="row">
 				<div class="6u">
 					<section class="special">
-						<div id='calendar' style="margin-left:300px;"></div>
+						<div id='calendar' style="margin-left:200px;"></div>
 					</section>
 				</div>
 				<div class="6u">
 					<section class="special">
 					<div id="GoogleMap_map"
-						style="height:300px; width: 400px;margin-left:-40px; height: 500px;"></div>
+						style="width: 400px;margin-left:-40px; height: 400px;"></div>
 					</section>
 				</div>
 			</div>
-			<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:650px; margin-right:30px">Modify</a>
+			<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:550px; margin-right:30px">Modify</a>
       		<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
 		<!-- </section> -->
 	</body>

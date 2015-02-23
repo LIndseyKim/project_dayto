@@ -79,17 +79,18 @@
                      position:latlngs[i],
                      map : this.map,
                      title: str,
-                     animation : google.maps.Animation.DROP
+                     animation : google.maps.Animation.DROP,
+                     icon : "images/number/"+(i+1)+".jpg"
                   });
                   if(i==0){
                   GoogleMap.map.setCenter(latlngs[0]);
                   }
                
-                  var infowindow = new google.maps.InfoWindow(
+                  /* var infowindow = new google.maps.InfoWindow(
                 	      { content:str,  
                 	        size: new google.maps.Size(50,50)
                		});
-                  infowindow.open(this.map, this.marker);
+                  infowindow.open(this.map, this.marker); */
            
                }               
             },                       
@@ -147,9 +148,11 @@
  			/* initialize the external events
  			-----------------------------------------------------------------*/
  			$('#external-events .fc-event').each(function() {
+ 				var temp = $.trim($(this).text()).split('.')
  				// store data so the calendar knows to render an event upon drop
  				$(this).data('event', {
- 					title : $.trim($(this).text()), // use the element's text as the event title
+ 					/* title : $.trim($(this).text()), // use the element's text as the event title */
+ 					title : temp[1],
  					stick : true
  				// maintain when user navigates (see docs on the renderEvent method)
  				});
@@ -374,12 +377,12 @@ div#menubar1>a:hover {
 
 	<div id='external-events' style="overflow: scroll">
 		<h4>Place</h4>
-		<c:forEach var="p" items="${placeList}">
-			<div id='${p.placeId}' class='fc-event' align="center"
+		<c:forEach var="p" items="${placeList}" varStatus="status">
+			<div class='fc-event' align="center"
 				onclick="place_popup('${p.placeId}', '${p.placeName}','${p.placeAddr}',
 									'${p.placeAddr2}', '${p.placeTel}', '${p.placeRecomm}')">
 				<img class="schedule-image" src='${p.placePic}' alt="" />
-				${p.placeName}
+				${status.count}.${p.placeName}
 			</div>
 		</c:forEach>
 	</div>
