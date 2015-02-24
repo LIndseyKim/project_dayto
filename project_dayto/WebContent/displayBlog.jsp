@@ -43,6 +43,10 @@
                var latlngs = [];
                var names = [];
                var tels = [];
+               
+               var coordinates=[];
+               var paths=[];
+                  
                <c:forEach var="place" items="${placeList}">
 	               latlngs.push(new google.maps.LatLng(${place.addressX},${place.addressY}));
 	               names.push('${place.placeName}');
@@ -60,7 +64,7 @@
                var latlng = new google.maps.LatLng(x,y);
                
                var myOptions = {
-                  zoom : 15,
+                  zoom : 17,
                   center : latlng, 
                   mapTypeId : google.maps.MapTypeId.ROADMAP
                };
@@ -76,19 +80,26 @@
                      position:latlngs[i],
                      map : this.map,
                      title: str,
-                     animation : google.maps.Animation.DROP
+                     animation : google.maps.Animation.DROP,
+                     icon : "images/number/"+(i+1)+".jpg"
                   });
                   if(i==0){
                   GoogleMap.map.setCenter(latlngs[0]);
                   }
                
-                  var infowindow = new google.maps.InfoWindow(
+                  /* var infowindow = new google.maps.InfoWindow(
                 	      { content:str,  
                 	        size: new google.maps.Size(50,50)
                		});
-                  infowindow.open(this.map, this.marker);
-           
-               }               
+                  infowindow.open(this.map, this.marker); */
+               }
+               var path=new google.maps.Polyline({
+             	  path:coordinates,
+             	  strokeColor: '#000000',
+       		    	strokeOpacity: 1.0,
+       		    	strokeWeight: 3
+                });
+                path.setMap(this.map);
             },                       
          },
          window.onload = function() {
@@ -108,7 +119,7 @@
 	 					center : 'title',
 	 					right : 'next'
 	 				},
-	 				height : 500,
+	 				height : 400,
 	 				now: "${timetableList[0].startTime}",
 	 				events : [
 	 					<c:forEach var="t" items = "${timetableList}">
@@ -157,7 +168,6 @@
 		<!-- <section id="main" class="wrapper style1"> -->
 			<header class="major">
 				<h2>${blog.postName}</h2>
-				<h4>작성자 : ${blog.userEmail}  작성일 : ${blog.postDate}</h4>
 			</header>
 			<div class="container" align="center">
 				<section>
@@ -171,17 +181,17 @@
 			<div class="row">
 				<div class="6u">
 					<section class="special">
-						<div id='calendar' style="margin-left:300px;"></div>
+						<div id='calendar' style="margin-left:200px;"></div>
 					</section>
 				</div>
 				<div class="6u">
 					<section class="special">
 					<div id="GoogleMap_map"
-						style="height:300px; width: 400px;margin-left:-40px; height: 500px;"></div>
+						style="width: 400px;margin-left:-40px; height: 400px;"></div>
 					</section>
 				</div>
 			</div>
-			<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:650px; margin-right:30px">Modify</a>
+			<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:550px; margin-right:30px">Modify</a>
       		<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
 		<!-- </section> -->
 	</body>

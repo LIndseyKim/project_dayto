@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -49,39 +51,49 @@ public class BoardController {
 	
 	@RequestMapping("/savePost.do")	
 	public String savePost(Board board, HttpSession session, Model model, HttpServletRequest request,
-						@RequestParam("image") MultipartFile file,
+						@RequestParam("image") MultipartFile[] file,
 						@RequestParam("title") ArrayList<String> title,
 						@RequestParam("start") ArrayList<String> start,
 						@RequestParam("end") ArrayList<String> end) throws IllegalStateException, IOException{
 		
 		boardService.registerBoard(board);	
-		String filename = "base_image.jpg";
 		int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
+		int count = 0;
 
-		if(!file.isEmpty()) {
+		for(int i =0 ; i < file.length; i++){
+			if(file[i].isEmpty()) {
+				continue;
+			}
+			count++;
+
 			String saveDir = request.getServletContext().getRealPath("/images");
-			String path = saveDir+"/"+file.getOriginalFilename();
-			File newFile=new File(path);
-			
-			filename = file.getOriginalFilename();
-			
+			String path = saveDir+"/"+ file[i].getOriginalFilename();
+			File newFile=new File(path);			
+			String filename =  file[i].getOriginalFilename();			
 
-			if(newFile.exists()) {	
+			if(newFile.exists()) { //파일명 중복이 존재하면 	
 				long time = System.currentTimeMillis(); 
 
 				SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
-				filename = dayTime.format(new Date(time)) + file.getOriginalFilename();
+				filename = dayTime.format(new Date(time)) +  file[i].getOriginalFilename();
 				path = saveDir+"/"+filename;
 				newFile = new File(path);	
 			}
-			file.transferTo(newFile);
+			
+			file[i].transferTo(newFile);					
+			boardService.registerPicture(postId, "images/"+ filename);
 		}
 		
+		if(count == 0) {
+			boardService.registerPicture(postId, "images/base_image.jpg");
+		}
+
 		for(int i=0; i<title.size(); i++)
 			timetableService.registerTimetable(new Timetable(postId, title.get(i), start.get(i), end.get(i)));
-				
-		boardService.registerPicture(postId, "images/"+ filename);
+
+			
 		System.out.println("save Image files");
+		System.out.println(boardService.getPostWithPicture(board.getUserEmail()));
 		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
 		return "blog";
 	}
@@ -129,6 +141,26 @@ public class BoardController {
 		
 		ArrayList<Timetable> timetableList = new ArrayList<Timetable>();
 		ArrayList<Place> placeList =new ArrayList<Place>();
+		
+		for(int i=0; i<start.size(); i++) {
+			for(int j=i+1; j<start.size(); j++) {
+				if(start.get(i).compareTo(start.get(j)) > 0) {
+					String temp = start.get(i);
+					start.set(i, start.get(j));
+					start.set(j, temp);
+					
+					temp = title.get(i);
+					title.set(i, title.get(j));
+					title.set(j, temp);
+					
+					temp = end.get(i);
+					end.set(i, end.get(j));
+					end.set(j, temp);
+				}
+			}
+			
+		}
+		
 		for(int i=0; i<title.size(); i++) {
 			Timetable timetable = new Timetable(title.get(i), start.get(i), end.get(i));
 			placeList.add(placeService.getPlace(title.get(i)));

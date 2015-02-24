@@ -22,6 +22,17 @@
 		<link href="${pageContext.request.contextPath}/css/login/loginstyle.css" rel="stylesheet" type="text/css" />
 		<link href="${pageContext.request.contextPath}/css/signup/signupstyle.css" rel="stylesheet" type="text/css" />
 		
+		<link
+			href='${pageContext.request.contextPath}/css/fullcalendar/fullcalendar.css'
+			rel='stylesheet' />
+		<link
+			href='${pageContext.request.contextPath}/css/fullcalendar/fullcalendar.print.css'
+			rel='stylesheet' media='print' />
+		<script src='${pageContext.request.contextPath}/js/moment.min.js'></script>
+		<script
+			src='${pageContext.request.contextPath}/js/jquery-ui.custom.min.js'></script>
+		<script src='${pageContext.request.contextPath}/js/fullcalendar.min.js'></script>
+		
 		<script>
 			$(document).ready(function() {
 				$(".login_fail").click(login_fail_alert)
@@ -106,7 +117,13 @@
 						name="postPublic" id="optionsRadios2" value=1 />다른 회원에게 비공개
 				</div>
 	
+				대표 이미지선택 : <input type="file" name="image" /> <br /> 
+				이미지선택 : <input type="file" name="image" /> <br />
+				이미지선택 : <input type="file" name="image" /> <br />
 				이미지선택 : <input type="file" name="image" /> <br /> 
+				 
+				 
+				
 				
 				<p align="center">
 	

@@ -1,7 +1,5 @@
 package com.kodb.model.vo;
 
-import java.util.Date;
-
 public class Place {
 
 	private int placeId;
