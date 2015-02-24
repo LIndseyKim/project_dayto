@@ -203,7 +203,7 @@ public class BoardController {
 		int postId = board.getPostId();
 		System.out.println(postId);
 
-		if(!file.isEmpty()) {
+		if(!file.isEmpty()) {  
 			String saveDir = req.getServletContext().getRealPath("/images");
 			String path = saveDir+"/"+file.getOriginalFilename();
 			File newFile=new File(path);
@@ -229,4 +229,13 @@ public class BoardController {
 		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
 		return "blog";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
