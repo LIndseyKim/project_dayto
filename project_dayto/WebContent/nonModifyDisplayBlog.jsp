@@ -35,7 +35,7 @@
 		<script
 			src='${pageContext.request.contextPath}/js/jquery-ui.custom.min.js'></script>
 		<script src='${pageContext.request.contextPath}/js/fullcalendar.min.js'></script>
-				<script type="text/javascript">
+			<script type="text/javascript">
       /** Google Map 객체. **/
          GoogleMap = {
             /* 초기화. */
@@ -46,7 +46,7 @@
                
                var coordinates=[];
                var paths=[];
-                  
+               
                <c:forEach var="place" items="${placeList}">
 	               latlngs.push(new google.maps.LatLng(${place.addressX},${place.addressY}));
 	               names.push('${place.placeName}');
@@ -75,6 +75,7 @@
                
                for(var i=0 ; i< latlngs.length; ++i){
                   var str= names[i];
+                 
                   this.marker = new google.maps.Marker({
                      
                      position:latlngs[i],
@@ -87,6 +88,8 @@
                   GoogleMap.map.setCenter(latlngs[0]);
                   }
                   coordinates.push(latlngs[i]);
+                
+         
                   /* var infowindow = new google.maps.InfoWindow(
                 	      { content:str,  
                 	        size: new google.maps.Size(50,50)
@@ -94,14 +97,17 @@
                   infowindow.open(this.map, this.marker); */
                }
                var path=new google.maps.Polyline({
-             	  path:coordinates,
-             	  strokeColor: '#000000',
-       		    	strokeOpacity: 1.0,
-       		    	strokeWeight: 3
-                });
-                path.setMap(this.map);
-            },                       
+            	  path:coordinates,
+            	  strokeColor: '#000000',
+      		    	strokeOpacity: 1.0,
+      		    	strokeWeight: 3
+               });
+               path.setMap(this.map);
+
+            },
+            
          },
+
          window.onload = function() {
             GoogleMap.initialize();
          }
@@ -192,8 +198,7 @@
 					</section>
 				</div>
 			</div>
-			<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:550px; margin-right:30px">Modify</a>
-      		<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
+		<br/><br/><br/><br/><br/>
 		<!-- </section> -->
 	</body>
 </html>

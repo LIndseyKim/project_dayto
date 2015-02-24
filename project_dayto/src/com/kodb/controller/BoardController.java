@@ -61,6 +61,7 @@ public class BoardController {
 		int count = 0;
 
 		for(int i =0 ; i < file.length; i++){
+			if(file[i].isEmpty()) {
 				continue;
 			}
 			count++;
