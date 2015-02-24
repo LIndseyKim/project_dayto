@@ -103,9 +103,10 @@ public class BoardController {
 	public String modifyPostById(Board board, HttpSession session, Model model, HttpServletRequest request,
 			@RequestParam("image") MultipartFile[] file) throws IllegalStateException, IOException{
 
+
 			boardService.registerBoardById(board);
-			int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
-			System.out.println("postId"+postId);
+			int postId = board.getPostId();
+			System.out.println("postId :"+postId);
 			int count = 0;
 			
 			for(int i =0 ; i < file.length; i++){
