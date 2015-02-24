@@ -200,9 +200,9 @@ public class BoardController {
 	
 	@RequestMapping("/deletePicsById.do")
 	public void deletePicsById(Model model, HttpSession session, HttpServletRequest req) {
-		boardService.deletePicsById(Integer.parseInt(req.getParameter("PostId")));
-				
-		
+		System.out.println(Integer.parseInt(req.getParameter("postPicId")));
+		boardService.deletePicsById(Integer.parseInt(req.getParameter("postPicId")));
+						
 	}
 	
 	

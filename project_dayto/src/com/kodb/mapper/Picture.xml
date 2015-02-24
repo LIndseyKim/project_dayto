@@ -18,7 +18,7 @@
    <delete id="deletePicsById" parameterType="String" >
    	  
    	    DELETE FROM BLOG_PICTURE 
-   	    WHERE post_id = #{value}    
+   	    WHERE BLOG_PIC_ID = #{value}    
    
    </delete> 
    
