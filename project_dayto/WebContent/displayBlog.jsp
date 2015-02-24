@@ -86,6 +86,7 @@
                   if(i==0){
                   GoogleMap.map.setCenter(latlngs[0]);
                   }
+                  coordinates.push(latlngs[i]);
                
                   /* var infowindow = new google.maps.InfoWindow(
                 	      { content:str,  
