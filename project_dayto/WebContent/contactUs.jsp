@@ -35,7 +35,7 @@
 	<p align="center">
 	<img src="${pageContext.request.contextPath}/images/us.jpg"></p>
 	<br/><br/><br/>
-	<h4 align="center">Tagyu Kim(PM) : mynamektg@naver.com</h4>
+	<h4 align="center">Tagyu Kim(사랑하는 우리 PM♥) : mynamektg@naver.com</h4>
 	<h4 align="center">Woojin Jang : christoghjin@gmail.com</h4>
 	<h4 align="center">Minji Kim : bloombaby@naver.com</h4>
 	<h4 align="center">Jihye Shin : shinji0326@naver.com</h4>
