@@ -166,6 +166,7 @@
 		<jsp:include page="top_layer.jsp" />
 		
 		<!-- <section id="main" class="wrapper style1"> -->
+		<br/><br/><br/>
 			<header class="major">
 				<h2>${blog.postName}</h2>
 			</header>
