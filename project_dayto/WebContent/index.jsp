@@ -75,27 +75,28 @@
 						<section>
 							<h3>Contact Us</h3>
 							<ul class="alt">
-								<li><a href="#">Tagu Kim</a></li>
-								<li><a href="#">Woojin Jang</a></li>
-								<li><a href="#">Minji Kim</a></li>
-								<li><a href="#">Jihye Shin</a></li>
+								<li><a href="${pageContext.request.contextPath}/contactUs.jsp">Tagu Kim</a></li>
+								<li><a href="${pageContext.request.contextPath}/contactUs.jsp">Woojin Jang</a></li>
+								<li><a href="${pageContext.request.contextPath}/contactUs.jsp">Minji Kim</a></li>
+								<li><a href="${pageContext.request.contextPath}/contactUs.jsp">Jihye Shin</a></li>
 							</ul>
 						</section>
 					</div>
 					<div class="8u skel-cell-important">
 						<section>
 							<h2>About Us</h2>
-							<p>여러분의 데이트 일정을 편하게 짜드립니다!메에ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㄴ트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
+								<p>여러분의 데이트 일정을 편하게 만들어 드립니다 ! <br> 서울의 맛집, 지역명소, 영화관 등 모든 정보를 한 곳에서 확인해보세요
+							<br>오늘을 함께하세요, 외쳐봐요 Day together ♥							  
+							</p>
+							<p>
 							<ul class="icons">
-								<li><a href="#" class="icon fa-twitter"><span
+								<li><a href="https://twitter.com/" class="icon fa-twitter"><span
 										class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon fa-facebook"><span
+								<li><a href="https://www.facebook.com/" class="icon fa-facebook"><span
 										class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon fa-instagram"><span
+								<li><a href="https://instagram.com/" class="icon fa-instagram"><span
 										class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon fa-linkedin"><span
-										class="label">LinkedIn</span></a></li>
-								<li><a href="#" class="icon fa-pinterest"><span
+								<li><a href="https://www.pinterest.com/" class="icon fa-pinterest"><span
 										class="label">Pinterest</span></a></li>
 							</ul>
 						</section>
