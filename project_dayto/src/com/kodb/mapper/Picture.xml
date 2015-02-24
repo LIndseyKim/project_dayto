@@ -15,6 +15,18 @@
 		values (seq_blog_pic_id.nextval, ${postId}, #{postPic})
    </insert>  
    
+   <delete id="deletePicsById" parameterType="String" >
+   	  
+   	    DELETE FROM BLOG_PICTURE 
+   	    WHERE post_id = #{value}    
+   
+   </delete> 
+   
+   
+   
+    
+   
+   
    <update id="updatePic" parameterType="Picture" >
   		 UPDATE BLOG_PICTURE
 			SET

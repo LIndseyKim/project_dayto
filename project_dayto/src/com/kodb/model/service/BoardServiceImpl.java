@@ -102,4 +102,11 @@ public class BoardServiceImpl implements BoardService{
 		System.out.println("[deletePost]");
 		return boardDao.deletePost(postId);
 	}
+
+	@Override
+	public void deletePicsById(int postId) {
+		System.out.println("[deletePicsById]");
+		boardDao.deletePicsById(postId);
+
+	}
 }

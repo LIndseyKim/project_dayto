@@ -61,7 +61,6 @@ public class BoardController {
 		int count = 0;
 
 		for(int i =0 ; i < file.length; i++){
-			if(file[i].isEmpty()) {
 				continue;
 			}
 			count++;
@@ -120,6 +119,22 @@ public class BoardController {
 		model.addAttribute("blog", boardService.getPost(postId));
 		return "displayBlog";
 	}
+	
+	@RequestMapping("/getNonModifyPost.do")
+	public String getNonModifyPost(Model model, HttpSession session, HttpServletRequest req) {
+		int postId = Integer.parseInt(req.getParameter("postId"));
+		
+		ArrayList<Timetable> timetableList = (ArrayList<Timetable>)timetableService.getSchedule(postId);
+		ArrayList<Place> placeList =new ArrayList<Place>();
+		for(int i=0; i<timetableList.size(); i++)
+			placeList.add(placeService.getPlace(timetableList.get(i).getPlaceName()));
+		
+		model.addAttribute("timetableList", timetableList);
+		model.addAttribute("placeList", placeList);
+		model.addAttribute("blog", boardService.getPost(postId));
+		return "nonModifyDisplayBlog";
+	}
+	
 	
 	@RequestMapping("/getAllPublicPost.do")
 	public String getAllPublicPost(Model model, HttpSession session, HttpServletRequest req ) {
@@ -182,6 +197,16 @@ public class BoardController {
 		return "blog";
 	}
 	
+	@RequestMapping("/deletePicsById.do")
+	public void deletePicsById(Model model, HttpSession session, HttpServletRequest req) {
+		boardService.deletePicsById(Integer.parseInt(req.getParameter("PostId")));
+				
+		
+	}
+	
+	
+	
+	
 	@RequestMapping("/modifyPost.do")
 	public String modifyPost(Model model, @RequestParam("postId") int postId, HttpSession session, HttpServletRequest req) {
 			 
@@ -202,8 +227,10 @@ public class BoardController {
 		String filename = "base_image.jpg";
 		int postId = board.getPostId();
 		System.out.println(postId);
-
-		if(!file.isEmpty()) {
+		boardService.deletePicsById(postId);
+		System.out.println("픽쳐들 삭제됨 ");
+		
+	/*	if(!file.isEmpty()) {
 			String saveDir = req.getServletContext().getRealPath("/images");
 			String path = saveDir+"/"+file.getOriginalFilename();
 			File newFile=new File(path);
@@ -223,10 +250,10 @@ public class BoardController {
 		}
 		
 		if(!filename.equals("base_image.jpg")) {
-			boardService.updatePicture(postId, "images/"+ filename);
+			boardService.updatePicture(postId,"images/"+ filename);
 			System.out.println("save Image files");
 		}
-		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
+		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));*/
 		return "blog";
 	}
 }
