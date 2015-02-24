@@ -35,7 +35,7 @@
 		<script
 			src='${pageContext.request.contextPath}/js/jquery-ui.custom.min.js'></script>
 		<script src='${pageContext.request.contextPath}/js/fullcalendar.min.js'></script>
-		<script type="text/javascript">
+			<script type="text/javascript">
       /** Google Map 객체. **/
          GoogleMap = {
             /* 초기화. */
@@ -198,8 +198,7 @@
 					</section>
 				</div>
 			</div>
-			<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:550px; margin-right:30px">Modify</a>
-      		<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
+		<br/><br/><br/><br/><br/>
 		<!-- </section> -->
 	</body>
 </html>
