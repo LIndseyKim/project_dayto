@@ -175,13 +175,15 @@
 		<br/><br/><br/>
 			<header class="major">
 				<h2>${blog.postName}</h2>
+				<h5 align="center" style="margin-top: 30px">작성자 : ${blog.userEmail} 작성일 : ${blog.postDate}</h5>
 			</header>
+			
 			<p align="center">${blog.postContent}</p>
 			<hr size="5px" color="#000000" width="1300" style="margin-left:auto; margin-right:auto;">
 			<div class="container" align="center">
 				<section>
 					<c:forEach items="${blog.pictureList}" var="p">
-						<img src="${p.postPic}" width="400px" height="200px"/>
+						<img src="${p.postPic}" width="230px" height="200px"/>
 					</c:forEach>
 				</section>
 			</div>
