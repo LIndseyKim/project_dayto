@@ -75,10 +75,10 @@
 						<section>
 							<h3>Contact Us</h3>
 							<ul class="alt">
-								<li><a href="">Tagu Kim</a></li>
-								<li><a href="#">Woojin Jang</a></li>
-								<li><a href="#">Minji Kim</a></li>
-								<li><a href="#">Jihye Shin</a></li>
+								<li><a href="${pageContext.request.contextPath}/contactUs.jsp">Tagu Kim</a></li>
+								<li><a href="${pageContext.request.contextPath}/contactUs.jsp">Woojin Jang</a></li>
+								<li><a href="${pageContext.request.contextPath}/contactUs.jsp">Minji Kim</a></li>
+								<li><a href="${pageContext.request.contextPath}/contactUs.jsp">Jihye Shin</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,15 +91,13 @@
 							<p>
 							</p>
 							<ul class="icons">
-								<li><a href="#" class="icon fa-twitter"><span
+								<li><a href="https://twitter.com/" class="icon fa-twitter"><span
 										class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon fa-facebook"><span
+								<li><a href="https://www.facebook.com/" class="icon fa-facebook"><span
 										class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon fa-instagram"><span
+								<li><a href="https://instagram.com/" class="icon fa-instagram"><span
 										class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon fa-linkedin"><span
-										class="label">LinkedIn</span></a></li>
-								<li><a href="#" class="icon fa-pinterest"><span
+								<li><a href="https://www.pinterest.com/" class="icon fa-pinterest"><span
 										class="label">Pinterest</span></a></li>
 							</ul>
 						</section>
