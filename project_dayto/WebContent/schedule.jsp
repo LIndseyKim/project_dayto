@@ -287,9 +287,9 @@ div#menubar1 {
 div#menubar1>a {
 	font-family: Malgun Gothic, Gulim, Arial, Helvetica, sans-serif;
 	font-size: 14px;
-	background: #c8c8c8;
+	background: #629DD1;
 	padding: 12px;
-	color: #EBFBFF;
+	color: #FFFFFF;
 	margin-right: 10px;
 	text-decoration: none;
 	border-radius: 5px;
@@ -297,7 +297,7 @@ div#menubar1>a {
 
 div#menubar1>a:hover {
 	background: #5AD2FF;
-	color: #EBFBFF;
+	color: #FFFFFF;
 }
 
 #schedule-body {

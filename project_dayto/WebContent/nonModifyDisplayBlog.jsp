@@ -176,12 +176,13 @@
 			<header class="major">
 				<h2>${blog.postName}</h2>
 			</header>
+			<p align="center">${blog.postContent}</p>
+			<hr size="5px" color="#000000" width="1300" style="margin-left:auto; margin-right:auto;">
 			<div class="container" align="center">
 				<section>
 					<c:forEach items="${blog.pictureList}" var="p">
 						<img src="${p.postPic}" width="400px" height="200px"/>
 					</c:forEach>
-					<p>${blog.postContent}</p>
 				</section>
 			</div>
 			<br/>
