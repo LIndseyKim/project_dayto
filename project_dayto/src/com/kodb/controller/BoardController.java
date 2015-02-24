@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.kodb.model.service.BoardService;
 import com.kodb.model.service.PlaceService;
 import com.kodb.model.service.TimetableService;
+import com.kodb.model.vo.Blog;
 import com.kodb.model.vo.Board;
 import com.kodb.model.vo.Place;
 import com.kodb.model.vo.Timetable;
@@ -97,6 +98,50 @@ public class BoardController {
 		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
 		return "blog";
 	}
+	
+	@RequestMapping("/modifyPostById.do")
+	public String modifyPostById(Board board, HttpSession session, Model model, HttpServletRequest request,
+			@RequestParam("image") MultipartFile[] file) throws IllegalStateException, IOException{
+
+			boardService.registerBoardById(board);
+			int postId = boardService.selectBoard(board.getUserEmail()).getPostId();
+			System.out.println("postId"+postId);
+			int count = 0;
+			
+			for(int i =0 ; i < file.length; i++){
+			if(file[i].isEmpty()) {
+				continue;
+			}
+			count++;
+			
+			String saveDir = request.getServletContext().getRealPath("/images");
+			String path = saveDir+"/"+ file[i].getOriginalFilename();
+			File newFile=new File(path);			
+			String filename =  file[i].getOriginalFilename();			
+			
+			if(newFile.exists()) { //파일명 중복이 존재하면 	
+				long time = System.currentTimeMillis(); 
+			
+				SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
+				filename = dayTime.format(new Date(time)) +  file[i].getOriginalFilename();
+				path = saveDir+"/"+filename;
+				newFile = new File(path);	
+			}
+			
+			file[i].transferTo(newFile);					
+			boardService.registerPicture(postId, "images/"+ filename);
+			}
+			
+			if(count == 0) {
+			boardService.registerPicture(postId, "images/base_image.jpg");
+			}
+									
+			System.out.println("save Image files");
+			System.out.println(boardService.getPostWithPicture(board.getUserEmail()));
+			model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));
+			return "blog";
+	}
+	
 
 	@RequestMapping("/getPostName.do")
 	public String getUser(Model model, HttpSession session) {
@@ -106,20 +151,7 @@ public class BoardController {
 		return "blog";
 	}
 	
-	@RequestMapping("/getPost.do")
-	public String getPost(Model model, HttpSession session, HttpServletRequest req) {
-		int postId = Integer.parseInt(req.getParameter("postId"));
-		
-		ArrayList<Timetable> timetableList = (ArrayList<Timetable>)timetableService.getSchedule(postId);
-		ArrayList<Place> placeList =new ArrayList<Place>();
-		for(int i=0; i<timetableList.size(); i++)
-			placeList.add(placeService.getPlace(timetableList.get(i).getPlaceName()));
-		
-		model.addAttribute("timetableList", timetableList);
-		model.addAttribute("placeList", placeList);
-		model.addAttribute("blog", boardService.getPost(postId));
-		return "displayBlog";
-	}
+	
 	
 	@RequestMapping("/getNonModifyPost.do")
 	public String getNonModifyPost(Model model, HttpSession session, HttpServletRequest req) {
@@ -197,12 +229,32 @@ public class BoardController {
 		model.addAttribute("blog", boardService.getPostWithPicture(user.getUserEmail()));
 		return "blog";
 	}
+	@RequestMapping("/getPost.do")
+	public String getPost(Model model, HttpSession session, HttpServletRequest req) {
+		int postId = Integer.parseInt(req.getParameter("postId"));
+		
+		ArrayList<Timetable> timetableList = (ArrayList<Timetable>)timetableService.getSchedule(postId);
+		ArrayList<Place> placeList =new ArrayList<Place>();
+		for(int i=0; i<timetableList.size(); i++)
+			placeList.add(placeService.getPlace(timetableList.get(i).getPlaceName()));
+		
+		model.addAttribute("timetableList", timetableList);
+		model.addAttribute("placeList", placeList);
+		model.addAttribute("blog", boardService.getPost(postId));
+		return "displayBlog";
+	}
 	
 	@RequestMapping("/deletePicsById.do")
-	public void deletePicsById(Model model, HttpSession session, HttpServletRequest req) {
+	public String deletePicsById(Model model, HttpSession session, HttpServletRequest req) {
 		System.out.println(Integer.parseInt(req.getParameter("postPicId")));
+		System.out.println(Integer.parseInt(req.getParameter("postId")));
+
+		/*int postId = Integer.parseInt(req.getParameter("postPicId"));*/
+		
 		boardService.deletePicsById(Integer.parseInt(req.getParameter("postPicId")));
-						
+	
+		model.addAttribute("blog", boardService.getPost(Integer.parseInt(req.getParameter("postId"))));
+		return "modifyBlog";			
 	}
 	
 	
@@ -218,43 +270,5 @@ public class BoardController {
 		return "modifyBlog";
 	}
 	
-	@RequestMapping("/modifyPostById.do")
-	public String modifyPostById(Board board,Model model, 
-			HttpSession session, HttpServletRequest req,
-			 @RequestParam("image") MultipartFile file) throws IllegalStateException, IOException{
-			 		
-		boardService.registerBoardById(board);	
-		
-		String filename = "base_image.jpg";
-		int postId = board.getPostId();
-		System.out.println(postId);
-		boardService.deletePicsById(postId);
-		System.out.println("픽쳐들 삭제됨 ");
-		
-	/*	if(!file.isEmpty()) {
-			String saveDir = req.getServletContext().getRealPath("/images");
-			String path = saveDir+"/"+file.getOriginalFilename();
-			File newFile=new File(path);
-			
-			filename = file.getOriginalFilename();
-			
-
-			if(newFile.exists()) {	
-				long time = System.currentTimeMillis(); 
-
-				SimpleDateFormat dayTime = new SimpleDateFormat("yy-MM-dd_hh-mm-ss_");
-				filename = dayTime.format(new Date(time)) + file.getOriginalFilename();
-				path = saveDir+"/"+filename;
-				newFile = new File(path);	
-			}
-			file.transferTo(newFile);
-		}
-		
-		if(!filename.equals("base_image.jpg")) {
-			boardService.updatePicture(postId,"images/"+ filename);
-			System.out.println("save Image files");
-		}
-		model.addAttribute("blog",boardService.getPostWithPicture(board.getUserEmail()));*/
-		return "blog";
-	}
+	
 }

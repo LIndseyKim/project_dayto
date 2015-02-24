@@ -111,6 +111,12 @@ public class BoardDaoImpl  implements BoardDao {
 		return session.selectOne("board.selectPost", postDate);
 	}
 
+	@Override
+	public Blog selectPostIdByPicId(int picId) {
+		
+		return session.selectOne("picture.selectPostIdByPicId", picId);
+	}
+
 
 
 	

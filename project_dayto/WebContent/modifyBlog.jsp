@@ -110,27 +110,30 @@
 	<textarea class="field span8" name="postContent" id="textarea" style="margin-left: 200px" 
 	rows="12"   required>${blog.postContent}</textarea>
 	
-		<section style="float:right">
+				<section style="float:right">
 					
-					<c:forEach items="${blog.pictureList}" var="p">
-					
+					<c:forEach items="${blog.pictureList}" var="p">				
 					
 					<img src="${p.postPic}" width="150px" height=150px"/>
-					<a href="${pageContext.request.contextPath}/deletePicsById.do?postPicId=${p.blogPicId}" class="row" style="margin-bottom: 10px;" >사진삭제</a><br>															
+					<a href="${pageContext.request.contextPath}/deletePicsById.do?postPicId=${p.blogPicId}&postId=${p.postId}" class="row" style="margin-bottom: 10px;" >사진삭제</a><br>															
 						
 					</c:forEach>
 				</section>
 	
 				<div id="boxes" style="margin-left: 200px" >
 					 
-					<input type="radio"
+		<input type="radio"
 						name="postPublic" id="optionsRadios1" value=0 checked />다른 회원에게 공개
 						<br/>
-					 <input type="radio"
+		 <input type="radio"
 						name="postPublic" id="optionsRadios2" value=1 />다른 회원에게 비공개
 				
 				<br>
 				사진 추가 : <input type="file" name="image" /> <br /> 
+				사진 추가 : <input type="file" name="image" /> <br /> 
+				사진 추가 : <input type="file" name="image" /> <br />
+				사진 추가 : <input type="file" name="image" /> <br />
+				
 				</div>
 				 <div class="container" align="center">
 			

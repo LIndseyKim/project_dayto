@@ -33,6 +33,8 @@ public interface BoardService {
 	
 	public abstract void deletePicsById(int postId);
 	
+	public abstract Blog selectPostIdByPicId(int picId);
+
 	
 	
 }
