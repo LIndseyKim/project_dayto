@@ -7,6 +7,8 @@ import com.kodb.model.dao.BoardDao;
 import com.kodb.model.vo.Blog;
 import com.kodb.model.vo.Board;
 
+
+
 public class BoardServiceImpl implements BoardService{
 	
 	private BoardDao boardDao;	
@@ -101,5 +103,20 @@ public class BoardServiceImpl implements BoardService{
 	public Blog deletePost(int postId) {
 		System.out.println("[deletePost]");
 		return boardDao.deletePost(postId);
+	}
+
+	@Override
+	public void deletePicsById(int postId) {
+		System.out.println("[deletePicsById]");
+		boardDao.deletePicsById(postId);
+
+	}
+
+	@Override
+	public Blog selectPostIdByPicId(int picId) {
+		System.out.println("[selectPostIdByPicId]");
+		System.out.println(picId+"Service");
+		return boardDao.selectPostIdByPicId(picId);
+
 	}
 }

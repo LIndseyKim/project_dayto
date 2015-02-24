@@ -30,6 +30,13 @@ public interface BoardService {
 	public abstract void updatePicture(int postId, String postPic);
 
 	public abstract Blog getPostDate(String postDate);
+	
+	public abstract void deletePicsById(int postId);
+	
+	public abstract Blog selectPostIdByPicId(int picId);
+
+	
+	
 }
 
 

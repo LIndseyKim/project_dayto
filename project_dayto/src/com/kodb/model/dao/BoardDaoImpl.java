@@ -56,6 +56,11 @@ public class BoardDaoImpl  implements BoardDao {
 		flag = session.insert("picture.insertPic", map) > 0;
 	}
 	
+	
+	
+	
+	
+	
 	@Override
 	public void updateBoardImages(int postId, String postPic) {
 		boolean flag = false;
@@ -92,10 +97,23 @@ public class BoardDaoImpl  implements BoardDao {
 		
 		return session.selectOne("board.deletePost", postId);
 	}
+	
+	@Override
+	public void deletePicsById(int postId) {
+		
+		session.selectOne("picture.deletePicsById", postId);
+	}
+	
 
 	@Override
 	public Blog selectPostDate(String postDate) {
 		return session.selectOne("board.selectPost", postDate);
+	}
+
+	@Override
+	public Blog selectPostIdByPicId(int picId) {
+		
+		return session.selectOne("picture.selectPostIdByPicId", picId);
 	}
 
 

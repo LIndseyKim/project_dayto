@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -102,30 +104,44 @@
 				<h2 align="center">${user.userName}님의 블로그 글 수정하기</h2>
 				
 				
-	<input class="field span12" name="postName" type="text" value="${blog.postName}" 
+	<input class="field span8" name="postName" type="text" style="margin-left: 200px" value="${blog.postName}" 
 	 required/>
 	
-	<textarea class="field span12" name="postContent" id="textarea" 
+	<textarea class="field span8" name="postContent" id="textarea" style="margin-left: 200px" 
 	rows="12"   required>${blog.postContent}</textarea>
 	
-				<div id="boxes">
+				<section style="float:right">
+					
+					<c:forEach items="${blog.pictureList}" var="p">				
+					
+					<img src="${p.postPic}" width="150px" height=150px"/>
+					<a href="${pageContext.request.contextPath}/deletePicsById.do?postPicId=${p.blogPicId}&postId=${p.postId}" class="row" style="margin-bottom: 10px;" >사진삭제</a><br>															
+						
+					</c:forEach>
+				</section>
+	
+				<div id="boxes" style="margin-left: 200px" >
 					 
-					<input type="radio"
+		<input type="radio"
 						name="postPublic" id="optionsRadios1" value=0 checked />다른 회원에게 공개
 						<br/>
-					 <input type="radio"
+		 <input type="radio"
 						name="postPublic" id="optionsRadios2" value=1 />다른 회원에게 비공개
+				
+				<br>
+				사진 추가 : <input type="file" name="image" /> <br /> 
+				사진 추가 : <input type="file" name="image" /> <br /> 
+				사진 추가 : <input type="file" name="image" /> <br />
+				사진 추가 : <input type="file" name="image" /> <br />
+				
 				</div>
-	
-				대표 이미지선택 : <input type="file" name="image" /> <br /> 
-				이미지선택 : <input type="file" name="image" /> <br />
-				이미지선택 : <input type="file" name="image" /> <br />
-				이미지선택 : <input type="file" name="image" /> <br /> 
-				 
-				 
+				 <div class="container" align="center">
+			
+			
+			</div>
 				
 				
-				<p align="center">
+				<p align="center" style="margin-top: 20px ">
 	
 					<input type="submit" value="입력완료" />
 					<!-- <input button class="btn btn-large" type="button">미리보기</button> -->
