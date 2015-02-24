@@ -86,7 +86,6 @@
                   if(i==0){
                   GoogleMap.map.setCenter(latlngs[0]);
                   }
-                  coordinates.push(latlngs[i]);
                
                   /* var infowindow = new google.maps.InfoWindow(
                 	      { content:str,  
@@ -193,8 +192,7 @@
 					</section>
 				</div>
 			</div>
-			<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:550px; margin-right:30px">Modify</a>
-      		<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
+		<br/><br/><br/><br/><br/>
 		<!-- </section> -->
 	</body>
 </html>

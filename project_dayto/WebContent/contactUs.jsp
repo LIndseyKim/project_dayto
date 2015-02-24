@@ -33,12 +33,13 @@
 	<h1 align="center">Contact Us</h1>
 	<br/><br/>
 	<p align="center">
-	<img src="${pageContext.request.contextPath}/images/us.jpg"></p>
+	<img src="${pageContext.request.contextPath}/images/us.jpg" width="500px" height="500px"></p>
+	
 	<br/><br/><br/>
-	<h4 align="center">Tagyu Kim(PM) : mynamektg@naver.com</h4>
-	<h4 align="center">Woojin Jang : christoghjin@gmail.com</h4>
-	<h4 align="center">Minji Kim : bloombaby@naver.com</h4>
-	<h4 align="center">Jihye Shin : shinji0326@naver.com</h4>
+	<p align="center" style="font-size: 15pt">Tagyu Kim(PM) : mynamektg@naver.com</p>
+	<p align="center" style="font-size: 15pt">Woojin Jang : christoghjin@gmail.com</p>
+	<p align="center" style="font-size: 15pt">Minji Kim : bloombaby@naver.com</p>
+	<p align="center" style="font-size: 15pt">Jihye Shin : shinji0326@naver.com</p>
 
 
 </body>
