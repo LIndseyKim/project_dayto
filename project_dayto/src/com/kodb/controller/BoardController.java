@@ -121,6 +121,22 @@ public class BoardController {
 		return "displayBlog";
 	}
 	
+	@RequestMapping("/getNonModifyPost.do")
+	public String getNonModifyPost(Model model, HttpSession session, HttpServletRequest req) {
+		int postId = Integer.parseInt(req.getParameter("postId"));
+		
+		ArrayList<Timetable> timetableList = (ArrayList<Timetable>)timetableService.getSchedule(postId);
+		ArrayList<Place> placeList =new ArrayList<Place>();
+		for(int i=0; i<timetableList.size(); i++)
+			placeList.add(placeService.getPlace(timetableList.get(i).getPlaceName()));
+		
+		model.addAttribute("timetableList", timetableList);
+		model.addAttribute("placeList", placeList);
+		model.addAttribute("blog", boardService.getPost(postId));
+		return "nonModifyDisplayBlog";
+	}
+	
+	
 	@RequestMapping("/getAllPublicPost.do")
 	public String getAllPublicPost(Model model, HttpSession session, HttpServletRequest req ) {
 		model.addAttribute("blog",boardService.getAllPublicPost());

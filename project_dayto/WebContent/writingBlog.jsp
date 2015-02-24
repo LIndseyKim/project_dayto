@@ -256,7 +256,8 @@
 
 	<body>
 		<jsp:include page="/top_layer.jsp" />
-		
+		<p></p>
+			<br/><br/><br/>
 		<h2 align="center">${user.userName}님의 Day Together 작성하기</h2>
 					
 		<form name="writing_blog-form" class="writing_blog-form"
@@ -268,10 +269,10 @@
 				
 									
 				<input class="field span12" name="postName" type="text"
-					placeholder="블로그 제목" onfocus="this.value=''" />
+					placeholder="블로그 제목" onfocus="this.value=''" required/>
 	
 				<textarea class="field span12" name="postContent" id="textarea"
-					rows="6" placeholder="글을 입력하세요"></textarea>
+					rows="6" placeholder="글을 입력하세요" required></textarea>
 	
 				<div id="boxes">
 					 
