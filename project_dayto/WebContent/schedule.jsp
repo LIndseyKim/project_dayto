@@ -286,11 +286,11 @@ div#menubar1 {
 
 div#menubar1>a {
 	font-family: Malgun Gothic, Gulim, Arial, Helvetica, sans-serif;
-	font-size: 14px;
+	font-size: 10px;
 	background: #629DD1;
-	padding: 12px;
+	padding: 9px;
 	color: #FFFFFF;
-	margin-right: 10px;
+	margin-right: 8px;
 	text-decoration: none;
 	border-radius: 5px;
 }
@@ -354,14 +354,6 @@ div#menubar1>a:hover {
 	width: 400px;
 }
 
-#map_canvas {
-	top: 50px;
-	width: 800px;
-	height: 400px;
-	boarder: 1px solid #ccc;
-	background: #eee;
-}
-
 .schedule-image {
 	padding-top: 5px;
 	display: block;
@@ -395,11 +387,11 @@ div#menubar1>a:hover {
 		<a href="getPlaceListByCate.do?str=영화연극">영화연극</a>
 		
 		<div id="GoogleMap_map"
-			style="width: 500px; height: 500px; margin-top: 30px;"></div>
+			style="width: 300px; height: 300px; margin-top: 30px;"></div>
 
 	</div>
 
-	<div style="height: 500px; padding-top: 600px;">
+	<div style="height: 400px; padding-top: 450px; ">
 		<div>
 			<input id="GoogleMap_input" type="textbox" value="" style="border:1px gray solid;"
 				onkeydown="javascript:if(event.keyCode == 13) GoogleMap.codeAddress();">
