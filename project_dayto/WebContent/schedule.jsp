@@ -73,19 +73,30 @@
    
                
                for(var i=0 ; i< latlngs.length; ++i){
-                  var str= names[i];
-                  this.marker = new google.maps.Marker({
-                     
-                     position:latlngs[i],
-                     map : this.map,
-                     title: str,
-                     animation : google.maps.Animation.DROP,
-                     icon : "images/number/"+(i+1)+".jpg"
-                  });
-                  if(i==0){
-                  GoogleMap.map.setCenter(latlngs[0]);
-                  }
-               
+                   var str= names[i];
+                
+                   this.marker = new google.maps.Marker({
+                      
+                      position:latlngs[i],
+                      map : this.map,
+                      title: str,
+                      animation : google.maps.Animation.DROP,
+                      icon : "images/number/"+(i+1)+".jpg"
+                   });
+                   
+                   if(i==0){
+                   GoogleMap.map.setCenter(latlngs[0]);
+                   }
+                   if (i>=50){
+                      this.marker = new google.maps.Marker({
+                           
+                           position:latlngs[i],
+                           map : this.map,
+                           title: str,
+                           animation : google.maps.Animation.DROP,
+                        });
+                      
+                   }
                   /* var infowindow = new google.maps.InfoWindow(
                 	      { content:str,  
                 	        size: new google.maps.Size(50,50)
@@ -406,12 +417,16 @@ div#menubar1>a:hover {
 		<input id="schedule" type="submit" class="button special" value="Sava a schedule"/>
 	</form>
 	
-	<div id="place_popup" class="Pstyle" style="text-align: left">
+	<div id="place_popup" class="Pstyle" style="text-align: center">
 		<div class="content_name"></div>
 		<div class="content_addr"></div>
 		<div class="content_tel"></div>
 		<div class="content_recomm"></div>
 		<a id="content_thumb_image"><img src="images/thumb.jpg" width="50px" height="50px"></a>
+		</br>
+		<input class="field span4" name="replyBox" type="text"
+		placeholder="댓글을 입력하세요" onfocus="this.value=''" />
+		
 	</div>
 </body>
 </html>
