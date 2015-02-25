@@ -63,11 +63,18 @@ public class PlaceController{
    }
    
    @RequestMapping("/recommPlace.do") 
-   public String addRecommPlace(Model model,HttpServletRequest req, Place place, HttpSession session){ 
-	   placeService.recommPlace(place.getPlaceId());
-	   List<Place> placeList = placeService.getPlacesByAddr((String)session.getAttribute("input"));
-	   model.addAttribute("placeList", placeList);
+   public String addRecommPlace(Model model,HttpServletRequest req, String placeName, HttpSession session){ 
+	   int placeId=placeService.getPlace(placeName).getPlaceId();
+	   placeService.recommPlace(placeId);
+	   System.out.println("-------");
+	   String []resultAddr=placeService.getPlace(placeName).getPlaceAddr().split(" ");
+	   List<Place> placeList = placeService.getPlacesByAddr(resultAddr[2]);
+	   session.setAttribute("placeList", placeList);
+	
+/*	   List<Place> placeList = placeService.getPlacesByAddr((String)session.getAttribute("input"));
+	   model.addAttribute("placeList", placeList);*/
 	      
 	   return "schedule";
 	}
 }
+
