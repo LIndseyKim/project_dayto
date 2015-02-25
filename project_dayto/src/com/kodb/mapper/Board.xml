@@ -61,6 +61,7 @@
 		<collection property="pictureList" resultMap="picture.PictureResultMap"></collection>
 	</resultMap>
 	
+	
 	<select id="selectPostWithPicture" parameterType="String" resultMap="PostwithPictureResultMap">
 		        select 	bp.post_id, bp.post_name, bp.user_email ,bp.post_date, bp.post_content, bpic.blog_pic_id, bpic.post_pic
 		from	blog_post  bp, blog_picture bpic
@@ -85,11 +86,18 @@
 	</select>
 	
 	<select id="selectSearchBlog" parameterType="String" resultMap="PostwithPictureResultMap">
-		select	bp.post_id, bp.post_name, bp.post_content, bpic.post_pic 
+		select	bp.post_id, bp.post_name, bp.post_content, bpic.post_pic , bp.user_email
 		from	blog_post bp, blog_picture bpic
 		where	bp.post_id = bpic.post_id
 		and		bp.post_public = 0 
-		and		(bp.post_content like '%'|| #{value} ||'%' or bp.post_name LIKE '%'|| #{value} ||'%')
+		and		(bp.post_content like '%'|| #{value} ||'%' or bp.post_name LIKE '%'|| #{value} ||'%' or bp.user_email like '%'|| #{value})
 		order by bp.post_id desc, bpic.blog_pic_id desc 
 	</select>
+	
+	
+	
+	
+	
+	
+	
 </mapper>
