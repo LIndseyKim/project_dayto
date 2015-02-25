@@ -185,6 +185,7 @@
 				</section>
 			</div>
 			<br/>
+			<hr size="4px" color="#555f66" width="1300" style="margin-left:auto; margin-right:auto;">
 			<div class="row">
 				<div class="6u">
 					<section class="special">
