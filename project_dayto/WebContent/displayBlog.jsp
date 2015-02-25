@@ -171,7 +171,7 @@
 				<h2>${blog.postName}</h2>
 				<h5 align="center" style="margin-top: 30px">작성자 : ${blog.userEmail} 작성일 : ${blog.postDate}</h5>
 			</header>
-			<p align="center">${blog.postContent}</p>
+			<p align="center" style="word-break:normal;width:500px;" >${blog.postContent}</p>
 			
 			<hr size="4px" color="#555f66" width="1300" style="margin-left:auto; margin-right:auto;">
 			
