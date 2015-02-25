@@ -53,13 +53,8 @@ public class BoardDaoImpl  implements BoardDao {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("postId", postId);
 		map.put("postPic", postPic);
-		flag = session.insert("picture.insertPic", map) > 0;
+		flag = session.insert("picture.insertPic", map) >0;
 	}
-	
-	
-	
-	
-	
 	
 	@Override
 	public void updateBoardImages(int postId, String postPic) {
