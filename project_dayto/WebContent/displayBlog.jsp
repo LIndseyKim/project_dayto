@@ -173,7 +173,7 @@
 			</header>
 			<p align="center">${blog.postContent}</p>
 			
-			<hr size="5px" color="#000000" width="1300" style="margin-left:auto; margin-right:auto;">
+			<hr size="4px" color="#555f66" width="1300" style="margin-left:auto; margin-right:auto;">
 			
 			<div class="container" align="center">
 				<section>
