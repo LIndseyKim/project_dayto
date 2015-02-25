@@ -296,10 +296,13 @@ previous button's border...
 	top: 0;
 	left: 0;
 	right: 0;
+	font-size: 20px;
 }
 
 .fc-bg {
+	text-align : center;
 	bottom: 0; /* strech bg to bottom edge */
+	font-size: 20px;
 }
 
 .fc-bg table {
@@ -909,6 +912,10 @@ be a descendant of the grid when it is being dragged.
 .fc-time-grid-event > .fc-content { /* contains the time and title, but no bg and resizer */
 	position: relative;
 	z-index: 2; /* above the bg */
+	font-size: 15px;
+	text-align: center;
+	margin-top: 5%;
+	vertical-align: middle;
 }
 
 .fc-time-grid-event .fc-time,
@@ -919,11 +926,12 @@ be a descendant of the grid when it is being dragged.
 .fc-time-grid-event .fc-time {
 	font-size: .85em;
 	white-space: nowrap;
+	
 }
 
 .fc-time-grid-event .fc-bg {
 	z-index: 1;
-	background: #fff;
+	background: #DB8400;
 	opacity: .25;
 	filter: alpha(opacity=25); /* for IE */
 }
@@ -955,7 +963,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .fc-time-grid-event.fc-short .fc-title {
-	font-size: .85em; /* make the title text the same size as the time */
+	font-size: 1em; /* make the title text the same size as the time */
 	padding: 0; /* undo padding from above */
 }
 
@@ -970,7 +978,7 @@ be a descendant of the grid when it is being dragged.
 	height: 8px;
 	overflow: hidden;
 	line-height: 8px;
-	font-size: 11px;
+	font-size: 20px;
 	font-family: sans-serif;
 	/* font-family: monospace; */
 	text-align: center;
