@@ -62,7 +62,7 @@
 	</resultMap>
 	
 	<select id="selectPostWithPicture" parameterType="String" resultMap="PostwithPictureResultMap">
- 	 SELECT bp.post_id, SUBSTR(bp.post_content,1,10) post_content, bp.post_date, bpic.post_pic
+ 	 SELECT bp.post_id,bp.post_name, SUBSTR(bp.post_content,1,10) post_content, bp.post_date, bpic.post_pic
 		from	blog_post  bp, blog_picture bpic
 		where	bp.post_id = bpic.post_id
 		and		bp.user_email = #{value}        
