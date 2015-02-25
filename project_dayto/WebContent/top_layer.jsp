@@ -14,7 +14,7 @@
 				<li><a href="${pageContext.request.contextPath}/getAllPublicPost.do?flag=2">Search</a>
 				<c:choose>
 						<c:when test="${user != null }">
-							<li><a href="${pageContext.request.contextPath}/schedule.jsp">Schedule</a></li>
+							<li><a href="${pageContext.request.contextPath}/initschedule.do">Schedule</a></li>
 							<li><a href="${pageContext.request.contextPath}/getPostName.do">Day Together</a></li>
 							<li><a onclick="mypage_popup()">Mypage</a></li>
 							<li>

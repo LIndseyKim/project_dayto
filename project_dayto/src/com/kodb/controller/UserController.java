@@ -1,5 +1,7 @@
 package com.kodb.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,16 +10,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kodb.model.service.PlaceService;
 import com.kodb.model.service.UserService;
+import com.kodb.model.vo.Place;
 import com.kodb.model.vo.User;
 
 @Controller
 public class UserController{
 	private UserService userService;
-	
+	private PlaceService placeService;
 	@Autowired
 	public void setUserService(UserService userService) {
 		this.userService = userService;
+	}
+	@Autowired
+	public void setPlaceService(PlaceService plcaeService, PlaceService placeService) {
+		this.placeService = placeService;
 	}
 	@RequestMapping("/login.do")
 	public String login(String userEmail, String userPwd, 
@@ -67,5 +75,22 @@ public class UserController{
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/index.jsp";
+	}
+	@RequestMapping("/goschedule.do")
+	public String goschedule(HttpSession session,String placeName) {
+		System.out.println(placeName);
+		System.out.println(placeService.getPlace(placeName).getPlaceAddr());
+
+		String []resultAddr=placeService.getPlace(placeName).getPlaceAddr().split(" ");
+		List<Place> placeList = placeService.getPlacesByAddr(resultAddr[2]);
+		session.setAttribute("placeList", placeList);
+		
+		return "schedule";
+	}
+	@RequestMapping("/initschedule.do")
+	public String goschedule(HttpSession session) {
+		List<Place> placeList = placeService.getPlacesByAddr("µ¿¼þµ¿");
+		session.setAttribute("placeList", placeList);
+		return "schedule";
 	}
 }

@@ -74,6 +74,7 @@
                
                for(var i=0 ; i< latlngs.length; ++i){
                   var str= names[i];
+                  if(i<50){
                   this.marker = new google.maps.Marker({
                      
                      position:latlngs[i],
@@ -82,9 +83,22 @@
                      animation : google.maps.Animation.DROP,
                      icon : "images/number/"+(i+1)+".jpg"
                   });
+                  }
+                  else if(i<50){
+                	  this.marker = new google.maps.Marker({
+                          
+                          position:latlngs[i],
+                          map : this.map,
+                          title: str,
+                          animation : google.maps.Animation.DROP,
+                       });
+                	  
+                  }
+                  
                   if(i==0){
                   GoogleMap.map.setCenter(latlngs[0]);
                   }
+
                
                   /* var infowindow = new google.maps.InfoWindow(
                 	      { content:str,  
@@ -109,6 +123,7 @@
                      for (var i = 0; i < results.length; i++) {
                         var li = document.createElement('li');
                         var a = document.createElement('a');
+                        
                         var str = '${pageContext.request.contextPath}/getPlaceList.do?str=' + address;
                         
                         a.href = str;
