@@ -14,7 +14,7 @@
 				<li><a href="${pageContext.request.contextPath}/getAllPublicPost.do?flag=2">Sharing</a>
 				<c:choose>
 						<c:when test="${user != null }">
-							<li><a href="${pageContext.request.contextPath}/schedule.jsp">Make a Day-To</a></li>
+														<li><a href="${pageContext.request.contextPath}/initschedule.do">Make a Day-To</a></li>
 							<li><a href="${pageContext.request.contextPath}/getPostName.do">My Day-To</a></li>
 							<li><a onclick="mypage_popup()">Mypage</a></li>
 							<li>

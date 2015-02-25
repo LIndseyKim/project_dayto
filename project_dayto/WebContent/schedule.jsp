@@ -71,32 +71,33 @@
                      .getElementById("GoogleMap_map"), myOptions);
    
    
-               
                for(var i=0 ; i< latlngs.length; ++i){
-                   var str= names[i];
-                
-                   this.marker = new google.maps.Marker({
-                      
-                      position:latlngs[i],
-                      map : this.map,
-                      title: str,
-                      animation : google.maps.Animation.DROP,
-                      icon : "images/number/"+(i+1)+".jpg"
-                   });
-                   
-                   if(i==0){
-                   GoogleMap.map.setCenter(latlngs[0]);
-                   }
-                   if (i>=50){
-                      this.marker = new google.maps.Marker({
-                           
-                           position:latlngs[i],
-                           map : this.map,
-                           title: str,
-                           animation : google.maps.Animation.DROP,
-                        });
-                      
-                   }
+                  var str= names[i];
+                  if(i<50){
+                  this.marker = new google.maps.Marker({
+                     
+                     position:latlngs[i],
+                     map : this.map,
+                     title: str,
+                     animation : google.maps.Animation.DROP,
+                     icon : "images/number/"+(i+1)+".jpg"
+                  });
+                  }
+                  else if(i<50){
+                	  this.marker = new google.maps.Marker({
+                          
+                          position:latlngs[i],
+                          map : this.map,
+                          title: str,
+                          animation : google.maps.Animation.DROP,
+                       });
+                	  
+                  }
+                  
+                  if(i==0){
+                  GoogleMap.map.setCenter(latlngs[0]);
+                  }
+
                   /* var infowindow = new google.maps.InfoWindow(
                 	      { content:str,  
                 	        size: new google.maps.Size(50,50)

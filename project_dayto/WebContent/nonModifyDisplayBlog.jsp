@@ -202,6 +202,9 @@
 					</section>
 				</div>
 			</div>
+			<div  align="center">
+			<a href="${pageContext.request.contextPath}/goschedule.do?placeName=${timetableList[0].placeName}" class="button special" style="margin-left:550px; margin-right:30px">Day-Together</a>
+			</div>
 		<br/><br/><br/><br/><br/>
 		<!-- </section> -->
 	</body>
