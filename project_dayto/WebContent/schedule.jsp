@@ -271,7 +271,7 @@
              $('#place_popup .content_tel').text('전화번호  : ' + placeTel);
              $('#place_popup .content_recomm').text('추천수  : '+ placeRecomm);
              var a = document.getElementById('content_thumb_image');
-             var str = "${pageContext.request.contextPath}/recommPlace.do?placeId=" + placeId;
+             var str = "${pageContext.request.contextPath}/recommPlace.do?placeName=" + placeName;
              a.setAttribute('href', str);
              
              
