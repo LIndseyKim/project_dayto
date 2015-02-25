@@ -270,7 +270,7 @@
 									
 				<input class="field span12" name="postName" type="text"
 					placeholder="블로그 제목" onfocus="this.value=''" required/>
-	
+			<br/><br/>
 				<textarea class="field span12" name="postContent" id="textarea"
 					rows="6" placeholder="글을 입력하세요" required></textarea>
 	
@@ -291,7 +291,7 @@
 					<div class="6u">
 						<section class="special">
 							<div id='calendar' ></div>
-						</section>W
+						</section>
 					</div>
 					<div class="6u">
 						<section class="special">

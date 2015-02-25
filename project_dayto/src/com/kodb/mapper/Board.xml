@@ -62,12 +62,13 @@
 	</resultMap>
 	
 	<select id="selectPostWithPicture" parameterType="String" resultMap="PostwithPictureResultMap">
-		        select 	bp.post_id, bp.post_name, bp.user_email ,bp.post_date, bp.post_content, bpic.blog_pic_id, bpic.post_pic
+ 	 SELECT bp.post_id, SUBSTR(bp.post_content,1,10) post_content, bp.post_date, bpic.post_pic
 		from	blog_post  bp, blog_picture bpic
 		where	bp.post_id = bpic.post_id
-		and		bp.user_email = #{value}       
+		and		bp.user_email = #{value}        
 		and		bp.post_name is not NULL
-        ORDER BY bp.post_id desc , bpic.blog_pic_id desc 
+        ORDER BY post_id DESC
+        
 	</select>
 	
 	<select id="selectPost" parameterType="Integer" resultMap="PostwithPictureResultMap">
