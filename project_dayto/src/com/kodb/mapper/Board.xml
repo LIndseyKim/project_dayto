@@ -81,7 +81,7 @@
 		select 	bp.post_id, substr(bp.post_name,1,10) post_name, bp.user_email ,bp.post_date , substr(bp.post_content,1,15) post_content, bpic.post_pic
 		from	blog_post  bp, blog_picture bpic
 		where	bp.post_id = bpic.post_id
-		and		bp.post_public = 0 order by bp.post_id desc
+		and		bp.post_public = 0 order by bp.post_id desc , bpic.blog_pic_id desc
 	</select>
 	
 	<select id="selectSearchBlog" parameterType="String" resultMap="PostwithPictureResultMap">
@@ -90,6 +90,6 @@
 		where	bp.post_id = bpic.post_id
 		and		bp.post_public = 0 
 		and		(bp.post_content like '%'|| #{value} ||'%' or bp.post_name LIKE '%'|| #{value} ||'%')
-		order by bp.post_id
+		order by bp.post_id desc, bpic.blog_pic_id desc 
 	</select>
 </mapper>
