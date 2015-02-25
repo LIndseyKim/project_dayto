@@ -130,7 +130,7 @@ public class BoardController {
 			}
 			
 			file[i].transferTo(newFile);					
-			boardService.registerPicture(postId, "images/"+ filename);
+				boardService.registerPicture(postId, "images/"+ filename);
 			}
 			
 			if(count == 0) {

@@ -85,7 +85,7 @@
 	</select>
 	
 	<select id="selectSearchBlog" parameterType="String" resultMap="PostwithPictureResultMap">
-		select	bp.post_id, bp.post_name, bp.post_content, bpic.post_pic 
+		select	bp.post_id, bp.post_name, bp.user_email, bp.post_date, bp.post_content, bpic.post_pic 
 		from	blog_post bp, blog_picture bpic
 		where	bp.post_id = bpic.post_id
 		and		bp.post_public = 0 
