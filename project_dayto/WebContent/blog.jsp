@@ -82,7 +82,6 @@
 								<a href="${pageContext.request.contextPath}/getPost.do?postId=${b.postId}" class="image fit"><img src="${b.pictureList[0].postPic}"/></a>
 								<h3>${b.postName}</h3>
 								<p>${b.postContent}</p>
-								<p>${b.userEmail}</p>
 								<p>${b.postDate}</p>
 							</section>
 						</div>

@@ -186,7 +186,7 @@
 			</div>
 			<br/>
 			<hr size="4px" color="#555f66" width="1300" style="margin-left:auto; margin-right:auto;">
-			<div class="row">
+			<div class="row" align="center">
 				<div class="6u">
 					<section class="special">
 						<div id='calendar' style="margin-left:200px;"></div>
@@ -199,8 +199,10 @@
 					</section>
 				</div>
 			</div>
-			<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special" style="margin-left:550px; margin-right:30px">Modify</a>
-      		<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
+			<div align="center">
+				<a href="${pageContext.request.contextPath}/modifyPost.do?postId=${blog.postId}" class="button special">Modify</a>
+      			<a href="${pageContext.request.contextPath}/deletePost.do?deletePostId=${blog.postId}" class="button special">Delete</a>
+			</div>
 		<!-- </section> -->
 	</body>
 </html>
