@@ -146,9 +146,9 @@
 				<br>
 				
 				<div align="center">
-					<input type="button" value="스케줄 수정" onclick="modify_delete_Post()"/>
 					<input type="submit" value="입력완료"/>
-					<input type="hidden" name="userEmail" value="${user.userEmail}" />
+					<input type="button" value="스케줄 새로만들기" onclick="modify_delete_Post()"/>
+										<input type="hidden" name="userEmail" value="${user.userEmail}" />
 					<input type="hidden" name="postId" value="${blog.postId}" />
 				</div>
 				</div>
