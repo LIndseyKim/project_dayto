@@ -230,6 +230,15 @@ public class BoardController {
 		model.addAttribute("blog", boardService.getPostWithPicture(user.getUserEmail()));
 		return "blog";
 	}
+	
+	@RequestMapping("/deleteModifyPost.do")
+	public String deleteModifyPost(Model model, HttpSession session, HttpServletRequest req) {
+		boardService.deletePost(Integer.parseInt(req.getParameter("deletePostId")));
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("blog", boardService.getPostWithPicture(user.getUserEmail()));
+		return "schedule";
+	}
+	
 	@RequestMapping("/getPost.do")
 	public String getPost(Model model, HttpSession session, HttpServletRequest req) {
 		int postId = Integer.parseInt(req.getParameter("postId"));

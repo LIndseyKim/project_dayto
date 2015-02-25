@@ -53,6 +53,16 @@
 				    loadUrl: '${pageContext.request.contextPath}/mypage.jsp'
 				})
 			};
+			
+	      	function modify_delete_Post() {
+	    	    if(confirm("스케줄을 수정하면 현재 글은 삭제됩니다. 그래도 진행하시겠습니까?") == true) {
+	    	    	document.location.href= "${pageContext.request.contextPath}/deleteModifyPost.do?deletePostId=${blog.postId}"
+/*  	    	    	document.location.href= "${pageContext.request.contextPath}/schedule.jsp"; */
+	    	    } else {
+	    	    	return;
+	    	    }
+	    	}
+
 		</script>
 		
 		<style>
@@ -133,21 +143,15 @@
 				사진 추가 : <input type="file" name="image" /> <br /> 
 				사진 추가 : <input type="file" name="image" /> <br />
 				대표 사진 추가 : <input type="file" name="image" /> <br />
+				<br>
 				
-				</div>
-				 <div class="container" align="center">
-			
-			
-			</div>
-				
-				
-				<p align="center" style="margin-top: 20px ">
-	
-					<input type="submit" value="입력완료" />
-					<!-- <input button class="btn btn-large" type="button">미리보기</button> -->
- 					<input type="hidden" name="userEmail" value="${user.userEmail}" />
+				<div align="center">
+					<input type="button" value="스케줄 수정" onclick="modify_delete_Post()"/>
+					<input type="submit" value="입력완료"/>
+					<input type="hidden" name="userEmail" value="${user.userEmail}" />
 					<input type="hidden" name="postId" value="${blog.postId}" />
-					<!-- </p> -->
+				</div>
+				</div>
 			</div>
 		</form>
 	</body>

@@ -275,7 +275,7 @@
              $('#place_popup').bPopup();
      	 }
       </script>
-
+      
 <style>
 .Pstyle {
 	opacity: 0;
