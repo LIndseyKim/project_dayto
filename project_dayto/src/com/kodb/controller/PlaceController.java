@@ -26,7 +26,7 @@ public class PlaceController{
    @RequestMapping("/getPlaceList.do")
    public String getPlaceList(HttpSession session, Model model,HttpServletRequest req){
       List<Place> placeList = placeService.getPlacesByAddr(req.getParameter("str"));
-      
+      System.out.println(placeList.get(5));
       session.setAttribute("input", req.getParameter("str"));
       
       model.addAttribute("placeList", placeList);

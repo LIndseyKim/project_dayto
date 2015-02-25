@@ -23,8 +23,8 @@
 							<li><a href="${pageContext.request.contextPath}/logout.do" id="logout" class="button special">Logout</a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a onclick="login_popup()" class="login_fail">Schedule</a></li>
-							<li><a onclick="login_popup()" class="login_fail">Day Together</a></li>
+							<li><a onclick="login_popup()" class="login_fail">Make a Day-To</a></li>
+							<li><a onclick="login_popup()" class="login_fail">My Day-To</a></li>
 							<li><a id="loginButton" onclick="login_popup()" class="button special">Login</a></li>
 						</c:otherwise>
 				</c:choose>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reply">
+		<resultMap type="reply" id="ReplyResultMap">
+		<result  property="replyId"  column="REPLY_ID"/>	
+		<result  property="placeId"  column="PLACE_ID"/>
+		<result property="userEmail" column="USER_EMAIL" />
+		<result property="replyContent"  column="REPLY_CONTENT" />
+		<result property="replyDate" column="REPLY_DATE" />
+		
+	</resultMap>
+
+   <select id="selectReplyByPlaceId" parameterType="Integer" resultMap="ReplyResultMap" >
+   select *
+   from reply
+   where place_id= #{value}     
+   
+   </select>
+   
+   <select id="selectPostName" parameterType="String" resultMap="BoardResultMap">
+		select * 
+		from blog_post 
+		where user_email = #{value}	 and post_public = 1 order by post_id
+	</select>	
+   
+   
+</mapper>

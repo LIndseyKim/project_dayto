@@ -15,7 +15,7 @@
 </script>
 		
 <!--WRAPPER-->
-<div id="wrapper">
+<div id="wrapper" style="padding-top: 50px">
 	<!--LOGIN FORM-->
 	<form name="login-form" class="login-form"
 		action="${pageContext.request.contextPath}/login.do" method="post">

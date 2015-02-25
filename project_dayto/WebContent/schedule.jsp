@@ -273,6 +273,8 @@
              var a = document.getElementById('content_thumb_image');
              var str = "${pageContext.request.contextPath}/recommPlace.do?placeId=" + placeId;
              a.setAttribute('href', str);
+             
+             
              $('#place_popup').bPopup();
      	 }
       </script>
@@ -391,6 +393,8 @@ div#menubar1>a:hover {
 		</c:forEach>
 	</div>
 	<div id="menubar1">
+	
+	
 		<a href="getPlaceListByCate.do?str=1">전체</a>
 		<a href="getPlaceListByCate.do?str=음식점">음식점</a>
 		<a href="getPlaceListByCate.do?str=카페">카페</a>
@@ -425,8 +429,8 @@ div#menubar1>a:hover {
 		<div class="content_recomm"></div>
 		<a id="content_thumb_image"><img src="images/thumb.jpg" width="50px" height="50px"></a>
 		</br>
-		<input class="field span4" name="replyBox" type="text"
-		placeholder="댓글을 입력하세요" onfocus="this.value=''" />
+		<input class="field span3" name="replyBox" type="text"
+		placeholder="댓글을 입력하세요" onfocus="this.value=''"/><a id="reply" href="${pageContext.request.contextPath}/insertReply.do?useri" class="row" style="float: right;margin-left: 5px" >댓글입력</a><br>
 		
 	</div>
 </body>

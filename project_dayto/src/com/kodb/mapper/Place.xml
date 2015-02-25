@@ -27,6 +27,20 @@
 		where place_name = #{placeName}
 	</select>
 
+	<resultMap type="Place" id="PlacewithReplyResultMap" extends="PlaceResultMap">
+		<collection property="replyList" resultMap="reply.ReplyResultMap"></collection>
+	</resultMap>
+	
+	<select id="selectPlaceWithPicture" parameterType="String" resultMap="PlacewithReplyResultMap">
+	    SELECT p.*,r.* FROM  
+        PLACE_INFO p 
+        left join  REPLY r ON p.place_id = r.place_id  
+        where place_addr like '%'||#{value}||'%
+	
+	</select>
+	
+	
+
 	<select id="selectPlacesByAddr" parameterType="String" resultMap="PlaceResultMap">
 		select *
 		from place_info
