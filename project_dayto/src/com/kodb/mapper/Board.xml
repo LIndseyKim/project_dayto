@@ -61,8 +61,8 @@
 		<collection property="pictureList" resultMap="picture.PictureResultMap"></collection>
 	</resultMap>
 	
-	<select id="selectPostWithPicture" parameterType="String" resultMap="PostwithPictureResultMap">
- 	 SELECT bp.post_id,bp.post_name, SUBSTR(bp.post_content,1,10) post_content, bp.post_date, bpic.post_pic
+		<select id="selectPostWithPicture" parameterType="String" resultMap="PostwithPictureResultMap">
+ 	 SELECT bp.post_id, bp.post_name ,SUBSTR(bp.post_content,1,10) post_content, bp.post_date, bpic.post_pic
 		from	blog_post  bp, blog_picture bpic
 		where	bp.post_id = bpic.post_id
 		and		bp.user_email = #{value}        
@@ -70,6 +70,7 @@
         ORDER BY post_id DESC
         
 	</select>
+	
 	
 	<select id="selectPost" parameterType="Integer" resultMap="PostwithPictureResultMap">
 		select 	bp.post_id,bpic.blog_pic_id, bp.post_name, bp.user_email, bp.post_date ,bp.post_content, bpic.post_pic

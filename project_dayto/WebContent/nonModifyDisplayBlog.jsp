@@ -177,8 +177,9 @@
 				<h2>${blog.postName}</h2>
 				<h5 align="center" style="margin-top: 30px">작성자 : ${blog.userEmail} 작성일 : ${blog.postDate}</h5>
 			</header>
-			
-			<p align="center">${blog.postContent}</p>
+			<div align="center">
+			<p style="white-space:pre;width:500px;">${blog.postContent}</p>
+			</div>
 			<hr size="4px" color="#555f66" width="1300" style="margin-left:auto; margin-right:auto;">
 			<div class="container" align="center">
 				<section>
@@ -203,7 +204,7 @@
 				</div>
 			</div>
 			<div  align="center">
-			<a href="${pageContext.request.contextPath}/goschedule.do?placeName=${timetableList[0].placeName}" class="button special" style="margin-left:550px; margin-right:30px">Day-Together</a>
+			<a href="${pageContext.request.contextPath}/goschedule.do?placeName=${timetableList[0].placeName}" class="button special">Day-Together</a>
 			</div>
 		<br/><br/><br/><br/><br/>
 		<!-- </section> -->
