@@ -27,11 +27,11 @@
 		<div class="content">
 			<table>
 				<tr>
-					<th>아이디(email)</th>
+					<th>ID</th>
 					<td>
 						<!--USERID-->
 						<input name="userEmail" type="text" class="input username"
-						value="ID(email) 입력" onfocus="this.value=''" />
+						value="ID 입력" onfocus="this.value=''" />
 					<!--END USERID-->
 					</td>
 				</tr>
