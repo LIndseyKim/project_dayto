@@ -142,7 +142,7 @@
 				사진 추가 : <input type="file" name="image" /> <br /> 
 				사진 추가 : <input type="file" name="image" /> <br /> 
 				사진 추가 : <input type="file" name="image" /> <br />
-				대표 사진 추가 : <input type="file" name="image" /> <br />
+				사진 추가 : <input type="file" name="image" /> <br />
 				<br>
 				
 				<div align="center">

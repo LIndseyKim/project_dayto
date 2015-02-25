@@ -133,8 +133,8 @@ public class BoardController {
 			boardService.registerPicture(postId, "images/"+ filename);
 			}
 			
-			if(count == 0) {
-			boardService.registerPicture(postId, "images/base_image.jpg");
+			if(count == 0 && file.length==0) {
+				boardService.registerPicture(postId, "images/base_image.jpg");
 			}
 									
 			System.out.println("save Image files");
